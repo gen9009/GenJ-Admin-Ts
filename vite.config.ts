@@ -24,7 +24,7 @@ export default defineConfig({
  resolve: {
   alias: {
    '~': resolve(__dirname, './'),//[problem] 此路径重写只能用于css资源导入(背景图引入)
-   '@': resolve(__dirname, 'src'),//[problem] 可以用于组件引用，但好像不能用于动态组件引入
+   '@': resolve(__dirname, 'src'),//[problem] 可以用于组件引用，但好像不能用于动态组件引入 (Ts:需要在ts配置文件额外配置 baseUrl path)
   },
  },
 })
