@@ -1,4 +1,13 @@
-# Vue 3 + TypeScript + Vite
+
+# GenJ-Admin-Ts
+
+  自我折腾的后端管理项目模版
+
+# 命令说明
+  
+  npm run preview --- 打包成线上模式  
+
+  npm run dev --- 打包成开发模式  
 
 # 目录结构
 
@@ -31,7 +40,7 @@
 ├── tsconfig.node.json
 └── vite.config.ts
 
-##### commit
+# commit
 
 格式: [type]:[subject]
 
@@ -47,4 +56,3 @@ type:
   8、chore - 构建过程或辅助工具的变动
   9、revert - 回退
  10、 build - 打包
-
