@@ -11,6 +11,7 @@
 
 # 目录结构
 
+```text
 .
 ├── README.md
 ├── index.html
@@ -39,6 +40,7 @@
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
+```
 
 # commit
 
