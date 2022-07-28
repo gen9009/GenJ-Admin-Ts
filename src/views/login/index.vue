@@ -23,22 +23,25 @@
 </template>
 
 <script lang="ts" setup>
-import {reactive, ref} from 'vue';
-import type {FormInstance, FormRules} from 'element-plus';
+import { reactive, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import type { FormInstance, FormRules } from 'element-plus';
 
 const loginRef = ref<FormInstance>();
-const loginForm = reactive({userName: '', password: ''});
+const loginForm = reactive({ userName: '', password: '' });
+const router = useRouter();
 
 const loginRules = reactive<FormRules>({
-  userName: [{required: true, message: '请输入用户名', trigger: 'blur'}],
-  password: [{required: true, message: '请输入密码', trigger: 'blur'}]
+  userName: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 });
 
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   await formEl.validate((valid, fields) => {
     if (valid) {
-      console.log('submit!');
+      //登陆成功 跳转Home首页
+      router.push({ name: 'home' });
     } else {
       console.log('error submit!', fields);
     }

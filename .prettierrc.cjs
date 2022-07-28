@@ -5,7 +5,7 @@ module.exports = {
   useTabs: false, // 不使用制表符缩进，使用空格缩进
   semi: true, // 代码需要分号结尾
   singleQuote: true, // 单引号
-  bracketSpacing: false, // 对象左右两侧需要空格
+  bracketSpacing: true, // 对象左右两侧需要空格
   jsxBracketSameLine: true, // html 关闭标签换行
   arrowParens: 'avoid', // 单参数的箭头函数参数不需要括号
   proseWrap: 'never', // 换行,always：超过printWidth就换行，never：不换行，preserve：按照原样处理
