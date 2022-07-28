@@ -1,5 +1,6 @@
 import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
+import eslintPlugin from "vite-plugin-eslint";
 //Element-plus 按需导入
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -12,6 +13,8 @@ export default defineConfig({
   plugins: [
     // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
     vue(),
+    // * EsLint 报错信息显示在浏览器界面上
+		eslintPlugin(),  
     // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
     AutoImport({
       resolvers: [

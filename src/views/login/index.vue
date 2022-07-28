@@ -5,18 +5,18 @@
         <el-form-item prop="userName">
           <el-input v-model="loginForm.userName" placeholder="请输入账号/admin">
             <template #prefix>
-              <el-icon ><i-ep-user /></el-icon> 
+              <el-icon><i-ep-user /></el-icon>
             </template>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input v-model="loginForm.password" type="password" show-password autocomplete="true" placeholder="请输入密码/123456">
             <template #prefix>
-              <el-icon class="el-input__icon"><i-ep-lock/></el-icon>
+              <el-icon><i-ep-lock /></el-icon>
             </template>
           </el-input>
         </el-form-item>
-        <el-button type="primary" @click="submitForm(loginRef)" round size="large">登陆</el-button>
+        <el-button type="primary" round size="large" @click="submitForm(loginRef)">登陆</el-button>
       </el-form>
     </div>
   </div>
