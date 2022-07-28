@@ -1,10 +1,4 @@
-.test{
- width: 100px;
- height: 500px;
- background-color: pink;
- .test_test{
-  width: 100px;
-  height: 100px;
-  background-color: orange;
- }
-}
+.login{ position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 400px; height: 200px; }
+.login_form{text-align: center;}
+.el-button{width: 400px;}
+

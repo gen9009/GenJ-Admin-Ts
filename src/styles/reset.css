@@ -1,0 +1,117 @@
+/* Normalizes margin,padding */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+/* Normalizes font-size for headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+/* Removes list-style from lists */
+ol,
+ul {
+  list-style: none;
+}
+/* Normalizes font-size and font-weight to normal */
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-size: normal;
+  font-weight: normal;
+}
+/* Removes list-style from lists */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Removes border from fieldset and img */
+fieldset,
+img {
+  border: 0;
+}
+/* Left-aligns text in caption and th */
+caption,
+th {
+  text-align: left;
+}
+/* Removes quotation marks from q */
+q:before,
+q:after {
+  content: '';
+}
+
+html,
+body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f7fa;
+  color: #2b313d;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected {
+  -webkit-text-fill-color: #333 !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* 火狐 */
+* {
+  scrollbar-color: #333 #f5f5f5;
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  padding: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #ccc;
+}
+/*input:-webkit-autofill {-webkit-text-fill-color: #fff !important;  transition: background-color 5000s ease-in-out 0s; caret-color: #fff;}*/

@@ -12,10 +12,6 @@ declare module '@vue/runtime-core' {
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
-    IEpApple: typeof import('~icons/ep/apple')['default']
-    IEpCircleCheckFilled: typeof import('~icons/ep/circle-check-filled')['default']
-    IEpLock: typeof import('~icons/ep/lock')['default']
-    IEpUser: typeof import('~icons/ep/user')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

@@ -25,7 +25,6 @@
 │   ├── assets
 │   │   └── vue.svg
 │   ├── components
-│   │   └── HelloWorld.vue
 │   ├── config
 │   ├── layout
 │   ├── main.ts
@@ -44,6 +43,7 @@
 
 # commit
 
+```text
 格式: [type]:[subject]
 
 type:
@@ -58,3 +58,4 @@ type:
   8、chore - 构建过程或辅助工具的变动
   9、revert - 回退
  10、 build - 打包
+```
