@@ -1,0 +1,24 @@
+[
+  {
+    "path":"/element/form",
+    "title": "Element基础组件",
+    "children": [
+      {
+        "path":"/element/form",
+        "title": "From"
+      },
+      {
+        "title": "Table",
+        "path":"/element/table"
+      },
+      {
+        "title": "Tree",
+        "path":"/element/tree"
+      },
+      {
+        "title": "图片预览",
+        "path":"/element/imgview"
+      }
+    ]
+  }
+]

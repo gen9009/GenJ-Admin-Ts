@@ -1,20 +1,20 @@
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import eslintPlugin from "vite-plugin-eslint";
+import eslintPlugin from 'vite-plugin-eslint';
 //Element-plus 按需导入
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import {ElementPlusResolver} from 'unplugin-vue-components/resolvers';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 //路径重命名path引入
-import {resolve} from 'path';
+import { resolve } from 'path';
 export default defineConfig({
   plugins: [
     // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
     vue(),
     // * EsLint 报错信息显示在浏览器界面上
-		eslintPlugin(),  
+    eslintPlugin(),
     // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
     AutoImport({
       resolvers: [
@@ -22,7 +22,7 @@ export default defineConfig({
         IconsResolver({
           prefix: 'Icon'
         })
-      ],
+      ]
       // dts: resolve(resolve(__dirname, 'src'), 'auto-imports.d.ts'),
     }),
     Components({
@@ -31,9 +31,9 @@ export default defineConfig({
         ElementPlusResolver(),
         // 自动注册图标组件
         IconsResolver({
-          enabledCollections: ['ep'] 
+          enabledCollections: ['ep']
         })
-      ],
+      ]
       // dts: resolve(resolve(__dirname, 'src'), 'components.d.ts'),
     }),
     Icons({
