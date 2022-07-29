@@ -28,7 +28,7 @@ import { useRouter } from 'vue-router';
 import type { FormInstance, FormRules } from 'element-plus';
 
 const loginRef = ref<FormInstance>();
-const loginForm = reactive({ userName: '', password: '' });
+const loginForm = reactive({ userName: 'admin', password: '123456' });
 const router = useRouter();
 
 const loginRules = reactive<FormRules>({
@@ -41,7 +41,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
       //登陆成功 跳转Home首页
-      router.push({ name: 'home' });
+      router.push('/element/form');
     } else {
       console.log('error submit!', fields);
     }

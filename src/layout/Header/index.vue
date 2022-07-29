@@ -1,3 +1,3 @@
-<template>404-404</template>
+<template>Header</template>
 <script setup lang="ts"></script>
 <style lang="scss" scoped></style>
