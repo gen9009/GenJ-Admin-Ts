@@ -7,9 +7,11 @@
           <SideNav></SideNav>
         </el-aside>
         <el-container>
+          <Tabs></Tabs>
           <el-main>
-            <Tabs></Tabs>
-            <router-view></router-view>
+            <div class="rouer_view">
+              <router-view></router-view>
+            </div>
           </el-main>
           <el-footer><Footer></Footer></el-footer>
         </el-container>

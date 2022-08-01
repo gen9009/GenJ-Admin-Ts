@@ -10,10 +10,17 @@
     background-color: #191a20;
   }
   .el-main {
-    padding: 0;
-    background-color: #999;
+    padding: 10px;
+    background-color: rgb(243, 242, 242);
   }
   .el-footer {
     height: 30px;
   }
 }
+
+.rouer_view {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
