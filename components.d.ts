@@ -23,8 +23,6 @@ declare module '@vue/runtime-core' {
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    'IEp-{{location}}': typeof import('~icons/ep/{{location}}')['default']
-    'IEp-{{sider.icon}}': typeof import('~icons/ep/{{sider.icon}}')['default']
     IEpLocation: typeof import('~icons/ep/location')['default']
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpUser: typeof import('~icons/ep/user')['default']

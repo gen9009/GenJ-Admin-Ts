@@ -26,6 +26,13 @@
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import type { FormInstance, FormRules } from 'element-plus';
+/* 
+  element-plus 登录
+  1、定义表单数据 const form = reactive({})
+  2、定义规则 const rules = reactive<FormRules>()
+  3、定义form组件 const formRef = ref<FormInstance>()
+  4、校验 
+*/
 
 const loginRef = ref<FormInstance>();
 const loginForm = reactive({ userName: 'admin', password: '123456' });
@@ -41,7 +48,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
       //登陆成功 跳转Home首页
-      router.push('/element/form');
+      router.push('/home');
     } else {
       console.log('error submit!', fields);
     }

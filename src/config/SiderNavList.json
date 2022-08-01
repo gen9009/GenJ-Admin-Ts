@@ -1,23 +1,27 @@
 [
   {
-    "path":"/element/form",
+    "path": "/home",
+    "title": "首页"
+  },
+  {
+    "path": "/element/form",
     "title": "Element基础组件",
     "children": [
       {
-        "path":"/element/form",
+        "path": "/element/form",
         "title": "From"
       },
       {
         "title": "Table",
-        "path":"/element/table"
+        "path": "/element/table"
       },
       {
         "title": "Tree",
-        "path":"/element/tree"
+        "path": "/element/tree"
       },
       {
         "title": "图片预览",
-        "path":"/element/imgview"
+        "path": "/element/imgview"
       }
     ]
   }
