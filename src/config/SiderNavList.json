@@ -1,27 +1,33 @@
 [
   {
     "path": "/home",
-    "title": "首页"
+    "title": "首页",
+    "icon": "1"
   },
   {
     "path": "/element/form",
     "title": "Element基础组件",
+    "icon": "1",
     "children": [
       {
         "path": "/element/form",
-        "title": "From"
+        "title": "From",
+        "icon": "1"
       },
       {
         "title": "Table",
-        "path": "/element/table"
+        "path": "/element/table",
+        "icon": "1"
       },
       {
         "title": "Tree",
-        "path": "/element/tree"
+        "path": "/element/tree",
+        "icon": "1"
       },
       {
         "title": "图片预览",
-        "path": "/element/imgview"
+        "path": "/element/imgview",
+        "icon": "1"
       }
     ]
   }

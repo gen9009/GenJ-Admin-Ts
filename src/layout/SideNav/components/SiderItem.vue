@@ -9,7 +9,12 @@
       </template>
       <SiderItem :sider-list="sider.children"></SiderItem>
     </el-sub-menu>
-    <el-menu-item v-else :index="sider.path">{{ sider.title }}</el-menu-item>
+    <el-menu-item v-else :index="sider.path">
+      <el-icon v-if="sider.icon"><i-ep-location /></el-icon>
+      <template #title>
+        <span>{{ sider.title }}</span>
+      </template>
+    </el-menu-item>
   </template>
 </template>
 <script setup lang="ts">

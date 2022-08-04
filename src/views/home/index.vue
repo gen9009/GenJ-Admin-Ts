@@ -1,7 +1,7 @@
 <template>
   <img src="@/assets/images/homepage.svg" alt="" />
 </template>
-<script setup></script>
+<script setup lang="ts"></script>
 <style lang="scss" scoped>
 img {
   position: relative;

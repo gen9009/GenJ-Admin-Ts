@@ -3,5 +3,5 @@
     <span class="iconfont icon-pifu"></span>
   </el-tooltip>
 </template>
-<script setup></script>
+<script setup lang="ts"></script>
 <style lang="scss" scoped></style>

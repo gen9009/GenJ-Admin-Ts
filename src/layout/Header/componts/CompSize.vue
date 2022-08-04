@@ -3,5 +3,5 @@
     <span class="iconfont icon-daxiao"></span>
   </el-tooltip>
 </template>
-<script setup></script>
+<script setup lang="ts"></script>
 <style lang="scss" scoped></style>
