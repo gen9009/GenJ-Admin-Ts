@@ -18,6 +18,12 @@ const route = useRoute();
 const menuStore = MenuStore();
 const activeMenu = computed((): string => route.path);
 const isCollapse = computed((): boolean => menuStore.isCollapse);
+//监听页面缩放
+const listenWebResize = () => {
+  if (window.innerWidth < 1200) menuStore.isCollapse = true;
+  if (window.innerWidth > 1200) menuStore.isCollapse = false;
+};
+window.addEventListener('resize', () => listenWebResize());
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath, 'handleOpen');
 };
