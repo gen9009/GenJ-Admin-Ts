@@ -14,6 +14,13 @@ const elementRouter: Array<RouteRecordRaw> = [
         meta: {
           title: 'Form表单'
         }
+      },
+      {
+        path: '/element/table',
+        component: () => import('@/views/element/table/index.vue'),
+        meta: {
+          title: 'Table表格'
+        }
       }
     ]
   }

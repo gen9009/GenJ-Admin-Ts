@@ -5,3 +5,16 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+.el-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  :deep .el-tabs__header {
+    margin: 0 !important;
+  }
+  :deep .el-tabs__content {
+    display: flex;
+    justify-content: center;
+  }
+}

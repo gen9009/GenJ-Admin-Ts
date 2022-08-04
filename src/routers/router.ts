@@ -14,7 +14,7 @@ Object.keys(metaRouters).forEach((module: any) => {
     routeList.push(...(metaRouters[module] as any)[key]);
   });
 });
-
+console.log(routeList, 'activeMenu');
 //声明路基础路由配置  login 404
 const routes: RouteRecordRaw[] = [
   {
