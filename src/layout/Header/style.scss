@@ -23,30 +23,24 @@
       font-weight: 900;
       font-size: 18px;
       padding-left: 10px;
-			white-space: nowrap;
+      white-space: nowrap;
     }
   }
   .comp {
     flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 100%;
-    .el-row {
-      height: 100%;
-      margin-bottom: 20px;
-    }
-    .el-row:last-child {
-      margin-bottom: 0;
-    }
-    .el-col {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 100%;
-      border-radius: 4px;
-    }
-
-    .grid-content {
-      border-radius: 4px;
-      height: 100%;
-    }
+    margin-left: 10px;
+    margin-right: 10px;
+    
+  }
+  .comp_options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    min-width: 250px;
   }
 }
