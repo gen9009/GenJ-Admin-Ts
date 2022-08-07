@@ -43,3 +43,15 @@
     min-width: 250px;
   }
 }
+
+// ColorTheme
+:deep .el-overlay {
+  .el-drawe {
+    color: #000;
+  }
+  .el-drawer__header {
+  }
+  .el-drawer__body {
+    color: #000;
+  }
+}

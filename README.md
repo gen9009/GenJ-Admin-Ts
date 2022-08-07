@@ -14,16 +14,11 @@
 ```text
 .
 ├── README.md
-├── index.html
-├── package-lock.json
-├── package.json
 ├── public
-│   └── vite.svg
 ├── src
 │   ├── App.vue
 │   ├── api
 │   ├── assets
-│   │   └── vue.svg
 │   ├── components
 │   ├── config
 │   ├── layout
@@ -31,11 +26,16 @@
 │   ├── mock
 │   ├── routers
 │   ├── store
-│   ├── style.css
 │   ├── styles
+│   ├── typings
 │   ├── utils
 │   ├── views
 │   └── vite-env.d.ts
+├── auto-imports.d.ts
+├── components.d.ts
+├── index.html
+├── package-lock.json
+├── package.json
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
