@@ -7,8 +7,7 @@ import 'element-plus/theme-chalk/dark/css-vars.css';
 // 其他结构的Dark 样式
 import '@/styles/element-dark.scss';
 import router from '@/routers/index';
-import { createPinia } from 'pinia';
-const pinia = createPinia();
+import pinia from '@/utils/piniaState';
 // icon
 import '@/assets/iconfont/iconfont.css';
 

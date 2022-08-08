@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 export const mainStore = defineStore({
-  id: 'GlobalState',
+  id: 'mainStore',
   state: () => ({}),
   actions: {}
 });

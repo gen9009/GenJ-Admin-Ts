@@ -42,5 +42,6 @@ export const TabsStore = defineStore({
       if (this.TabsList.find(v => v.path === tab.path)) return;
       this.TabsList.push(tab);
     }
-  }
+  },
+  persist: true
 });

@@ -20,12 +20,13 @@ export const GlobalStore = defineStore({
       // isDark: isDark, //是否为暗黑模式 (vueUse)
       isDark: false, //是否为暗黑模式
       isGrey: false, //是否为灰色模式
-      colorTheme: '', //自定义主题
+      colorTheme: '#409EFF', //默认主题颜色  自定义主题
       showFooter: true,
       showTabs: true
     } as Theme.ThemeConfig
   }),
   actions: {
     changeDark() {}
-  }
+  },
+  persist: true
 });

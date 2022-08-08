@@ -1,4 +1,4 @@
-import { computed } from 'vue';
+import { computed, onBeforeMount } from 'vue';
 import { GlobalStore } from '@/store/modules/GlobalStore';
 export const useTheme = () => {
   const globalStore = GlobalStore();
@@ -13,7 +13,26 @@ export const useTheme = () => {
     const html = document.documentElement as HTMLElement;
     themeConfig.value.isDark ? html?.setAttribute('class', 'dark') : html?.removeAttribute('class');
   };
+
+  /* 
+    切换Element主题颜色
+  */
+  const useElementTheme = () => {};
+
+  /* 
+    切换灰色主题
+  */
+  const useGrey = () => {};
+
+  // 在挂载之前判断
+  onBeforeMount(() => {
+    //1、判断暗黑模式
+    if (themeConfig.value.isDark) useDark();
+    if (themeConfig.value.isGrey) useGrey();
+  });
   return {
-    useDark
+    useElementTheme,
+    useDark,
+    useGrey
   };
 };
