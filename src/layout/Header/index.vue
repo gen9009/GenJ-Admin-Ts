@@ -18,7 +18,7 @@
           <Language></Language>
         </div>
         <div class="color_theme">
-          <ColorTheme></ColorTheme>
+          <Theme></Theme>
         </div>
         <div class="full_screen">
           <FullScreen></FullScreen>
@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import Logo from './componts/Logo.vue';
 import CompSize from './componts/CompSize.vue';
-import ColorTheme from './componts/ColorTheme.vue';
+import Theme from './componts/Theme.vue';
 import Language from './componts/Language.vue';
 import UseImg from './componts/UserImg.vue';
 import FullScreen from './componts/FullScreen.vue';

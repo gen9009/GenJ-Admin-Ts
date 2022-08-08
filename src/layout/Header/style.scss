@@ -1,4 +1,4 @@
-:deep .iconfont {
+:deep(.iconfont) {
   font-size: 22px;
   cursor: pointer;
 }
@@ -45,13 +45,35 @@
 }
 
 // ColorTheme
-:deep .el-overlay {
-  .el-drawe {
-    color: #000;
+.color_theme {
+  :deep(.el-overlay) {
+    .el-drawer {
+      // width: 300px !important;
+      width: 280px !important;
+      color: #000;
+    }
+    .el-drawer__header {
+      margin: 0;
+      padding: 0;
+      padding: 10px;
+      border-bottom: 1px solid rgb(241, 241, 241);
+    }
+    .el-drawer__body {
+      color: #000;
+      font-size: 16px;
+    }
   }
-  .el-drawer__header {
+  :deep(.el-switch) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
   }
-  .el-drawer__body {
-    color: #000;
+  :deep(.el-divider__text ){
+    font-size: 18px;
+  }
+  .title {
+    font-family: serif;
+    padding: 5px;
   }
 }

@@ -6,14 +6,14 @@
         <el-aside>
           <SideNav></SideNav>
         </el-aside>
-        <el-container>
-          <Tabs></Tabs>
+        <el-container direction="vertical">
+          <Tabs v-if="globalStore.webTheme.showTabs"></Tabs>
           <el-main>
             <div class="rouer_view">
               <router-view></router-view>
             </div>
           </el-main>
-          <el-footer><Footer></Footer></el-footer>
+          <el-footer v-if="globalStore.webTheme.showFooter"><Footer></Footer></el-footer>
         </el-container>
       </el-container>
     </el-container>
@@ -24,6 +24,8 @@ import Header from './Header/index.vue';
 import SideNav from './SideNav/index.vue';
 import Tabs from './Tabs/index.vue';
 import Footer from './Footer/index.vue';
+import { GlobalStore } from '@/store/modules/GlobalStore';
+const globalStore = GlobalStore();
 </script>
 <style lang="scss" scoped>
 @use 'style.scss';
