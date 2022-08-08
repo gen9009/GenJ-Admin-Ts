@@ -48,8 +48,6 @@
 .color_theme {
   :deep(.el-overlay) {
     .el-drawer {
-      // width: 300px !important;
-      width: 280px !important;
       color: #000;
     }
     .el-drawer__header {
@@ -57,20 +55,27 @@
       padding: 0;
       padding: 10px;
       border-bottom: 1px solid rgb(241, 241, 241);
+      .el-drawer__title {
+        font-size: 16px;
+      }
     }
     .el-drawer__body {
       color: #000;
       font-size: 16px;
     }
+    :deep(.el-divider__text) {
+      font-size: 18px;
+    }
   }
-  :deep(.el-switch) {
-    width: 100%;
+  .theme_item {
     display: flex;
     justify-content: space-between;
+    height: 40px;
     padding: 20px;
-  }
-  :deep(.el-divider__text ){
-    font-size: 18px;
+    span {
+      font-size: 14px;
+      font-weight: 400;
+    }
   }
   .title {
     font-family: serif;

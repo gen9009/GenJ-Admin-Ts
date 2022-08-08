@@ -9,11 +9,13 @@ declare namespace Menu {
 }
 
 declare namespace Theme {
-  interface WebTheme {
+
+  interface ThemeConfig {
+    // isDark; //是否为暗黑模式 (vueUse)
+    isDark:boolean; //是否为暗黑模式
+    isGrey:boolean; //是否为灰色模式
+    colorTheme:string; //自定义主题
     showFooter: boolean; //是否展示页脚
     showTabs: boolean; //是否展示标签栏
-  }
-  interface ColorTheme {
-    isDark:boolean //是否为暗黑模式
   }
 }

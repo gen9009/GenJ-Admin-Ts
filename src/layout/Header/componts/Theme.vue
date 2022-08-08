@@ -2,16 +2,25 @@
   <el-tooltip content="主题切换">
     <span class="iconfont icon-pifu" @click="drawer = true"></span>
   </el-tooltip>
-  <el-drawer v-model="drawer" title="布局设置">
+  <el-drawer v-model="drawer" title="布局设置" size="300px">
     <!-- 全局主题 -->
     <div class="globe_theme">
       <div class="globe_title title">
         <el-divider>全局主题</el-divider>
       </div>
       <div class="globe_options">
-        <el-switch v-model="menuStore.isCollapse" inactive-text="折叠面板" />
-        <el-switch v-model="menuStore.isCollapse" inactive-text="折叠面板" />
-        <el-switch v-model="menuStore.isCollapse" inactive-text="折叠面板" />
+        <div class="theme_item">
+          <span>主题颜色</span>
+          <el-color-picker v-model="themeConfig.colorTheme" size="small" />
+        </div>
+        <div class="theme_item">
+          <span>暗黑模式</span>
+          <el-switch v-model="themeConfig.isDark" />
+        </div>
+        <div class="theme_item">
+          <span>灰色模式</span>
+          <el-switch v-model="themeConfig.isGrey" />
+        </div>
       </div>
     </div>
     <!-- 界面设置 -->
@@ -20,9 +29,18 @@
         <el-divider>界面主题</el-divider>
       </div>
       <div class="web_options">
-        <el-switch v-model="menuStore.isCollapse" inactive-text="折叠面板" />
-        <el-switch v-model="webTheme.showTabs" inactive-text="标签栏" />
-        <el-switch v-model="webTheme.showFooter" inactive-text="页脚" />
+        <div class="theme_item">
+          <span>折叠面板</span>
+          <el-switch v-model="menuStore.isCollapse" />
+        </div>
+        <div class="theme_item">
+          <span>标签栏</span>
+          <el-switch v-model="themeConfig.showTabs" />
+        </div>
+        <div class="theme_item">
+          <span>页脚</span>
+          <el-switch v-model="themeConfig.showFooter" />
+        </div>
       </div>
     </div>
   </el-drawer>
@@ -31,9 +49,10 @@
 import { ref, computed } from 'vue';
 import { GlobalStore } from '@/store/modules/GlobalStore';
 import { MenuStore } from '@/store/modules/MenuStore';
+
 const globalStore = GlobalStore();
 const menuStore = MenuStore();
-const webTheme = computed(() => globalStore.webTheme);
+const themeConfig = computed(() => globalStore.themeConfig);
 const drawer = ref<boolean>(false);
 </script>
 <style lang="scss" scoped>

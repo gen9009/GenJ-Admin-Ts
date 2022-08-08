@@ -7,13 +7,13 @@
           <SideNav></SideNav>
         </el-aside>
         <el-container direction="vertical">
-          <Tabs v-if="globalStore.webTheme.showTabs"></Tabs>
+          <Tabs v-if="globalStore.themeConfig.showTabs"></Tabs>
           <el-main>
             <div class="rouer_view">
               <router-view></router-view>
             </div>
           </el-main>
-          <el-footer v-if="globalStore.webTheme.showFooter"><Footer></Footer></el-footer>
+          <el-footer v-if="globalStore.themeConfig.showFooter"><Footer></Footer></el-footer>
         </el-container>
       </el-container>
     </el-container>
