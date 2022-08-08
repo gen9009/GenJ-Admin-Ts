@@ -15,7 +15,7 @@
         </div>
         <div class="theme_item">
           <span>暗黑模式</span>
-          <el-switch v-model="themeConfig.isDark" />
+          <el-switch v-model="themeConfig.isDark" inline-prompt active-color="#0a0a0a" inactive-color="#dcdfe6" :active-icon="Sunny" :inactive-icon="Moon" @change="changeDark" />
         </div>
         <div class="theme_item">
           <span>灰色模式</span>
@@ -49,11 +49,15 @@
 import { ref, computed } from 'vue';
 import { GlobalStore } from '@/store/modules/GlobalStore';
 import { MenuStore } from '@/store/modules/MenuStore';
+import { Sunny, Moon } from '@element-plus/icons-vue';
+import { useTheme } from '@/hooks/useTheme';
 
 const globalStore = GlobalStore();
 const menuStore = MenuStore();
 const themeConfig = computed(() => globalStore.themeConfig);
 const drawer = ref<boolean>(false);
+
+const changeDark = useTheme().useDark;
 </script>
 <style lang="scss" scoped>
 @use '../style.scss';

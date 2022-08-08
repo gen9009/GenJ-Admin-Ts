@@ -2,8 +2,10 @@ import { createApp } from 'vue';
 import App from '@/App.vue';
 import '@/styles/reset.css';
 import '@/styles/element.scss';
-// element Dark 模式
+// Element的Dark 样式
 import 'element-plus/theme-chalk/dark/css-vars.css';
+// 其他结构的Dark 样式
+import '@/styles/element-dark.scss';
 import router from '@/routers/index';
 import { createPinia } from 'pinia';
 const pinia = createPinia();
