@@ -12,6 +12,12 @@ export const MenuStore = defineStore({
   },
   persist: {
     key: 'MenuStore', //保存的 key
-    storage: window.localStorage //保存方式 sessionStorage
+    storage: window.localStorage, //保存方式 sessionStorage
+    beforeRestore: context => {
+      console.log('Before hydration...', context);
+    },
+    afterRestore: context => {
+      console.log('After hydration...', context);
+    }
   }
 });

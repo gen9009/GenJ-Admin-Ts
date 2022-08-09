@@ -30,5 +30,17 @@
         "icon": "1"
       }
     ]
+  },
+  {
+    "path": "/diretive/watermark",
+    "title": "自定义指令",
+    "icon": "1",
+    "children": [
+      {
+        "path": "/diretive/watermark",
+        "title": "水印指令",
+        "icon": "1"
+      }
+    ]
   }
 ]

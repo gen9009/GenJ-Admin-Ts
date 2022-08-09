@@ -6,9 +6,10 @@ import '@/styles/element.scss';
 import 'element-plus/theme-chalk/dark/css-vars.css';
 // 其他结构的Dark 样式
 import '@/styles/element-dark.scss';
-import router from '@/routers/index';
-import pinia from '@/utils/piniaState';
 // icon
 import '@/assets/iconfont/iconfont.css';
+import { directives } from '@/directives/index';
+import router from '@/routers/index';
+import pinia from '@/utils/piniaState';
 
-createApp(App).use(router).use(pinia).mount('#app');
+createApp(App).use(router).use(pinia).use(directives).mount('#app');
