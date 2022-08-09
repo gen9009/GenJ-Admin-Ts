@@ -1,4 +1,13 @@
-/* 
+//按需导入需要手动引入 message 与 loading 样式
+@use 'element-plus/theme-chalk/el-loading.css';
+@use 'element-plus/theme-chalk/el-message.css';
+// Element的Dark 样式
+@use 'element-plus/theme-chalk/dark/css-vars.css';
+// 其他结构的Dark 样式
+@use '@/styles/element-dark.scss';
+
+/*  
+   //ElementPlus 部分主题变量名
     color-scheme: light;
     --el-color-white: #ffffff;
     --el-color-black: #000000;
@@ -83,6 +92,7 @@
     --el-border: var(--el-border-width) var(--el-border-style) var(--el-border-color);
     --el-svg-monochrome-grey: var(--el-border-color);
 */
-.el-tabs--card>.el-tabs__header .el-tabs__nav {
-  border: 0px!important;
+
+.el-tabs--card > .el-tabs__header .el-tabs__nav {
+  border: 0px !important;
 }

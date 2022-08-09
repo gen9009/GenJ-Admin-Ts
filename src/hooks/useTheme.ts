@@ -24,7 +24,7 @@ export const useTheme = () => {
   const useElementTheme = (val: string) => {
     if (!val) {
       val = '#409EFF';
-      ElMessage({ type: 'success', message: '主题....' });
+      ElMessage('this is a message.');
     }
     themeConfig.value.colorTheme = val;
     //按钮的active的color变量
