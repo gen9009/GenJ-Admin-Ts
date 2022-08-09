@@ -6,6 +6,8 @@
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -14,12 +16,12 @@
     "baseUrl": "./",
     // 模块名到基于 baseUrl的路径映射的列表。
     "paths": {
-        "@": ["src"],
+      "@": ["src"],
       "@/*": ["src/*"]
     },
     "skipLibCheck": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts", "components.d.ts"],
   "exclude": ["node_modules", "dist", "**/*.js", "**/*.json"],
-  "references": [{"path": "./tsconfig.node.json"}]
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

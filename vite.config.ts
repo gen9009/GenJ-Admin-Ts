@@ -7,12 +7,13 @@ import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
-//路径重命名path引入
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import { resolve } from 'path';
 export default defineConfig({
   plugins: [
     // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
     vue(),
+    vueJsx(),
     // * EsLint 报错信息显示在浏览器界面上
     eslintPlugin(),
     // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
