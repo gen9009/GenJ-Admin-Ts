@@ -27,7 +27,7 @@ interface TabsOptions {
   closeOther: Function;
   closeAll: Function;
 }
-/* 
+/*
   1、监听路由,路由跳转添加Tab
   2、点击实现路由跳转
   3、默认首页展示
@@ -37,7 +37,10 @@ const route = useRoute();
 const tabsStore = TabsStore();
 const clickTabsValue = ref('');
 const tabsList = storeToRefs(tabsStore).TabsList;
-const markUrl = `url('${useMask()}')`;
+const { useTabsMask, ratio } = useMask();
+const markUrl = `url('${useTabsMask()}')`;//蒙层图 url地址
+const maskSizeX = ratio * 50 + '%'; //按分辨率缩放，放置蒙层
+const maskSizeY = ratio * 100 + '%';//按分辨率缩放，放置蒙层
 
 watch(
   () => route.path,
@@ -77,7 +80,7 @@ const doTabOption = (commandInfo: string) => {
   mask: v-bind(markUrl);
   -webkit-mask: v-bind(markUrl);
   mask-size: 100% 100%;
-  -webkit-mask-size: 100% 200%;
+  -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   background-color: var(--el-color-primary-light-9);
   transition: all 0.2s ease;
 }
@@ -86,7 +89,7 @@ const doTabOption = (commandInfo: string) => {
   mask: v-bind(markUrl);
   -webkit-mask: v-bind(markUrl);
   mask-size: 100% 100%;
-  -webkit-mask-size: 100% 200%;
+  -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   padding: 0 20px 0px;
   background-color: var(--el-color-primary-light-7);
   transition: all 0.2s ease;
