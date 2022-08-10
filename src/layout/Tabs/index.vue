@@ -21,6 +21,7 @@ import { ref, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { TabsStore } from '@/store/modules/TabsStore';
 import { storeToRefs } from 'pinia';
+import { useMask } from '@/hooks/useTabsMark';
 interface TabsOptions {
   closeCurrent: Function;
   closeOther: Function;
@@ -36,6 +37,7 @@ const route = useRoute();
 const tabsStore = TabsStore();
 const clickTabsValue = ref('');
 const tabsList = storeToRefs(tabsStore).TabsList;
+const markUrl = `url('${useMask()}')`;
 
 watch(
   () => route.path,
@@ -70,4 +72,23 @@ const doTabOption = (commandInfo: string) => {
 </script>
 <style lang="scss" scoped>
 @use 'style.scss';
+//Tab active 样式
+:deep(.el-tabs--card > .el-tabs__header .el-tabs__item.is-active) {
+  mask: v-bind(markUrl);
+  -webkit-mask: v-bind(markUrl);
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 200%;
+  background-color: var(--el-color-primary-light-9);
+  transition: all 0.2s ease;
+}
+//Tab hover 样式
+:deep(.el-tabs--card > .el-tabs__header .el-tabs__item.is-closable:hover) {
+  mask: v-bind(markUrl);
+  -webkit-mask: v-bind(markUrl);
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 200%;
+  padding: 0 20px 0px;
+  background-color: var(--el-color-primary-light-7);
+  transition: all 0.2s ease;
+}
 </style>

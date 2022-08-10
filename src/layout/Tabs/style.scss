@@ -1,7 +1,6 @@
 #tab {
   background-color: #fff;
   height: 40px;
-  line-height: 40px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -12,6 +11,14 @@
   height: 40px;
   :deep(.el-tabs__header) {
     margin: 0 !important;
+    .el-tabs__nav {
+      .el-tabs__item {
+        margin-right: -20px !important;
+        &:last-child {
+          margin-right: 0px !important;
+        }
+      }
+    }
   }
   :deep(.el-tabs__content) {
     display: flex;
