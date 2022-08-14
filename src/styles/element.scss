@@ -107,3 +107,24 @@
 .el-tabs--card > .el-tabs__header .el-tabs__item.is-active {
   border: 0px;
 }
+.el-menu-item {
+  font-size: 14px !important;
+  height: 50px !important;
+}
+.el-menu-item > span.iconfont,
+.el-sub-menu > span.iconfont,
+.el-sub-menu__title > span.iconfont,
+.el-menu-item .el-menu-tooltip__trigger > span.iconfont {
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.el-menu--collapse > .el-menu-item > span,
+.el-menu--collapse > .el-sub-menu > .el-sub-menu__title > span.iconfont {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  visibility: unset;
+  margin-right: 0px;
+}

@@ -6,7 +6,7 @@ export const TabsStore = defineStore({
   id: 'TabsStore',
   state: () => ({
     TabsCurrent: HOME_URL, //存放当前Tab path
-    TabsList: [{ title: '首页', path: HOME_URL, close: false }] as Menu.MenuOptions[] //Tabs展示列表
+    TabsList: [{ title: '首页', path: HOME_URL, close: false, icon: 'shouye' }] as Menu.MenuOptions[] //Tabs展示列表
   }),
   actions: {
     //删除全部Tabs
@@ -14,18 +14,20 @@ export const TabsStore = defineStore({
       this.TabsList.splice(1);
       router.push(HOME_URL);
     },
-    //删除选中Tab or 删除当前Tab
-    removeSelectTabs(tabTitle: string | undefined) {
+    //删除选中Tab(string) or 删除当前Tab(undefined)
+    removeSelectTabs(tabPath: string | undefined) {
       let tab: Menu.MenuOptions | undefined; //选中Tab或者当前tab
       let tabIndex: number; //应删除tab的索引
       let nextPath: string; // 删除后应跳转的path
-      if (tabTitle === undefined) {
+      if (!(this.TabsList.length - 1)) return; //如果只存在首页 阻断操作
+      if (tabPath === undefined) {
+        //当前Tab为 HOME_URL 时 禁止删除
+        if (this.TabsCurrent === HOME_URL) return;
         tab = this.TabsList.find(v => v.path === this.TabsCurrent);
       } else {
-        tab = this.TabsList.find(v => v.title === tabTitle);
+        tab = this.TabsList.find(v => v.path === tabPath);
       }
       tabIndex = this.TabsList.findIndex(v => v.path === tab?.path);
-      if (!(this.TabsList.length - 1)) return; //如果只存在首页 阻断操作
       nextPath = tabIndex === this.TabsList.length - 1 ? this.TabsList[tabIndex - 1].path : this.TabsList[tabIndex + 1].path;
       router.push(nextPath);
       console.log(tabIndex, this.TabsList, this.TabsCurrent, '123');

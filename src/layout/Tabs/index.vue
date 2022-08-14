@@ -1,7 +1,14 @@
 <template>
   <div id="tab">
-    <el-tabs v-model="clickTabsValue" type="card" class="demo-tabs" @tab-remove="removeTab">
-      <el-tab-pane v-for="item in tabsList" :key="item.title" :closable="item.close" :label="item.title" :name="item.title"> </el-tab-pane>
+    <el-tabs v-model="clickTabsValue" type="card" class="demo-tabs" @tab-remove="removeTab" @tab-click="gotoRoute">
+      <el-tab-pane v-for="item in tabsList" :key="item.title" :closable="item.close" :label="item.title" :name="item.path">
+        <template #label v-if="item.path === HOME_URL">
+          <span class="custom-tabs-label">
+            <span class="iconfont" :class="`icon-${item.icon}`" style="font-size: 18px; margin-right: 6px; vertical-align: bottom"></span>
+            <span> {{ item.title }}</span>
+          </span>
+        </template>
+      </el-tab-pane>
       <el-dropdown trigger="click" @command="doTabOption" size="small">
         <el-button size="small" type="primary" class="el-dropdown-link">更多<i-ep-arrow-down /></el-button>
         <template #dropdown>
@@ -17,11 +24,13 @@
 </template>
 <script setup lang="ts">
 import { TabPanelName } from 'element-plus';
-import { ref, reactive, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { reactive, watch, computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { TabsStore } from '@/store/modules/TabsStore';
 import { storeToRefs } from 'pinia';
 import { useMask } from '@/hooks/useTabsMark';
+import type { TabsPaneContext } from 'element-plus';
+import { HOME_URL } from '@/config/config';
 interface TabsOptions {
   closeCurrent: Function;
   closeOther: Function;
@@ -33,14 +42,26 @@ interface TabsOptions {
   3、默认首页展示
 */
 const route = useRoute();
-// const router = useRouter();
+const router = useRouter();
 const tabsStore = TabsStore();
-const clickTabsValue = ref('');
+const clickTabsValue = computed({
+  get: () => tabsStore.TabsCurrent,
+  set: val => {
+    tabsStore.TabsCurrent = val;
+  }
+});
 const tabsList = storeToRefs(tabsStore).TabsList;
+
 const { useTabsMask, ratio } = useMask();
-const markUrl = `url('${useTabsMask()}')`;//蒙层图 url地址
+const markUrl = `url('${useTabsMask()}')`; //蒙层图 url地址
 const maskSizeX = ratio * 50 + '%'; //按分辨率缩放，放置蒙层
-const maskSizeY = ratio * 100 + '%';//按分辨率缩放，放置蒙层
+const maskSizeY = ratio * 100 + '%'; //按分辨率缩放，放置蒙层
+
+const tabOptions = reactive<TabsOptions>({
+  closeCurrent: tabsStore.removeSelectTabs,
+  closeOther: tabsStore.removeOtherTabs,
+  closeAll: tabsStore.removeAllTabs
+});
 
 watch(
   () => route.path,
@@ -58,15 +79,14 @@ watch(
   }
 );
 
-const tabOptions = reactive<TabsOptions>({
-  closeCurrent: tabsStore.removeSelectTabs,
-  closeOther: tabsStore.removeOtherTabs,
-  closeAll: tabsStore.removeAllTabs
-});
+const gotoRoute = (tab: TabsPaneContext) => {
+  let path = tab.props.name as string;
+  router.push(path);
+};
 
 //移除tabs
-const removeTab = (targetName: TabPanelName): any => {
-  tabsStore.removeSelectTabs(targetName as string);
+const removeTab = (tabPath: TabPanelName): any => {
+  tabsStore.removeSelectTabs(tabPath as string);
 };
 
 const doTabOption = (commandInfo: string) => {
@@ -85,7 +105,7 @@ const doTabOption = (commandInfo: string) => {
   transition: all 0.2s ease;
 }
 //Tab hover 样式
-:deep(.el-tabs--card > .el-tabs__header .el-tabs__item.is-closable:hover) {
+:deep(.el-tabs--card > .el-tabs__header .el-tabs__item:hover) {
   mask: v-bind(markUrl);
   -webkit-mask: v-bind(markUrl);
   mask-size: 100% 100%;
