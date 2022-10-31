@@ -57,6 +57,7 @@ const colorList = ['#409EFF', '#DAA96E', '#0C819F', '#009688', '#27ae60', '#ff5c
 
 const globalStore = GlobalStore();
 const menuStore = MenuStore();
+
 const themeConfig = computed(() => globalStore.themeConfig);
 const drawer = ref<boolean>(false);
 const { useElementTheme, useDark } = useTheme();

@@ -1,0 +1,29 @@
+import { HomeMenu } from './HomeMenu';
+import { CompMenu } from './CompMenu';
+import { LinkMenu } from './LinkMenu';
+
+/* 
+  {
+    title:'首页',   //展示标题
+    icon:'',       //展示图标
+    menu:homeList  //菜单列表
+  }
+*/
+const NavTabs: Menu.MenuNav[] = [
+  {
+    title: '首页',
+    icon: '',
+    menu: HomeMenu
+  },
+  {
+    title: '组件',
+    icon: '',
+    menu: CompMenu
+  },
+  {
+    title: '外链',
+    icon: '',
+    menu: LinkMenu
+  }
+];
+export default NavTabs;

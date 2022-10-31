@@ -1,7 +1,49 @@
-.menu {
-  transition: all .2s ease!important;
+.el-container {
+  width: 100%;
+  height: 100%;
+  .nav_tabs {
+    width: 50px;
+    height: 100%;
+    .nav_tabs_header {
+      height: 70px;
+      img {
+        width: 80%;
+        // height: 100%;
+        border-radius: 50%;
+      }
+    }
+    &_content {
+      height: calc(100% - 70px);
+      padding: 20px 0;
+    }
+    &_item {
+      width: 40px;
+      height: 40px;
+      font-size: 12px;
+      text-align: center;
+      line-height: 40px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+      transition: all .3s ease;
+    }
+    &_item:hover {
+      background-color: var(--el-color-primary-light-3);
+    }
+    &_item.active {
+      background-color: var(--el-color-primary-light-1);
+    }
+  }
+  .menu {
+    transition: all 0.2s ease !important;
+    background-color: #fff;
+    &-header {
+      height: 70px;
+    }
+  }
 }
+
 .el-menu {
   border: 0px;
 }
-

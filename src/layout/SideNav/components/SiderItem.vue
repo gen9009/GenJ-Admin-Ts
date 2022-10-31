@@ -1,5 +1,5 @@
 <template>
-  <template v-for="(sider, siderSort) in siderList" :key="siderSort">
+  <template v-for="sider in siderList" :key="sider">
     <!-- 第一层 -->
     <el-sub-menu v-if="sider.children && sider.children.length" :index="sider.path">
       <template #title>

@@ -3,6 +3,22 @@
 
   自我折腾的后端管理项目模版
 
+# 项目菜单配置说明
+
+```text
+项目目前未对接后端，仅为学习使用，所以菜单需手动配置
+├── src
+│   ├── config
+│   │   └── menuConfig
+│   │       ├── CompMenu.ts
+│   │       ├── HomeMenu.ts
+│   │       ├── LinkMenu.ts
+│   │       └── index.ts
+
+在src路径下中的menuConfig文件 配置路径
+
+```
+
 # 命令说明
   
   npm run preview --- 打包成线上模式  
@@ -14,6 +30,11 @@
 ```text
 .
 ├── README.md
+├── auto-imports.d.ts
+├── components.d.ts
+├── index.html
+├── package-lock.json
+├── package.json
 ├── public
 ├── src
 │   ├── App.vue
@@ -21,7 +42,17 @@
 │   ├── assets
 │   ├── components
 │   ├── config
+│   │   ├── config.ts
+│   │   └── menuConfig
+│   ├── directives
+│   │   ├── index.ts
+│   │   └── modules
+│   ├── hooks
 │   ├── layout
+│   │   ├── Footer
+│   │   ├── Header
+│   │   ├── SideNav
+│   │   ├── Tabs
 │   ├── main.ts
 │   ├── mock
 │   ├── routers
@@ -31,11 +62,6 @@
 │   ├── utils
 │   ├── views
 │   └── vite-env.d.ts
-├── auto-imports.d.ts
-├── components.d.ts
-├── index.html
-├── package-lock.json
-├── package.json
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
@@ -58,4 +84,11 @@ type:
   8、chore - 构建过程或辅助工具的变动
   9、revert - 回退
  10、 build - 打包
+```
+
+# 注释提示
+
+```
+[problem]:  存在的问题尚未修改
+
 ```

@@ -13,6 +13,7 @@ export default defineConfig({
   plugins: [
     // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
     vue(),
+    // 配置tsx,jsx
     vueJsx(),
     // * EsLint 报错信息显示在浏览器界面上
     eslintPlugin(),

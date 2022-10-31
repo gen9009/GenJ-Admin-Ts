@@ -3,6 +3,7 @@ import App from '@/App.vue';
 // 全局样式
 import '@/styles/reset.css';
 import '@/styles/element.scss';
+import '@/styles/flex.scss';
 // icon
 import '@/assets/iconfont/iconfont.css';
 

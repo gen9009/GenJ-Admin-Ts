@@ -1,0 +1,16 @@
+.flex {
+  display: flex;
+}
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+.flex-ac{
+  display: flex;
+  align-items: center;
+}
+.flex-jac{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
