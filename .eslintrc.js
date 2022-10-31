@@ -30,7 +30,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/multi-word-component-names': 'off', // 要求组件名称始终为 “-” 链接的单词
-    	"no-multiple-empty-lines": ["error", { max: 1 }], // 不允许多个空行
+    	"no-multiple-empty-lines": ["warn", { max: 1 }], // 不允许多个空行
     	"no-use-before-define": "off", // 禁止在 函数/类/变量 定义之前使用它们
     	"prefer-const": "off", // 此规则旨在标记使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
     	"no-irregular-whitespace": "off", // 禁止不规则的空白
