@@ -2,7 +2,7 @@
   <div class="menu" :style="{ width: isCollapse ? '64px' : '170px' }">
     <div class="menu-header flex-jac" v-show="!isCollapse">GenJ-Admin</div>
     <el-menu :default-active="activeMenu" :collapse="isCollapse" :collapse-transition="false" :unique-opened="true" :router="true" background-color="#fff" class="el-menu-vertical-demo" text-color="#000" @close="handleClose">
-      <SiderItem :siderList="menuList"></SiderItem>
+      <SiderItem :siderList="menu"></SiderItem>
     </el-menu>
   </div>
 </template>
@@ -14,7 +14,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { MenuStore } from '@/store/modules/MenuStore';
 import { computed, watch } from 'vue';
 //获取 当前Tab 指定菜单
-const props = defineProps(['menuList']);
+const props = defineProps(['menu']);
 
 const route = useRoute();
 const router = useRouter();
@@ -31,7 +31,7 @@ let activeMenu = computed({
 });
 //默认激活第一个菜单 (监听menuList)
 watch(
-  () => props.menuList,
+  () => props.menu,
   newValue => {
     activeMenu.value = newValue[0].path;
   }

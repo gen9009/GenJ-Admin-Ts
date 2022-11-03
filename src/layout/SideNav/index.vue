@@ -1,18 +1,18 @@
 <template>
   <el-container direction="horizontal">
     <NavTabs @switchNav="switchNav"></NavTabs>
-    <Sider :menuList="menuList"></Sider>
+    <Sider :menu="navTabsStore.menu"></Sider>
     <div></div>
   </el-container>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import NavTabs from './components/NavTabs.vue';
 import Sider from './components/Sider.vue';
-let menuList = ref<Menu.MenuOptions[]>([]); //当前Tab菜单
+import { NavTabsStore } from '@/store/modules/NavTabsStore';
+const navTabsStore = NavTabsStore();
 const switchNav = (menuNav: Menu.MenuNav) => {
-  menuList.value = menuNav.menu;
+  navTabsStore.switchMenu(menuNav.menu)
 };
 </script>
 

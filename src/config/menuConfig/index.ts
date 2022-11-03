@@ -1,7 +1,6 @@
 import { HomeMenu } from './HomeMenu';
 import { CompMenu } from './CompMenu';
 import { DirectiveMenu } from './DirectiveMenu';
-// import { LinkMenu } from './LinkMenu';
 
 /* 
   {
@@ -14,7 +13,8 @@ const NavTabs: Menu.MenuNav[] = [
   {
     title: '首页',
     icon: '',
-    menu: HomeMenu
+    active:true,
+    menu: HomeMenu 
   },
   {
     title: '组件',

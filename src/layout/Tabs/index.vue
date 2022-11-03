@@ -50,7 +50,6 @@ const clickTabsValue = computed({
     //处理侧边栏展示
     console.log(val,'router');
     console.log(router,'router');
-    
     tabsStore.TabsCurrent = val;
   }
 });
