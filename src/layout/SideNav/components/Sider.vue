@@ -26,7 +26,6 @@ let activeMenu = computed({
     return route.path;
   },
   set(value) {
-    console.log(value, '123');
     router.push({ path: value });
   }
 });
@@ -34,8 +33,6 @@ let activeMenu = computed({
 watch(
   () => props.menuList,
   newValue => {
-    console.log(newValue[0], '我跳进来了');
-    console.log(activeMenu, 'activeMenu');
     activeMenu.value = newValue[0].path;
   }
 );

@@ -5,9 +5,10 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
     1、每个顶级模块定义为 Layout 重定向为第一个小模块
     2、使用globEager批量导入文件  vite3弃用globEager
     3、获取导入路由内容,解构至路由中
- */
+*/
 // const metaRouters = import.meta.globEager('./modules/*.ts');
-const metaRouters = import.meta.glob('./modules/*.ts', { eager: true });
+import './modules/compontRouter/index'
+const metaRouters = import.meta.glob('./modules/**/index.ts', { eager: true });
 const routeList: RouteRecordRaw[] = [];
 Object.keys(metaRouters).forEach((module: any) => {
   Object.keys(metaRouters[module] as object[]).forEach((key: any) => {

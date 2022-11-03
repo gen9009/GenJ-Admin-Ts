@@ -1,6 +1,7 @@
 import { HomeMenu } from './HomeMenu';
 import { CompMenu } from './CompMenu';
-import { LinkMenu } from './LinkMenu';
+import { DirectiveMenu } from './DirectiveMenu';
+// import { LinkMenu } from './LinkMenu';
 
 /* 
   {
@@ -21,9 +22,14 @@ const NavTabs: Menu.MenuNav[] = [
     menu: CompMenu
   },
   {
-    title: '外链',
+    title: '指令',
     icon: '',
-    menu: LinkMenu
+    menu: DirectiveMenu
   }
+  // {
+  //   title: '外链',
+  //   icon: '',
+  //   menu: LinkMenu
+  // }
 ];
 export default NavTabs;

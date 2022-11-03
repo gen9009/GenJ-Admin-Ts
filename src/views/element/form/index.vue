@@ -1,21 +1,31 @@
 <template>
   <div id="form_moudle">
-    <el-row class="mb-4">
-      <el-button>Default</el-button>
-      <el-button type="primary">Primary</el-button>
-      <el-button type="success">Success</el-button>
-      <el-button type="info">Info</el-button>
-      <el-button type="warning">Warning</el-button>
-      <el-button type="danger">Danger</el-button>
-      <el-button>中文</el-button>
-    </el-row>
+    <div class="item">
+      <ELInput></ELInput>
+    </div>
+    <div class="item">
+      <ELSelect></ELSelect>
+    </div>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ELInput from './components/input.vue';
+import ELSelect from './components/select.vue';
+</script>
 <style lang="scss" scoped>
 #form_moudle {
-  height: 100%;
   background-color: #fff;
   padding: 10px;
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  // grid-template-rows: repeat(4,1fr);
+  grid-gap: 10px;
+  margin: auto;
+  .item {
+    height: 300px;
+    border: 1px solid #eee;
+    padding: 10px;
+  }
 }
 </style>

@@ -2,7 +2,7 @@ declare namespace Menu {
   interface MenuNav {
     title: string; // 标题
     icon: string; //  router 图标
-    active:boolean;// 是否激活
+    active?:boolean;// 是否激活
     menu: MenuOptions[]; //router 路由
   }
 

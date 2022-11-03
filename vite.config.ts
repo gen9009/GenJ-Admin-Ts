@@ -16,7 +16,7 @@ export default defineConfig({
     // 配置tsx,jsx
     vueJsx(),
     // * EsLint 报错信息显示在浏览器界面上
-    eslintPlugin(),
+    // eslintPlugin(),
     // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
     AutoImport({
       resolvers: [
@@ -48,6 +48,33 @@ export default defineConfig({
       '~': resolve(__dirname, './'), //[problem] 此路径重写只能用于css资源导入(背景图引入)
       '@': resolve(__dirname, 'src') //[problem] 可以用于组件引用，但好像不能用于动态组件引入 (Ts:需要在ts配置文件额外配置 baseUrl path)
     }
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'index.html') //打包后的入口文件 比如dist/index.html
+      },
+      output: {
+        //分割打包文件 js css img...
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/jss/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/name-[hash].[ext]',
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+          }
+        }
+      }
+    },
+    terserOptions: {
+      compress: {
+        // 清除console和debugger
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+    // 提高静态资源的容量大小
+    chunkSizeWarningLimit: 1000
   },
   css: {
     preprocessorOptions: {

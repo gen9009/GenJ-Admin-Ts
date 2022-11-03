@@ -23,7 +23,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { TabPanelName } from 'element-plus';
+import { TabPaneName } from 'element-plus';
 import { reactive, watch, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { TabsStore } from '@/store/modules/TabsStore';
@@ -47,6 +47,10 @@ const tabsStore = TabsStore();
 const clickTabsValue = computed({
   get: () => tabsStore.TabsCurrent,
   set: val => {
+    //处理侧边栏展示
+    console.log(val,'router');
+    console.log(router,'router');
+    
     tabsStore.TabsCurrent = val;
   }
 });
@@ -63,6 +67,7 @@ const tabOptions = reactive<TabsOptions>({
   closeAll: tabsStore.removeAllTabs
 });
 
+//监听路由,路由跳转添加一个Tab,切换当前TabsCurrent
 watch(
   () => route.path,
   path => {
@@ -85,7 +90,7 @@ const gotoRoute = (tab: TabsPaneContext) => {
 };
 
 //移除tabs
-const removeTab = (tabPath: TabPanelName): any => {
+const removeTab = (tabPath: TabPaneName): any => {
   tabsStore.removeSelectTabs(tabPath as string);
 };
 

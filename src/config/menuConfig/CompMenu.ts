@@ -1,30 +1,30 @@
 export const CompMenu = [
   {
-    path: '/element/table',
-    title: '基础组件',
+    path: '/compont/element/table',
+    title: 'Element组件',
     icon: 'biaodanzujian-biaoge',
     children: [
       {
         title: 'Table',
-        path: '/element/table'
+        path: '/compont/element/table'
       },
       {
-        path: '/element/form',
+        path: '/compont/element/form',
         title: 'From'
       },
       {
         title: 'Tree',
-        path: '/element/tree'
+        path: '/compont/element/tree'
       },
       {
         title: '图片预览',
-        path: '/element/imgview'
+        path: '/compont/element/imgview'
       }
     ]
   },
   {
     path: '/diretive/watermark',
-    title: '指令',
+    title: '自定义指令',
     icon: 'zhiling',
     children: [
       {

@@ -21,7 +21,7 @@ export const useTheme = () => {
     1、全局替换 Element主题颜色变量 
     2、由于Element自身主题是颜色渐变，所以自定义渐变函数 更改其他样式
   */
-  const useElementTheme = (val: string) => {
+  const useElementTheme = (val: string|null) => {
     if (!val) {
       val = '#409EFF';
       ElMessage('this is a message.');
