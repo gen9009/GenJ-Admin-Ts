@@ -23,14 +23,18 @@
   </div>
 </template>
 <script setup lang="ts">
-import { TabPaneName } from 'element-plus';
+import { MenuEmits, TabPaneName } from 'element-plus';
 import { reactive, watch, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { TabsStore } from '@/store/modules/TabsStore';
+import { NavTabsStore } from '@/store/modules/NavTabsStore';
 import { storeToRefs } from 'pinia';
 import { useMask } from '@/hooks/useTabsMark';
 import type { TabsPaneContext } from 'element-plus';
 import { HOME_URL } from '@/config/config';
+import NavTabs from '@/config/menuConfig/index';
+import { Menu } from '@element-plus/icons-vue';
+
 interface TabsOptions {
   closeCurrent: Function;
   closeOther: Function;
@@ -44,17 +48,15 @@ interface TabsOptions {
 const route = useRoute();
 const router = useRouter();
 const tabsStore = TabsStore();
+const navTabsStore = NavTabsStore();
 const clickTabsValue = computed({
   get: () => tabsStore.TabsCurrent,
   set: val => {
     //处理侧边栏展示
-    console.log(val,'router');
-    console.log(router,'router');
     tabsStore.TabsCurrent = val;
   }
 });
 const tabsList = storeToRefs(tabsStore).TabsList;
-
 const { useTabsMask, ratio } = useMask();
 const markUrl = `url('${useTabsMask()}')`; //蒙层图 url地址
 const maskSizeX = ratio * 50 + '%'; //按分辨率缩放，放置蒙层
@@ -65,7 +67,32 @@ const tabOptions = reactive<TabsOptions>({
   closeOther: tabsStore.removeOtherTabs,
   closeAll: tabsStore.removeAllTabs
 });
-
+//通过path获取navMenu
+const findNavMenuIndex = (path: string):Menu.MenuNav|{} => {
+  let navMenu = {};
+  for (let navIndex = 0; navIndex < NavTabs.length; navIndex++) {
+    //第一步 获取menu
+    NavTabs[navIndex].menu;
+    // 第一层 比较path
+    let menuList = NavTabs[navIndex].menu;
+    for (let menuIndex = 0; menuIndex < menuList.length; menuIndex++) {
+      if (menuList[menuIndex].path === path) {
+        navMenu = NavTabs[navIndex];
+        break;
+      }
+      if (menuList[menuIndex]?.children) {
+        let childMenuList:Menu.MenuOptions[] = menuList[menuIndex].children as []
+        for (let childMenuIndex = 0; childMenuIndex < childMenuList.length; childMenuIndex++) {
+          if (childMenuList[childMenuIndex].path === path) {
+            navMenu = NavTabs[navIndex];
+            break;
+          }
+        }
+      }
+    }
+  }
+  return navMenu
+};
 //监听路由,路由跳转添加一个Tab,切换当前TabsCurrent
 watch(
   () => route.path,
@@ -76,6 +103,12 @@ watch(
       close: true
     };
     tabsStore.addTabBtn(param);
+    navTabsStore.switchMenu(findNavMenuIndex(path).menu)
+    navTabsStore.switchNav(findNavMenuIndex(path))
+    console.log(param,'eqeqw');
+    
+
+
     tabsStore.TabsCurrent = route.path;
   },
   {

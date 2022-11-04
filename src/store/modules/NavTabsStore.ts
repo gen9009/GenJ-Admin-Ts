@@ -10,9 +10,9 @@ export const NavTabsStore = defineStore({
     menu: HomeMenu
   }),
   actions: {
-    //切换side
-    switchMenu(menuList:any) {
-      this.menu = menuList;
+    //切换Side
+    switchMenu(menu:any) {
+      this.menu = menu;
     },
     //切换Nav
     switchNav(menuNav: Menu.MenuNav) {

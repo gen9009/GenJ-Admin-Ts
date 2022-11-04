@@ -10,7 +10,7 @@ declare namespace Menu {
     path: string; //router 路径
     title: string; //router 标题
     close?: boolean; //菜单 关闭控制
-    icon: string|undefined; //router 图标
+    icon?: string; //router 图标
     children?: MenuOptions[]; //router 路由
   }
 }

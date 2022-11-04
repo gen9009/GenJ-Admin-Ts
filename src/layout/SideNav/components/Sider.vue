@@ -12,10 +12,9 @@
 import SiderItem from './SiderItem.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { MenuStore } from '@/store/modules/MenuStore';
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 //获取 当前Tab 指定菜单
 const props = defineProps(['menu']);
-
 const route = useRoute();
 const router = useRouter();
 const menuStore = MenuStore();
@@ -29,16 +28,12 @@ let activeMenu = computed({
     router.push({ path: value });
   }
 });
-//默认激活第一个菜单 (监听menuList)
-watch(
-  () => props.menu,
-  newValue => {
-    activeMenu.value = newValue[0].path;
-  }
-);
 const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath, 'handleClose');
 };
+defineExpose({
+  activeMenu
+});
 </script>
 
 <style scoped lang="scss"></style>
