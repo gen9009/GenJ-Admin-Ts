@@ -14,29 +14,30 @@ export const TabsStore = defineStore({
       this.TabsList.splice(1);
       router.push(HOME_URL);
     },
-    //删除选中Tab(string) or 删除当前Tab(undefined)
-    removeSelectTabs(tabPath: string | undefined) {
-      let tab: Menu.MenuOptions | undefined; //选中Tab或者当前tab
-      let tabIndex: number; //应删除tab的索引
-      let nextPath: string; // 删除后应跳转的path
-      if (!(this.TabsList.length - 1)) return; //如果只存在首页 阻断操作
-      if (tabPath === undefined) {
-        //当前Tab为 HOME_URL 时 禁止删除
-        if (this.TabsCurrent === HOME_URL) return;
-        tab = this.TabsList.find(v => v.path === this.TabsCurrent);
-      } else {
-        tab = this.TabsList.find(v => v.path === tabPath);
-      }
-      tabIndex = this.TabsList.findIndex(v => v.path === tab?.path);
-      nextPath = tabIndex === this.TabsList.length - 1 ? this.TabsList[tabIndex - 1].path : this.TabsList[tabIndex + 1].path;
+    //删除当前Tab
+    removeCurrentTab() {
+      if(this.TabsCurrent == HOME_URL)return;
+      let tabIndex = this.TabsList.findIndex(v => v.path === this.TabsCurrent);
+      let nextPath = tabIndex === this.TabsList.length - 1 ? this.TabsList[tabIndex - 1].path : this.TabsList[tabIndex + 1].path;
       router.push(nextPath);
-      console.log(tabIndex, this.TabsList, this.TabsCurrent, '123');
       this.TabsList.splice(tabIndex, 1);
     },
     //删除其他Tabs
     removeOtherTabs() {
       this.TabsList = this.TabsList.filter(v => [HOME_URL, this.TabsCurrent].includes(v.path));
       router.push(this.TabsCurrent);
+    },
+    //删除选中Tab(string) or 删除当前Tab(undefined)
+    removeSelectTabs(tabPath: string | undefined) {
+      let tabIndex: number; //应删除tab的索引
+      let nextPath: string; // 删除后应跳转的path
+      tabIndex = this.TabsList.findIndex(v => v.path === tabPath);
+      //删除tabPath 并非当前TabsCurrent 直接跳过路由push
+      if (tabPath === this.TabsCurrent) {
+        nextPath = tabIndex === this.TabsList.length - 1 ? this.TabsList[tabIndex - 1].path : this.TabsList[tabIndex + 1].path;
+        router.push(nextPath);
+      }
+      this.TabsList.splice(tabIndex, 1);
     },
     addTabBtn(tab: Menu.MenuOptions) {
       //过滤掉已存在和黑名单

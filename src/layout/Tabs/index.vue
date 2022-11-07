@@ -23,7 +23,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { MenuEmits, TabPaneName } from 'element-plus';
+import { TabPaneName } from 'element-plus';
 import { reactive, watch, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { TabsStore } from '@/store/modules/TabsStore';
@@ -33,7 +33,6 @@ import { useMask } from '@/hooks/useTabsMark';
 import type { TabsPaneContext } from 'element-plus';
 import { HOME_URL } from '@/config/config';
 import NavTabs from '@/config/menuConfig/index';
-import { Menu } from '@element-plus/icons-vue';
 
 interface TabsOptions {
   closeCurrent: Function;
@@ -63,12 +62,12 @@ const maskSizeX = ratio * 50 + '%'; //按分辨率缩放，放置蒙层
 const maskSizeY = ratio * 100 + '%'; //按分辨率缩放，放置蒙层
 
 const tabOptions = reactive<TabsOptions>({
-  closeCurrent: tabsStore.removeSelectTabs,
+  closeCurrent: tabsStore.removeCurrentTab,
   closeOther: tabsStore.removeOtherTabs,
   closeAll: tabsStore.removeAllTabs
 });
 //通过path获取navMenu
-const findNavMenuIndex = (path: string):Menu.MenuNav|{} => {
+const findNavMenuIndex = (path: string): Menu.MenuNav => {
   let navMenu = {};
   for (let navIndex = 0; navIndex < NavTabs.length; navIndex++) {
     //第一步 获取menu
@@ -81,7 +80,7 @@ const findNavMenuIndex = (path: string):Menu.MenuNav|{} => {
         break;
       }
       if (menuList[menuIndex]?.children) {
-        let childMenuList:Menu.MenuOptions[] = menuList[menuIndex].children as []
+        let childMenuList: Menu.MenuOptions[] = menuList[menuIndex].children as [];
         for (let childMenuIndex = 0; childMenuIndex < childMenuList.length; childMenuIndex++) {
           if (childMenuList[childMenuIndex].path === path) {
             navMenu = NavTabs[navIndex];
@@ -91,7 +90,7 @@ const findNavMenuIndex = (path: string):Menu.MenuNav|{} => {
       }
     }
   }
-  return navMenu
+  return navMenu as Menu.MenuNav;
 };
 //监听路由,路由跳转添加一个Tab,切换当前TabsCurrent
 watch(
@@ -103,12 +102,8 @@ watch(
       close: true
     };
     tabsStore.addTabBtn(param);
-    navTabsStore.switchMenu(findNavMenuIndex(path).menu)
-    navTabsStore.switchNav(findNavMenuIndex(path))
-    console.log(param,'eqeqw');
-    
-
-
+    navTabsStore.switchMenu(findNavMenuIndex(path).menu);
+    navTabsStore.switchNav(findNavMenuIndex(path));
     tabsStore.TabsCurrent = route.path;
   },
   {
@@ -117,6 +112,8 @@ watch(
 );
 
 const gotoRoute = (tab: TabsPaneContext) => {
+  console.log(tab, 'tabs');
+
   let path = tab.props.name as string;
   router.push(path);
 };
