@@ -17,6 +17,8 @@ const switchNav = (menuNav: Menu.MenuNav) => {
   navTabsStore.switchMenu(menuNav.menu)
   //默认激活第一个菜单
   sider.value.activeMenu = menuNav.menu[0].path
+  console.log(menuNav.menu[0].path,'激活的第一个菜单');
+  
 };
 </script>
 

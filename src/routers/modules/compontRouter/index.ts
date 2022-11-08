@@ -6,7 +6,7 @@ Object.values(metaRouters).forEach((module: any) => {
 });
 const compontRouter: Array<RouteRecordRaw> = [
   {
-    path: '/compont',
+    path: '/component',
     // redirect: {name:'element'},
     meta: { title: '组件' },
     children: [...routeList]

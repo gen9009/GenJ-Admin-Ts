@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import requireTransform from 'vite-plugin-require-transform';
 import eslintPlugin from 'vite-plugin-eslint';
 //Element-plus 按需导入
 import AutoImport from 'unplugin-auto-import/vite';
@@ -15,6 +16,11 @@ export default defineConfig({
     vue(),
     // 配置tsx,jsx
     vueJsx(),
+    // require 语法适配
+    requireTransform({
+      // fileRegex: /.ts$|.tsx$|.vue$/
+      fileRegex:/.js$|.jsx$|.vue$/
+    }),
     // * EsLint 报错信息显示在浏览器界面上
     // eslintPlugin(),
     // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
