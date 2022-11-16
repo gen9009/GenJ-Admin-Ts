@@ -8,7 +8,7 @@
     </vue3-seamless-scroll>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from 'vue';
 import { Vue3SeamlessScroll } from 'vue3-seamless-scroll';
 const list = new Array(20).fill('').map((v, i) => i);

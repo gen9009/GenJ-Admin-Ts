@@ -7,16 +7,6 @@
       <autoPlayList></autoPlayList>
     </div>
   </div>
-
-  <div class="infinite-list-container">
-    <div class="infinite-list-phantom"></div>
-    <div class="infinite-list">
-      <!-- item-1 -->
-      <!-- item-2 -->
-      <!-- ...... -->
-      <!-- item-n -->
-    </div>
-  </div>
 </template>
 <script setup lang="ts">
 import virtualList from './component/virtualList/virtualList.vue';

@@ -6,10 +6,10 @@
     -->
   <!-- https://juejin.cn/post/6844903982742110216#comment -->
   <div class="virtual_list">
-    <div class="infinite-list-container">
-      <div class="infinite-list-phantom">
-        <div class="infinite-list">
-          <div class="item" v-for="item in list" :key="item.name">
+    <div ref="listRef" class="infinite-list-container" @scroll="scrollEvent()">
+      <div class="infinite-list-phantom" :style="{ height: listHeight + 'px' }">
+        <div class="infinite-list" :style="{ transform: `translate3d(0,${startOffset}px,0)` }">
+          <div class="item" v-for="item in visibleData" :key="item.name" :style="{ height: virtualOption.itemSize + 'px',lineHeight:virtualOption.itemSize+'px' }">
             {{ item.name }}
           </div>
         </div>
@@ -18,47 +18,51 @@
   </div>
 </template>
 <script setup lang="ts">
+import { reactive, ref, computed, ComputedRef, onMounted } from 'vue';
+
+const listRef = ref();
 //10000条数据列表
-// const list = new Array(10000).fill('').map((v, i) => ({ name: i + 1, label: i }));
-// //单个单位所占高度
-// const itemSize;
-// //可视区域高度
-// const screenHeight;
-// //当前滚动位置
-// const scrollTop;
+const list = new Array(10000).fill('').map((v, i) => ({ name: i + 1, label: i }));
+const virtualOption = reactive({
+  itemSize: 48, // 每个单元所占高度
+  screenHeight: 0, // 可视区域高度 infinite-list-container的height
+  scrollTop: 0 // 当前滚动位置
+});
+onMounted(()=>{
+  virtualOption.screenHeight = listRef.value.clientHeight;
+})
+//列表总高度
+let listHeight = list.length * virtualOption.itemSize;
 
-// //列表总高度
-// const listHeight = list.length * itemSize;
+//可显示列表项数量
+let visibleCount: ComputedRef<number> = computed(() => Math.ceil(virtualOption.screenHeight / virtualOption.itemSize));
+//数据起始索引
+let startIndex: ComputedRef<number> = computed(() => Math.floor(virtualOption.scrollTop/virtualOption.itemSize));
+//数据结束索引
+let endIndex: ComputedRef<number> = computed(() => startIndex.value + visibleCount.value);
+// 数据展示列表
+let visibleData: ComputedRef<Array<{ name: number; label: number }>> = computed(() => list.slice(startIndex.value, endIndex.value+1));
+//数据滚动偏移量
+let startOffset: ComputedRef<number> = computed(() => virtualOption.scrollTop - (virtualOption.scrollTop % virtualOption.itemSize));
 
-// //可显示列表项数
-// const visibleCount = Math.ceil(screenHeight/itemSize)
-
-// //数据起始索引
-// const startIndex = Math.floor(scrollTop/itemSize)
-
-// //数据结束索引
-// const endIndex = startIndex + visibleCount
-
-// //列表显示数据
-// const visibleData = list.slice(startIndex,endIndex)
-
-// //数据滚动偏移量
-// const startOffset = scrollTop 
-
-
+//滚动事件
+let scrollEvent = () => {
+  virtualOption.scrollTop = listRef.value.scrollTop;
+};
 </script>
 <style lang="scss" scoped>
 .virtual_list {
   height: 100%;
   .infinite-list-container {
+    overflow: auto;
     height: 100%;
     .infinite-list-phantom {
-      height: 100%;
+      // height: 100%;
+      background-color: #eee;
       .infinite-list {
         height: 100%;
         .item {
           width: 100%;
-          height: 30px;
           text-align: center;
           background-color: #fff;
           border: 1px dashed #eee;
