@@ -41,6 +41,7 @@ declare module '@vue/runtime-core' {
     IEpFold: typeof import('~icons/ep/fold')['default']
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpUser: typeof import('~icons/ep/user')['default']
+    QiEcharts: typeof import('./src/components/QiEcharts/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.0.2",
+    "echarts": "^5.4.0",
     "element-plus": "^2.2.19",
     "pinia": "^2.0.17",
     "pinia-plugin-persistedstate": "^2.1.0",

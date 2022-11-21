@@ -1,9 +1,11 @@
 //全局注册组件
 import { App } from 'vue';
 import testComp from './testComp';
+import qiEcharts from './QiEcharts/index.vue';
 
 const compList = {
-  testComp
+  testComp,
+  qiEcharts
 };
 
 export const componments = {

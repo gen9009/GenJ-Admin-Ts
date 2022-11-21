@@ -1,5 +1,6 @@
 import { HomeMenu } from './HomeMenu';
 import { CompMenu } from './CompMenu';
+import { CanvasMenu } from './CanvasMenu';
 import { DirectiveMenu } from './DirectiveMenu';
 
 /* 
@@ -20,6 +21,11 @@ const NavTabs: Menu.MenuNav[] = [
     title: '组件',
     icon: '',
     menu: CompMenu
+  },
+  {
+    title: '画布',
+    icon: '',
+    menu: CanvasMenu
   },
   {
     title: '指令',
