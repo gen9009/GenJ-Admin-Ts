@@ -21,7 +21,7 @@
     },
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts", "components.d.ts"],
-  "exclude": ["node_modules", "dist", "**/*.js", "**/*.json"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts",  "src/**/*.vue", "vite.config.ts", "components.d.ts"],
+  "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

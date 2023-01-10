@@ -3,7 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 const customCompRouter: Array<RouteRecordRaw> = [
   {
     path: '/component/customComp',
-    redirect: 'form',
+    redirect: 'list',
     component: () => import('@/layout/index.vue'),
     children: [
       {
@@ -11,6 +11,13 @@ const customCompRouter: Array<RouteRecordRaw> = [
         component: () => import('@/views/Component/customComp/list/index.vue'),
         meta: {
           title: '列表'
+        }
+      },
+      {
+        path: 'turnTable',
+        component: () => import('@/views/Component/customComp/turnTable/index.vue'),
+        meta: {
+          title: '转盘'
         }
       },
     ]

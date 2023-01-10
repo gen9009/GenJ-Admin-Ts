@@ -28,8 +28,12 @@ export const CompMenu = [
     icon: 'zhiling',
     children: [
       {
-        path: '/component/customComp/list',
-        title: '列表'
+        title: '列表',
+        path: '/component/customComp/list'
+      },
+      {
+        title: '转盘',
+        path: '/component/customComp/turnTable'
       }
     ]
   }

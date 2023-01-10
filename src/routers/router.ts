@@ -7,7 +7,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
     3、获取导入路由内容,解构至路由中
 */
 // const metaRouters = import.meta.globEager('./modules/*.ts');
-import './modules/compontRouter/index'
+import './modules/compontRouter/index';
 const metaRouters = import.meta.glob('./modules/**/index.ts', { eager: true });
 const routeList: RouteRecordRaw[] = [];
 Object.keys(metaRouters).forEach((module: any) => {
@@ -19,7 +19,7 @@ console.log(routeList, 'activeMenu');
 //声明路基础路由配置  login 404
 const routes: RouteRecordRaw[] = [
   {
-    path: '/',
+    path: '',
     redirect: { name: 'login' }
   },
   {
@@ -46,4 +46,8 @@ const router = createRouter({
   routes,
   scrollBehavior: () => ({ left: 0, top: 0 })
 });
+
+// router.beforeEach((to,from,next)=>{
+//   console.log(to,from);
+// })
 export default router;

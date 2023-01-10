@@ -11,4 +11,15 @@ img {
   width: 80%;
   height: 80%;
 }
+.tab{
+  display: flex;
+  width: 100px;
+  background-color: bisque;
+  overflow: auto;
+  div{
+    width: max-content;
+    padding: 0 20px;
+    background-color: burlywood;
+  }
+}
 </style>
