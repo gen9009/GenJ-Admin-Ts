@@ -25,3 +25,18 @@ declare namespace Theme {
     showTabs: boolean; //是否展示标签栏
   }
 }
+
+// * Vite
+/* 
+  Record就是强类型的Map
+  obj: { [key: string ] : number } = {}
+  Record<key:type,value:type> 
+*/
+declare type Recordable<T = any> = Record<string, T>;
+
+declare interface ViteEnv {
+	VITE_API_URL: string;
+	VITE_PORT: number;
+	VITE_OPEN: boolean;
+	VITE_GLOB_TITLE: string;
+}

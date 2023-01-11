@@ -4,8 +4,9 @@
   "description": "GenJ-Admin后台管理系统",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --open",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "vite",
+    "build:dev": "vue-tsc --noEmit && vite build --mode development",
+    "build:pro": "vue-tsc --noEmit && vite build --mode production",
     "preview": "vite preview --open"
   },
   "dependencies": {
@@ -38,6 +39,7 @@
     "unplugin-vue-components": "^0.21.2",
     "vite": "^3.0.0",
     "vite-plugin-eslint": "^1.7.0",
+    "vite-plugin-html": "^3.2.0",
     "vite-plugin-require-transform": "^1.0.4",
     "vue-tsc": "^0.38.4"
   }
