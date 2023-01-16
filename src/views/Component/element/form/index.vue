@@ -14,7 +14,6 @@ import ELSelect from './components/select.vue';
 </script>
 <style lang="scss" scoped>
 #form_moudle {
-  background-color: #fff;
   padding: 10px;
   display: grid;
   height: 100%;

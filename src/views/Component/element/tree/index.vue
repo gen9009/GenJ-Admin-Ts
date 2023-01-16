@@ -23,7 +23,6 @@ import scrollTree from './component/scrollTree/scrollTree.vue'
   height: 100%;
   margin: auto;
   padding: 10px;
-  background-color: #fff;
   .item {
     height: 300px;
     border: 1px solid #eee;

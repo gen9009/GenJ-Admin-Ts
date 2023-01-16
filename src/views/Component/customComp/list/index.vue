@@ -19,7 +19,6 @@ import autoPlayList from './component/autoPayList/autoPlayList.vue';
   grid-gap: 5px;
   height: 100%;
   padding: 10px;
-  background-color: #fff;
   .item {
     height: 300px;
     border: 1px solid #eee;

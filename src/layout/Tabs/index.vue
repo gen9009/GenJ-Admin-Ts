@@ -135,7 +135,7 @@ const doTabOption = (commandInfo: string) => {
   -webkit-mask: v-bind(markUrl);
   mask-size: 100% 100%;
   -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
-  background-color: var(--el-color-primary-light-9);
+  background-color: var(--el-color-primary-light-7);
   transition: all 0.2s ease;
 }
 //Tab hover 样式
@@ -145,7 +145,7 @@ const doTabOption = (commandInfo: string) => {
   mask-size: 100% 100%;
   -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   padding: 0 20px 0px;
-  background-color: var(--el-color-primary-light-7);
+  background-color: var(--el-color-primary-light-5);
   transition: all 0.2s ease;
 }
 </style>

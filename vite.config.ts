@@ -30,9 +30,9 @@ export default defineConfig(({ mode }: ConfigEnv):UserConfig => {
         // fileRegex: /.ts$|.tsx$|.vue$/
         fileRegex: /.js$|.jsx$|.vue$/
       }),
-      //定义入口index.html
       createHtmlPlugin(
         {
+          //为入口文件index.html 注入可用数据
           inject: {
             data: {
               ...env,

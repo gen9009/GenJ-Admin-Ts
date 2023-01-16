@@ -1,28 +1,51 @@
 /* 自定义 element 暗黑模式样式 */
 html.dark {
-  --main-bg-color-dark: rgb(36, 36, 36);
-  --bg-color-dark: rgb(8, 8, 8);
+  --main-bg-color: rgb(36, 36, 36);
+  --bord-color-dark: rgb(108, 110, 114);
+  --text-color-dark: rgb(255, 255, 255);
+  --bg-color-dark: #191a20;
+  --bg-color-dark-1: #191a20;
+  --bg-color-dark-2: #2b2c2e;
+  --bg-color-dark-3: #37383b;
+  --bg-color-dark-4: #434447;
+  --bg-color-dark-5: #4f5154;
 
-  .header {
-    border-bottom: 1px solid var(--el-border-color-dark);
-  }
-  #tab {
-    background-color: var(--el-drawer-bg-color-dark);
-  }
-  .common-layout .el-main {
-    background-color: var(--main-bg-color-dark) !important;
-  }
-  .rouer_view {
+
+  // 自定义暗黑模式样式
+  .common-layout{
     background-color: var(--bg-color-dark);
-    color: var(--el-text-color-primary);
+    // background-color: red;
+    .header {
+      background-color: var(  --bg-color-dark-4);
+      color: var(--text-color-dark);
+    }
+    #tab {
+      background-color: var(--bg-color-dark-3);
+    }
+    .el-main.router-content {
+      background-color: var(--bg-color-dark-2);
+    }
+    .el-aside{
+      color: var(--text-color-dark);
+      .menu{
+        background-color: var(--main-bg-color);
+      }
+    }
+    .el-footer {
+      background-color: var(--bg-color-dark-2);
+      color: var(--text-color-dark);
+    }
   }
+  
+
   .color_theme {
     .el-drawer__header {
-      border-bottom: 1px solid var(--el-border-color-dark) !important;
+      color: var(--text-color-dark);
+      border-bottom: 1px solid var(--el-border-color) !important;
     }
   }
 
   .theme_item span {
-    color: #fff;
+    color: var(--text-color-dark);
   }
 }

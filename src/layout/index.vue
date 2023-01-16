@@ -7,7 +7,7 @@
           <el-header><Header></Header></el-header>
           <el-container direction="vertical">
             <Tabs v-if="globalStore.themeConfig.showTabs"></Tabs>
-            <el-main class="router-content">
+            <el-main  class="router-content">
               <router-view></router-view>
             </el-main>
             <el-footer v-if="globalStore.themeConfig.showFooter"><Footer></Footer></el-footer>
