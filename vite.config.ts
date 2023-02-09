@@ -117,8 +117,7 @@ export default defineConfig(({ mode }: ConfigEnv):UserConfig => {
       // https: false,
       proxy: {
         '/api': {
-          // target: "https://www.fastmock.site/mock/f81e8333c1a9276214bcdbc170d9e0a0", // fastmock
-          target: 'https://mock.mengxuegu.com/mock/629d727e6163854a32e8307e', // easymock
+          target: 'https://www.fastmock.site/mock/99e6f727febc6dbdd2c57b1600176d59/admin', // easymock
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, '')
         }

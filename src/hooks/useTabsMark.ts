@@ -1,6 +1,6 @@
-import { GlobalStore } from '@/store/modules/GlobalStore';
+import { GlobalStore } from '@/store/modules/GlobalStore.ts';
 import { computed } from 'vue';
-import { mix } from '@/utils/themeFn';
+import { mix } from '@/utils/themeFn.ts';
 /* 
 模仿 https://vue-admin-beautiful.com/admin-plus/#/index tabs效果 🥺不确定人家通过啥方式实现
 发现人家用的css mask，奈何自己没有mask图片，就采用canvs绘制mask
