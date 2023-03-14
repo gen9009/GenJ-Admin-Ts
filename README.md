@@ -16,6 +16,7 @@
 │   │       └── index.ts
 
 在src路径下中的menuConfig文件 配置路径
+在src路径下中的rotuers路由文件 配置路由
 
 ```
 

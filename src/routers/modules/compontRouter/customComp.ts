@@ -20,6 +20,20 @@ const customCompRouter: Array<RouteRecordRaw> = [
           title: '转盘'
         }
       },
+      {
+        path: 'slider',
+        component: () => import('@/views/Component/customComp/slider/index.vue'),
+        meta: {
+          title: '滑块'
+        }
+      },
+      {
+        path: 'dialog',
+        component: () => import('@/views/Component/customComp/dialog/index.vue'),
+        meta: {
+          title: '弹窗'
+        }
+      },
     ]
   },
 ];

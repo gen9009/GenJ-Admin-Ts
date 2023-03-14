@@ -2,7 +2,7 @@
   <div ref="myChartElement" style="width:100%;height:100%"></div>
 </template>
 <script setup lang="ts">
-import echarts from '@/utils/echarts';
+import echarts from '@/utils/echarts.ts';
 import { ref, reactive, onMounted, toRefs } from 'vue';
 
 const props= (defineProps({

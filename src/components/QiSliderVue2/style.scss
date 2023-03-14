@@ -1,0 +1,26 @@
+.slider-main{
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background-color: red;
+  border-radius: 5px;
+  .slider-bar{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: yellow;
+    border-radius: 5px;
+    z-index: 1;
+  }
+  .slider-btn{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #999;
+    border-radius: 50%;
+    cursor:pointer;
+    z-index: 2;
+  }
+}

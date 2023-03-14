@@ -34,6 +34,14 @@ export const CompMenu = [
       {
         title: '转盘',
         path: '/component/customComp/turnTable'
+      },
+      {
+        title: '滑块',
+        path: '/component/customComp/slider'
+      },
+      {
+        title: '弹窗',
+        path: '/component/customComp/dialog'
       }
     ]
   }
