@@ -1,7 +1,7 @@
-import { HomeMenu } from './HomeMenu';
-import { CompMenu } from './CompMenu';
-import { CanvasMenu } from './CanvasMenu';
-import { DirectiveMenu } from './DirectiveMenu';
+import { HomeMenu } from './HomeMenu.ts';
+import { CompMenu } from './CompMenu.ts';
+import { CanvasMenu } from './CanvasMenu.ts';
+import { DirectiveMenu } from './DirectiveMenu.ts';
 
 /* 
   {

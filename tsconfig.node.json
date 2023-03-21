@@ -3,7 +3,10 @@
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node",
+    // 跳过第三方库检查，解决打包失败
+	  "skipLibCheck": true,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts",  "src/**/*.vue", "vite.config.ts", "components.d.ts"],
+  "exclude": ["node_modules", "dist","**/*.js"],
 }

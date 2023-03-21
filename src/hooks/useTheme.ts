@@ -1,7 +1,8 @@
 import { computed, onBeforeMount } from 'vue';
-import { GlobalStore } from '@/store/modules/GlobalStore';
+import { GlobalStore } from '../store/modules/GlobalStore.ts';
+// import { GlobalStore } from '@/store/modules/GlobalStore.ts;
 import { ElMessage } from 'element-plus';
-import { mix } from '@/utils/themeFn';
+import { mix } from '@/utils/themeFn.ts';
 export const useTheme = () => {
   const globalStore = GlobalStore();
   const themeConfig = computed(() => globalStore.themeConfig);

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { HOME_URL, TABS_BLACK } from '@/config/config';
-import router from '@/routers/index';
+import { HOME_URL, TABS_BLACK } from '@/config/config.ts';
+import router from '@/routers/index.ts';
 
 export const TabsStore = defineStore({
   id: 'TabsStore',
@@ -41,8 +41,8 @@ export const TabsStore = defineStore({
     },
     addTabBtn(tab: Menu.MenuOptions) {
       //过滤掉已存在和黑名单
-      if (TABS_BLACK.find(v => v === tab.path)) return;
-      if (this.TabsList.find(v => v.path === tab.path)) return;
+      if (TABS_BLACK.find((v:any) => v === tab.path)) return;
+      if (this.TabsList.find((v:any) => v.path === tab.path)) return;
       this.TabsList.push(tab);
     }
   },

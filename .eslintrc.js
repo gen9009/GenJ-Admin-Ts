@@ -3,7 +3,8 @@ module.exports = {
   env: {
     //指定代码的运行环境
     browser: true,
-    node: true
+    node: true,
+    es6: true
   },
   /* 指定如何解析语法  定义ESLint的解析器*/
   parser: 'vue-eslint-parser',

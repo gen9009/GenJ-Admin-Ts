@@ -35,8 +35,8 @@ const props = defineProps({
   },
 });
 const emit = defineEmits(['update:modelValue']);
-const slider = ref<HTMLElement>(null);
-const button = ref<InstanceType<typeof SliderButton>>(null);
+const slider = ref();
+const button = ref<InstanceType<typeof SliderButton>>();
 const sliderSize = ref<number>(1); //sliderMain整体长度
 const firstValue = ref<number>(0); //value 取名firstValue 是因为会有双向滑块组件需求
 
@@ -69,7 +69,7 @@ const resizeSize = () => {
   console.log('🚀::::::🐶','index',sliderSize.value)
 };
 const setPosition = (percent: number): void => {
-  button.value.setPosition(percent);
+  button!.value!.setPosition(percent);
 };
 const setValue = ()=>{
   firstValue.value = props.value

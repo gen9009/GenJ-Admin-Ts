@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { HomeMenu } from '@/config/menuConfig/HomeMenu';
-import NavTabs from '@/config/menuConfig/index';
+import { HomeMenu } from '@/config/menuConfig/HomeMenu.ts';
+import NavTabs from '@/config/menuConfig/index.ts';
 
 export const NavTabsStore = defineStore({
   id: 'NavTabsStore',
@@ -16,7 +16,7 @@ export const NavTabsStore = defineStore({
     },
     //切换Nav
     switchNav(menuNav: Menu.MenuNav) {
-      this.navTabsList.forEach(v => {
+      this.navTabsList.forEach((v:any) => {
         v.active = menuNav.title == v.title ? true : false;
       });
     }

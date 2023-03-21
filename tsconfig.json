@@ -15,6 +15,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    // 跳过第三方库检查，解决打包失败
+	  "skipLibCheck": true,
     /* 
     注意:如果未指定lib，则会注入默认的librares列表。注入的默认库为
     对于 --target ES5： DOM,ES5,ScriptHost
@@ -29,11 +31,11 @@
       "@": ["src"],
       "@/*": ["src/*"]
     },
-    "skipLibCheck": true
   },
+
   // 指定需要编译文件 否则默认当前目录下除了exclude之外的所有.ts, .d.ts,.tsx 文件
-  "include": ["src/**/*.ts", "src/**/*.d.ts",  "src/**/*.vue", "vite.config.ts", "components.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts",  "src/**/*.vue", "src/**/*.tsx",  "vite.config.ts", "components.d.ts"],
   // 不需要编译的文件
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "dist","**/*.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

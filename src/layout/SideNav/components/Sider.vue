@@ -11,8 +11,8 @@
 // import siderList from '@/config/SiderNavList.json';
 import SiderItem from './SiderItem.vue';
 import { useRoute, useRouter } from 'vue-router';
-import { MenuStore } from '@/store/modules/MenuStore';
-import { GlobalStore } from '@/store/modules/GlobalStore';
+import { MenuStore } from '@/store/modules/MenuStore.ts';
+import { GlobalStore } from '@/store/modules/GlobalStore.ts';
 import { computed } from 'vue';
 //获取 当前Tab 指定菜单
 const props = defineProps(['menu']);

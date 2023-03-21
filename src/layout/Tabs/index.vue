@@ -26,13 +26,13 @@
 import { TabPaneName } from 'element-plus';
 import { reactive, watch, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { TabsStore } from '@/store/modules/TabsStore';
-import { NavTabsStore } from '@/store/modules/NavTabsStore';
+import { TabsStore } from '@/store/modules/TabsStore.ts';
+import { NavTabsStore } from '@/store/modules/NavTabsStore.ts';
 import { storeToRefs } from 'pinia';
-import { useMask } from '@/hooks/useTabsMark';
+import { useMask } from '@/hooks/useTabsMark.ts';
 import type { TabsPaneContext } from 'element-plus';
-import { HOME_URL } from '@/config/config';
-import NavTabs from '@/config/menuConfig/index';
+import { HOME_URL } from '@/config/config.ts';
+import NavTabs from '@/config/menuConfig/index.ts';
 
 interface TabsOptions {
   closeCurrent: Function;

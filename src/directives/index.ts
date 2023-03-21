@@ -1,5 +1,5 @@
 import { App } from 'vue';
-import waterMarker from './modules/waterMarker';
+import waterMarker from './modules/waterMarker.ts';
 
 const directivesList: any = {
   waterMarker

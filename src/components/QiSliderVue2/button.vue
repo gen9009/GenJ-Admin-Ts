@@ -8,7 +8,8 @@ import { onMounted, inject, computed,ref } from 'vue';
 const emit = defineEmits(['update:modelValue']);
 const props = defineProps({
   modelValue: {
-    type: Number
+    type: Number,
+    default: 0
   }
 });
 const min = inject('min') as number;
@@ -33,7 +34,7 @@ const onDragStart = (event:MouseEvent)=>{
   newPosition.value = parseFloat(currentPosition.value) // 100% -> 100
 }
 //鼠标拖动 计算鼠标移动百分比距离
-const onDragging = (event) => {
+const onDragging = (event:MouseEvent) => {
   let diff = 0
   resizeSize()
   if(dragging.value){
@@ -45,7 +46,7 @@ const onDragging = (event) => {
   }
 }
 //鼠标弹起 关闭drag状态 
-const onDragEnd = (event) => {
+const onDragEnd = (event:MouseEvent) => {
   if(dragging.value){
     dragging.value = false;
   }
@@ -59,7 +60,7 @@ onMounted(() => {
 const currentPosition = computed(() => {
   return  `${((props.modelValue - min) / (max - min)) * 100}%`
 });
-const setPosition = (newPosition) => {
+const setPosition = (newPosition:number) => {
   if (newPosition === null || isNaN(newPosition)) return;
   if (newPosition < 0) {
     newPosition = 0;

@@ -8,7 +8,6 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Button: typeof import('./src/components/QiSliderVue2/button.vue')['default']
-    copy: typeof import('./src/components/QiEcharts copy/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -38,14 +37,12 @@ declare module '@vue/runtime-core' {
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElTree: typeof import('element-plus/es')['ElTree']
-    ElUpload: typeof import('element-plus/es')['ElUpload']
     IEpArrowDown: typeof import('~icons/ep/arrow-down')['default']
     IEpExpand: typeof import('~icons/ep/expand')['default']
     IEpFold: typeof import('~icons/ep/fold')['default']
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpUser: typeof import('~icons/ep/user')['default']
     QiEcharts: typeof import('./src/components/QiEcharts/index.vue')['default']
-    QiSlider: typeof import('./src/components/QiSlider/index.vue')['default']
     QiSliderVue2: typeof import('./src/components/QiSliderVue2/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
