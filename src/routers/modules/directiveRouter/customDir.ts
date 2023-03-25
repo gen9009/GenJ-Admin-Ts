@@ -10,7 +10,7 @@ const customDirRouter: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'watermark',
-        component: () => import('@/views/directive/watermark.vue'),
+        component: () => import('@/views/Directive/watermark.vue'),
         meta: {
           title: '水印指令'
         }

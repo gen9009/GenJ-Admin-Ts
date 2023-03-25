@@ -34,7 +34,7 @@ const NavTabs: Menu.MenuNav[] = [
     menu: DirectiveMenu
   },
   {
-    title: 'CSS',
+    title: 'Fun',
     icon: '',
     menu: CSSMenu
   }

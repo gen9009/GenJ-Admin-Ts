@@ -1,6 +1,6 @@
 export const CSSMenu = [
   {
-    path: '/cssDemo/scroll',
+    path: '/funDemo/scroll',
     title: '页面滚动',
   }
 ];

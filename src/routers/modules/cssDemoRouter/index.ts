@@ -6,7 +6,7 @@ Object.values(metaRouters).forEach((module: any) => {
 });
 const homeRouter: Array<RouteRecordRaw> = [
   {
-    path: '/cssDemo',
+    path: '/funDemo',
     meta: { title: 'CSS' },
     children: [...routeList]
   },
