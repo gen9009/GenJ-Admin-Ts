@@ -1,7 +1,10 @@
-import axios, { AxiosRequestConfig, AxiosInstance } from 'axios';
+import axios, { AxiosRequestConfig, AxiosInstance,InternalAxiosRequestConfig,AxiosResponse,AxiosError } from 'axios';
+
+
 
 const config = {
-  baseURL: import.meta.env.VITE_API_URL,
+ // 默认请求 通过环境变量设置
+  baseURL: import.meta.env.VITE_API_URL as string,
   //设置超时时间
   timeout: 1000 * 60,
   //跨域允许携带凭证
@@ -17,10 +20,10 @@ class RequestHttp {
     请求拦截
     */
     this.service.interceptors.request.use(
-      config => {
+      (config:InternalAxiosRequestConfig)=> {
         return config;
       },
-      error => {
+      (error:AxiosError) => {
         return Promise.reject(error);
       }
     );
@@ -28,11 +31,11 @@ class RequestHttp {
       响应拦截 
     */
     this.service.interceptors.response.use(
-      response => {
+      (response :AxiosResponse)=> {
         const { data } = response;
         return data;
       },
-      error => {
+     (error:AxiosError) => {
         return Promise.reject(error);
       }
     );

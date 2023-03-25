@@ -2,6 +2,7 @@ import { HomeMenu } from './HomeMenu.ts';
 import { CompMenu } from './CompMenu.ts';
 import { CanvasMenu } from './CanvasMenu.ts';
 import { DirectiveMenu } from './DirectiveMenu.ts';
+import { CSSMenu } from './CSSMenu.ts';
 
 /* 
   {
@@ -31,6 +32,11 @@ const NavTabs: Menu.MenuNav[] = [
     title: '指令',
     icon: '',
     menu: DirectiveMenu
+  },
+  {
+    title: 'CSS',
+    icon: '',
+    menu: CSSMenu
   }
   // {
   //   title: '外链',
