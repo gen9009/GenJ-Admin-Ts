@@ -26,7 +26,7 @@
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import type { FormInstance, FormRules } from 'element-plus';
-import { loginApi } from '../../service/modules/login';
+import { loginApi } from '../../service/modules/login.ts';
 /* 
   element-plus 登录
   1、定义表单数据 const form = reactive({})
@@ -48,7 +48,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   await formEl.validate((valid, fields) => {
     if (valid) {
-      loginApi({...loginForm}).then(res=>{
+      loginApi({...loginForm}).then((res:any)=>{
         console.log('🚀::::::🐶',res)
         if(res?.code !== 200)return;
       //登陆成功 跳转Home首页
