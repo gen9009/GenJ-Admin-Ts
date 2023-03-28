@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { HomeMenu } from '@/config/menuConfig/HomeMenu.ts';
-import NavTabs from '@/config/menuConfig/index.ts';
+import { HomeMenu } from '@/config/menuConfig/HomeMenu';
+import NavTabs from '@/config/menuConfig/index';
 
 export const NavTabsStore = defineStore({
   id: 'NavTabsStore',

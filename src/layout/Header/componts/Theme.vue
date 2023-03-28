@@ -47,10 +47,10 @@
 </template>
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { GlobalStore } from '@/store/modules/GlobalStore.ts';
-import { MenuStore } from '@/store/modules/MenuStore.ts';
+import { GlobalStore } from '@/store/modules/GlobalStore';
+import { MenuStore } from '@/store/modules/MenuStore';
 import { Sunny, Moon } from '@element-plus/icons-vue';
-import { useTheme } from '@/hooks/useTheme.ts';
+import { useTheme } from '@/hooks/useTheme';
 
 // 预定义主题颜色
 const colorList = ['#409EFF', '#DAA96E', '#0C819F', '#009688', '#27ae60', '#ff5c93', '#e74c3c', '#fd726d', '#f39c12', '#9b59b6'];

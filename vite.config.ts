@@ -20,6 +20,7 @@ export default defineConfig(({ mode }: ConfigEnv):UserConfig => {
   const viteEnv = wrapperEnv(env)
   
   return {
+    base: "./",
     plugins: [
       // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
       vue(),

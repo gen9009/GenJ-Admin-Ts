@@ -12,7 +12,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
-import { NavTabsStore} from '@/store/modules/NavTabsStore.ts'
+import { NavTabsStore} from '@/store/modules/NavTabsStore'
 const emit = defineEmits(['switchNav']);
 const navTabsStore = NavTabsStore()
 //点击Tabs 跳转router

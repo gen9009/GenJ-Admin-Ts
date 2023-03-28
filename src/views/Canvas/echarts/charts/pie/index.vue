@@ -4,7 +4,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { pie } from './config.ts';
+import { pie } from './config';
 import { ref, reactive } from 'vue';
 const pieOption = reactive(pie());
 </script>

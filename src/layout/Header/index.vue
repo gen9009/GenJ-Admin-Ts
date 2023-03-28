@@ -37,7 +37,7 @@ import Theme from './componts/Theme.vue';
 import Language from './componts/Language.vue';
 import UseImg from './componts/UserImg.vue';
 import FullScreen from './componts/FullScreen.vue';
-import { MenuStore } from '@/store/modules/MenuStore.ts';
+import { MenuStore } from '@/store/modules/MenuStore';
 const menuStore = MenuStore();
 </script>
 <style lang="scss" scoped>

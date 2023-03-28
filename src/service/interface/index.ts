@@ -3,10 +3,10 @@ import type { AxiosRequestConfig,InternalAxiosRequestConfig,AxiosResponse } from
   单例拦截 请求和响应
 */
 export interface SingleRequestInterceptors {
-  requsetResolve?:(config:InternalAxiosRequestConfig)=>InternalAxiosRequestConfig
-  requsetCatch?:((error: any) => any) | null
+  requsetResolve?:(config:InternalAxiosRequestConfig)=>InternalAxiosRequestConfig;
+  requsetCatch?:((error: any) => any) | null;
   responseResolve?:(config:AxiosResponse)=>AxiosResponse;
-  responseCatch?:((error: any) => any) | null 
+  responseCatch?:((error: any) => any) | null
 }
 /* 
  单例拦截器参数 interceptors 继承至 AxiosRequestConfig

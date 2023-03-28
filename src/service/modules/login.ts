@@ -1,4 +1,4 @@
-import http from '@/service/index.ts'
+import service from '@/service/index'
 export const loginApi = (params:any) => {
-  return http.post('/api/login',params)
+  return service.post('/api/login',params)
 }

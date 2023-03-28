@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { HOME_URL, TABS_BLACK } from '@/config/config.ts';
-import router from '@/routers/index.ts';
+import { HOME_URL, TABS_BLACK } from '@/config/config';
+import router from '@/routers/index';
 
 export const TabsStore = defineStore({
   id: 'TabsStore',

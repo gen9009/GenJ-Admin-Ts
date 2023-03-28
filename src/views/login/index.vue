@@ -26,7 +26,7 @@
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import type { FormInstance, FormRules } from 'element-plus';
-import { loginApi } from '../../service/modules/login.ts';
+import { loginApi } from '@/service/modules/login';
 /* 
   element-plus 登录
   1、定义表单数据 const form = reactive({})

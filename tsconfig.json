@@ -37,5 +37,6 @@
   "include": ["src/**/*.ts", "src/**/*.d.ts",  "src/**/*.vue", "src/**/*.tsx",  "vite.config.ts", "components.d.ts"],
   // 不需要编译的文件
   "exclude": ["node_modules", "dist","**/*.js"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  // [problem] references添加后下方后 文件导入需要添加.ts  @路径也会失效 interf也会失效
+  // "references": [{ "path": "./tsconfig.node.json" }]
 }

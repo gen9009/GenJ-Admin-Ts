@@ -1,33 +1,30 @@
 import axios, {  AxiosInstance,InternalAxiosRequestConfig,AxiosResponse,AxiosError } from 'axios';
-import  { SingleAxiosRequestConfig,SingleRequestInterceptors } from './interface/index.ts'
-
-
-
+import { SingleAxiosRequestConfig,SingleRequestInterceptors } from '@/service/interface/index';
 //请求类
-export  class RequestHttp {
+export default class RequestHttp {
   service: AxiosInstance
-  interceptors: SingleAxiosRequestConfig
-  constructor(config: SingleAxiosRequestConfig) {
+  interceptors:SingleRequestInterceptors|undefined
+  constructor(config:SingleAxiosRequestConfig) {
     this.service = axios.create(config);
     this.interceptors = config.interceptors
     this.service.interceptors.request.use(
-      this.interceptors.requsetResolve,
-      this.interceptors.requsetCatch
+      this.interceptors?.requsetResolve,
+      this.interceptors?.requsetCatch
     )
     this.service.interceptors.response.use(
-      this.interceptors.responseResolve,
-      this.interceptors.responeCatch
+      this.interceptors?.responseResolve,
+      this.interceptors?.responseCatch
     )
     /* 
     请求拦截
     */
     this.service.interceptors.request.use(
       (config:InternalAxiosRequestConfig)=> {
-        console.log('🚀::::::🐶','请求成功拦截')
+        console.log('🚀::::::🐶','请求拦截成功')
         return config;
       },
       (error:AxiosError) => {
-        console.log('🚀::::::🐶','请求错误拦截')
+        console.log('🚀::::::🐶','请求拦截错误')
         return Promise.reject(error);
       }
     );
@@ -36,7 +33,7 @@ export  class RequestHttp {
     */
     this.service.interceptors.response.use(
       (response :AxiosResponse)=> {
-        console.log('🚀::::::🐶','响应成功拦截')
+        console.log('🚀::::::🐶','响应拦截成功')
         const { data } = response;
         return data;
       },

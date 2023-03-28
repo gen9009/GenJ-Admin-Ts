@@ -1,3 +1,3 @@
-import router from './router.ts';
+import router from './router';
 
 export default router;
