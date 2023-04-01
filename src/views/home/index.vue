@@ -1,7 +1,14 @@
 <template>
   <img src="@/assets/images/homepage.svg" alt="" />
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { testApi } from '@/service/modules/test';
+import { onMounted } from 'vue';
+onMounted(()=>{
+  testApi({testParams:'123'})
+})
+</script>
+
 <style lang="scss" scoped>
 img {
   position: relative;
