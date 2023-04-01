@@ -1,61 +1,67 @@
-import axios, {  AxiosInstance,InternalAxiosRequestConfig,AxiosResponse,AxiosError } from 'axios';
-import { SingleAxiosRequestConfig,SingleRequestInterceptors } from '@/service/interface/index';
+import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
+import { SingleAxiosRequestConfig, SingleRequestInterceptors, ResultData } from '@/service/interface/index';
+
 //请求类
 export default class RequestHttp {
-  service: AxiosInstance
-  interceptors:SingleRequestInterceptors|undefined
-  constructor(config:SingleAxiosRequestConfig) {
+  service: AxiosInstance;
+  interceptors?: SingleRequestInterceptors;
+  constructor(config: SingleAxiosRequestConfig) {
     this.service = axios.create(config);
-    this.interceptors = config.interceptors
+    this.interceptors = config?.interceptors;
+
+    //实例请求→类请求→实例响应→类响应
     this.service.interceptors.request.use(
-      this.interceptors?.requsetResolve,
-      this.interceptors?.requsetCatch
-    )
-    this.service.interceptors.response.use(
-      this.interceptors?.responseResolve,
-      this.interceptors?.responseCatch
-    )
-    /* 
-    请求拦截
-    */
-    this.service.interceptors.request.use(
-      (config:InternalAxiosRequestConfig)=> {
-        console.log('🚀::::::🐶','请求拦截成功')
+      (config: InternalAxiosRequestConfig) => {
+        console.log('🚀::::::🐶', '请求拦截成功');
         return config;
       },
-      (error:AxiosError) => {
-        console.log('🚀::::::🐶','请求拦截错误')
+      (error: AxiosError) => {
+        console.log('🚀::::::🐶', '请求拦截错误');
         return Promise.reject(error);
       }
     );
-    /* 
-      响应拦截 
-    */
+    this.service.interceptors.request.use(this.interceptors?.requsetInterceptors, this.interceptors?.requsetInterceptorsCatch);
+    this.service.interceptors.response.use(this.interceptors?.responseInterceptors, this.interceptors?.responseInterceptorsCatch);
     this.service.interceptors.response.use(
-      (response :AxiosResponse)=> {
-        console.log('🚀::::::🐶','响应拦截成功')
+      (response: AxiosResponse) => {
+        console.log('🚀::::::🐶', '响应拦截成功');
         const { data } = response;
         return data;
       },
-     (error:AxiosError) => {
-      console.log('🚀::::::🐶','响应错误拦截')
+      (error: AxiosError) => {
+        console.log('🚀::::::🐶', '响应错误拦截');
         return Promise.reject(error);
       }
     );
   }
+  requset<T>(config: SingleAxiosRequestConfig<ResultData<T>>): Promise<ResultData<T>> {
+    return new Promise((resolve, reject) => {
+      //执行 自定义的请求拦截
+      config.interceptors?.requsetInterceptors && !!(config = config.interceptors?.requsetInterceptors(config as InternalAxiosRequestConfig));
+      this.service
+        .request<any, ResultData<T>>(config)
+        .then(res => {
+          //执行 自定义的响应拦截
+          config.interceptors?.responseInterceptors && !!(res = config.interceptors.responseInterceptors(res));
+          resolve(res);
+        })
+        .catch((err: any) => {
+          reject(err);
+        });
+    });
+  }
 
   // 请求类型封装
-  get(url: string, params?: object) {
-    return this.service.get(url, params);
+  get<T>(url: string, params?: object, config = {}): Promise<ResultData<T>> {
+    return this.service.get(url, { params, ...config });
   }
-  post(url: string, params: object) {
-    return this.service.post(url, params);
+  post<T>(url: string, params: object, config = {}): Promise<ResultData<T>> {
+    return this.service.post(url, params, config);
   }
-  put(url: string, params: object) {
-    return this.service.put(url, params);
+  put<T>(url: string, params?: object, config = {}): Promise<ResultData<T>> {
+    return this.service.put(url, params, config);
   }
-  delete(url:string, params:object) {
-		return this.service.delete(url, params);
-	}
+  delete<T>(url: string, params?: any, config = {}): Promise<ResultData<T>> {
+    return this.service.delete(url, { params, ...config });
+  }
 }
-
