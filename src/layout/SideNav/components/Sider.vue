@@ -27,7 +27,7 @@ let activeMenu = computed({
   get() {
     return route.path;
   },
-  set(value) {
+  set(value:string) {
     router.push({ path: value });
   }
 });

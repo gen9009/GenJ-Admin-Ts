@@ -2,7 +2,7 @@
   <div class="demo-basic--circle">
     <el-dropdown trigger="click" @command="doUserOption" size="small">
       <div class="block el-dropdown-link">
-        <el-avatar shape="square" :size="30" :src="'src/assets/images/notAvatar.png'" />
+        <el-avatar shape="square" :size="30" :src="notAvatar" />
       </div>
       <template #dropdown>
         <el-dropdown-menu>
@@ -17,6 +17,7 @@
   <PasswordDia ref="passRef"></PasswordDia>
 </template>
 <script setup lang="ts">
+import notAvatar from '@/assets/images/notAvatar.png'
 import PasswordDia from './PasswordDia.vue';
 import UserInfoDia from './UserInfoDia.vue';
 import { reactive, ref } from 'vue';

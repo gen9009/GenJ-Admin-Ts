@@ -7,7 +7,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    '≈': typeof import('./src/components/≈/index.vue')['default']
     Button: typeof import('./src/components/QiSliderVue2/button.vue')['default']
+    copy: typeof import('./src/components/QiTsTable copy/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -33,6 +35,7 @@ declare module '@vue/runtime-core' {
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    ElTable: typeof import('element-plus/es')['ElTable']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
@@ -42,9 +45,19 @@ declare module '@vue/runtime-core' {
     IEpFold: typeof import('~icons/ep/fold')['default']
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpUser: typeof import('~icons/ep/user')['default']
+    Pagination: typeof import('./src/components/QiTsTable/components/Pagination.vue')['default']
     QiEcharts: typeof import('./src/components/QiEcharts/index.vue')['default']
     QiSliderVue2: typeof import('./src/components/QiSliderVue2/index.vue')['default']
+    QiTable: typeof import('./src/components/QiTable/index.vue')['default']
+    QiTsForm: typeof import('./src/components/QiTsForm/index.vue')['default']
+    QiTsFormItem: typeof import('./src/components/QiTsForm/components/QiTsFormItem.vue')['default']
+    QiTsQiTsFormItem: typeof import('./src/components/QiTsForm/components/QiTsQiTsFormItem.vue')['default']
+    QiTsSearch: typeof import('./src/components/QiTsSearch/index.vue')['default']
+    QiTsSearchItem: typeof import('./src/components/QiTsForm/components/QiTsSearchItem.vue')['default']
+    QiTsTable: typeof import('./src/components/QiTsTable/index.vue')['default']
+    QiTsxTable: typeof import('./src/components/QiTsxTable/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Search: typeof import('./src/components/QiTsTable/components/search.vue')['default']
   }
 }
