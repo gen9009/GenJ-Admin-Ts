@@ -20,7 +20,7 @@ import scrollTree from './component/scrollTree/scrollTree.vue'
   display: grid;
   grid-template-columns: repeat(auto-fill,300px);
   grid-gap: 5px;
-  height: 100%;
+  min-height: 100%;
   margin: auto;
   padding: 10px;
   .item {

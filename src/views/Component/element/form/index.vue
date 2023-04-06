@@ -16,7 +16,7 @@ import ELSelect from './components/select.vue';
 #form_moudle {
   padding: 10px;
   display: grid;
-  height: 100%;
+  min-height: 100%;
   grid-template-columns: repeat(auto-fill,300px);
   // grid-template-rows: repeat(4,1fr);
   grid-gap: 5px;
