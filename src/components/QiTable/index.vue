@@ -1,30 +1,44 @@
 <script setup lang="ts">
 import QiSearchForm from '@/components/QiSearchForm/index.vue';
-import { ColumnProps } from './interface';
+import { ColumnProps } from './interface/index';
 import { ref, reactive, onMounted } from 'vue';
-import { useTable } from '@/components/QiTsTable/useTable';
+import { useTable } from './useTable';
 import Pagination from './components/Pagination.vue';
 import TableColumn from './components/TableColumn.vue';
-interface TableProps {
-  columns: ColumnProps[]; //表格配置项
-  requestApi: (params: any) => Promise<any>; // 获取表格数据接口
+import { ElTable, TableProps } from 'element-plus';
+//定义表格的 Props配置
+export interface QiTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
+  columns: ColumnProps[]; // 列配置项
+  requestApi: (params: any) => Promise<any>;
 }
 // 父组件传递的参数
 // const props = defineProps<TableProps>() //基于类型声明 无法配置默认值
 // const props = defineProps({columns:{type:Array,required:true}}) // 运行时声明 配置基于vue语法配置且编译器无法推断类型
 //withDefaults 编译器宏
-const props = withDefaults(defineProps<TableProps>(), {
+const props = withDefaults(defineProps<QiTableProps>(), {
   columns: () => []
 });
-const { getTableList, tableData, pageable, handleSizeChange, handleCurrentChange } = useTable(props.requestApi);
+// 过滤需要搜索的配置
+const searchColumns = props.columns.filter(item => item.search?.el);
+// 初始化需要搜索的默认值
+searchColumns.forEach((column,index)=>{
+  if(column.search?.defaultValue??'' !== ''){
+    searchParams.value[column?.search?.key??column.prop] = column.search?.defaultValue
+  }
+})
+const tableRef = ref<InstanceType<typeof ElTable>>();
+const { getTableList, tableData, pageable, searchParams, search, reset, handleSizeChange, handleCurrentChange } = useTable(props.requestApi);
 onMounted(() => {
   getTableList();
+});
+defineExpose({
+  el: tableRef
 });
 </script>
 
 <template>
   <!-- Search搜索区域 -->
-  <QiSearchForm></QiSearchForm>
+  <QiSearchForm :searchColumns="searchColumns" :searchParams='searchParams' :search="search" :reset="reset"></QiSearchForm>
   <!-- Table主体区域 -->
   <div class="table-main">
     <!-- 表格头部的操作按钮插槽 -->
@@ -39,7 +53,7 @@ onMounted(() => {
       </div>
     </div>
     <!-- ElTabel -->
-    <ElTable :data="tableData" style="width: 100%" v-bind="$attrs">
+    <ElTable ref="tableRef" :data="tableData" style="width: 100%" v-bind="$attrs">
       <!-- 1、默认插槽 -->
       <slot></slot>
       <template v-for="item in props.columns" :key="item">

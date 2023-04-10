@@ -1,7 +1,7 @@
 <template>
 <div id="table_moudle">
   <div class="item">
-    <TsTableCompDemo></TsTableCompDemo>
+    <TableDemo></TableDemo>
   </div>
   <div class="item">
     <SelectTreeTable></SelectTreeTable>
@@ -15,7 +15,7 @@
 </div>
 </template>
 <script setup lang="ts">
-import TsTableCompDemo from './components/TsTableCompDemo.vue'
+import TableDemo from './components/TableDemo.vue'
 import SelectTreeTable from './components/SelectTreeTable.vue'
 </script>
 <style lang="scss" scoped>

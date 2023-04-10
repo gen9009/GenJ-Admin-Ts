@@ -7,7 +7,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    '≈': typeof import('./src/components/≈/index.vue')['default']
     Button: typeof import('./src/components/QiSliderVue2/button.vue')['default']
     copy: typeof import('./src/components/QiTsTable copy/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
@@ -29,6 +28,7 @@ declare module '@vue/runtime-core' {
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
+    ElInpui: typeof import('element-plus/es')['ElInpui']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
@@ -51,21 +51,22 @@ declare module '@vue/runtime-core' {
     IEpFold: typeof import('~icons/ep/fold')['default']
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpUser: typeof import('~icons/ep/user')['default']
-    Pagination: typeof import('./src/components/QiTsTable/components/Pagination.vue')['default']
+    Pagination: typeof import('./src/components/QiTable/components/Pagination.vue')['default']
     QiEcharts: typeof import('./src/components/QiEcharts/index.vue')['default']
+    QiForm: typeof import('./src/components/QiForm/index.vue')['default']
     QiSearchForm: typeof import('./src/components/QiSearchForm/index.vue')['default']
+    QiSearchFormItem: typeof import('./src/components/QiSearchForm/components/QiSearchFormItem.vue')['default']
     QiSliderVue2: typeof import('./src/components/QiSliderVue2/index.vue')['default']
     QiTable: typeof import('./src/components/QiTable/index.vue')['default']
     QiTsForm: typeof import('./src/components/QiTsForm/index.vue')['default']
-    QiTsFormItem: typeof import('./src/components/QiTsForm/components/QiTsFormItem.vue')['default']
+    QiTsFormItem: typeof import('./src/components/QiForm/components/QiTsFormItem.vue')['default']
     QiTsQiTsFormItem: typeof import('./src/components/QiTsForm/components/QiTsQiTsFormItem.vue')['default']
     QiTsSearch: typeof import('./src/components/QiTsSearch/index.vue')['default']
     QiTsSearchItem: typeof import('./src/components/QiTsForm/components/QiTsSearchItem.vue')['default']
-    QiTsTable: typeof import('./src/components/QiTsTable/index.vue')['default']
     QiTsxTable: typeof import('./src/components/QiTsxTable/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Search: typeof import('./src/components/QiTsTable/components/search.vue')['default']
-    TableColumn: typeof import('./src/components/QiTsTable/components/TableColumn.vue')['default']
+    TableColumn: typeof import('./src/components/QiTable/components/TableColumn.vue')['default']
   }
 }

@@ -6,7 +6,6 @@ import '@/styles/element.scss';
 import '@/styles/flex.scss';
 // icon
 import '@/assets/iconfont/iconfont.css';
-
 import { directives } from '@/directives/index';
 import { componments } from '@/components/index';
 
@@ -16,4 +15,4 @@ import { componments } from '@/components/index';
 import router from '@/routers/index';
 import pinia from '@/utils/piniaState';
 
-createApp(App).use(router).use(pinia).use(directives).use(componments).mount('#app');
+createApp(App).use(router).use(pinia).use(directives).mount('#app');
