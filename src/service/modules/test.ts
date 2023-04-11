@@ -4,7 +4,7 @@ import { ResTest } from '../interface/resType'
 export const testApi = (params:ReqTestParams) => {
   // return service.get<ResTest>('/api/test',params)
   return service.requset<ResTest>({
-    url:'/api/test',
+    url:'/test',
     params,
     interceptors:{
       requsetInterceptors:(config)=>{console.log('🚀::::::🐶','test单一接口请求拦截');return config},

@@ -8,7 +8,6 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Button: typeof import('./src/components/QiSliderVue2/button.vue')['default']
-    copy: typeof import('./src/components/QiTsTable copy/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -27,8 +26,6 @@ declare module '@vue/runtime-core' {
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElIcon: typeof import('element-plus/es')['ElIcon']
-    ElImage: typeof import('element-plus/es')['ElImage']
-    ElInpui: typeof import('element-plus/es')['ElInpui']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
@@ -39,8 +36,6 @@ declare module '@vue/runtime-core' {
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColum: typeof import('element-plus/es')['ElTableColum']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
@@ -58,15 +53,9 @@ declare module '@vue/runtime-core' {
     QiSearchFormItem: typeof import('./src/components/QiSearchForm/components/QiSearchFormItem.vue')['default']
     QiSliderVue2: typeof import('./src/components/QiSliderVue2/index.vue')['default']
     QiTable: typeof import('./src/components/QiTable/index.vue')['default']
-    QiTsForm: typeof import('./src/components/QiTsForm/index.vue')['default']
     QiTsFormItem: typeof import('./src/components/QiForm/components/QiTsFormItem.vue')['default']
-    QiTsQiTsFormItem: typeof import('./src/components/QiTsForm/components/QiTsQiTsFormItem.vue')['default']
-    QiTsSearch: typeof import('./src/components/QiTsSearch/index.vue')['default']
-    QiTsSearchItem: typeof import('./src/components/QiTsForm/components/QiTsSearchItem.vue')['default']
-    QiTsxTable: typeof import('./src/components/QiTsxTable/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Search: typeof import('./src/components/QiTsTable/components/search.vue')['default']
     TableColumn: typeof import('./src/components/QiTable/components/TableColumn.vue')['default']
   }
 }

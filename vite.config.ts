@@ -120,7 +120,7 @@ export default defineConfig(({ mode }: ConfigEnv):UserConfig => {
         '/api': {
           target: 'https://www.fastmock.site/mock/99e6f727febc6dbdd2c57b1600176d59/admin', // easymock
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, '')
+          // rewrite: path => path.replace(/^\/api/, '')
         }
       }
     }
