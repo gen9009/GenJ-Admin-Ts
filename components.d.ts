@@ -26,6 +26,7 @@ declare module '@vue/runtime-core' {
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
@@ -49,6 +50,7 @@ declare module '@vue/runtime-core' {
     Pagination: typeof import('./src/components/QiTable/components/Pagination.vue')['default']
     QiEcharts: typeof import('./src/components/QiEcharts/index.vue')['default']
     QiForm: typeof import('./src/components/QiForm/index.vue')['default']
+    QiLoading: typeof import('./src/components/QiLoading/index.vue')['default']
     QiSearchForm: typeof import('./src/components/QiSearchForm/index.vue')['default']
     QiSearchFormItem: typeof import('./src/components/QiSearchForm/components/QiSearchFormItem.vue')['default']
     QiSliderVue2: typeof import('./src/components/QiSliderVue2/index.vue')['default']
@@ -57,5 +59,8 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TableColumn: typeof import('./src/components/QiTable/components/TableColumn.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

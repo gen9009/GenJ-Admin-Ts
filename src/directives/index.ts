@@ -1,8 +1,10 @@
 import { App } from 'vue';
+import qiLoading from './modules/qiLoading';
 import waterMarker from './modules/waterMarker';
 
 const directivesList: any = {
-  waterMarker
+  waterMarker,
+  qiLoading
 };
 
 export const directives = {

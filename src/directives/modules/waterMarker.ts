@@ -9,7 +9,7 @@
 
 import type { Directive, DirectiveBinding } from 'vue';
 
-const addWaterMark: Directive = (text: string, parentNode: any, font: any, textColor: string) => {
+const addWaterMark  = (text: string, parentNode: any, font: any, textColor: string) => {
   let canvas: HTMLCanvasElement = document.createElement('canvas');
   parentNode.appendChild(canvas);
   canvas.width = 200;
@@ -25,7 +25,7 @@ const addWaterMark: Directive = (text: string, parentNode: any, font: any, textC
   parentNode.style.backgroundImage = `url(${canvas.toDataURL('image/png')})`;
 };
 
-const waterMarker = {
+const waterMarker:Directive = {
   created(el: DirectiveBinding, bind: DirectiveBinding) {
     // console.log(bind.instance?.$route, 'bind'); //获取路由信息
     addWaterMark(bind.value.text, el, bind.value.font, bind.value.textColor);

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import QiSearchForm from '@/components/QiSearchForm/index.vue';
-import { ColumnProps } from './interface/index';
-import { ref, reactive, onMounted } from 'vue';
+import { ColumnProps,DictEnum } from './interface/index';
+import { ref, reactive, onMounted, provide, onBeforeMount } from 'vue';
 import { useTable } from './useTable';
 import Pagination from './components/Pagination.vue';
 import TableColumn from './components/TableColumn.vue';
@@ -18,16 +18,30 @@ export interface QiTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
 const props = withDefaults(defineProps<QiTableProps>(), {
   columns: () => []
 });
+// 定义dictMap 存储dict值
+const dictMap = ref(new Map<string,DictEnum[]>())
+provide("dictMap",dictMap)
+const setDict = async (col:ColumnProps)=>{
+  if(!col?.dict)return;
+  //x! 将从 x 值域中排除 null 和 undefined
+  if(typeof col.dict !== 'function')return dictMap.value.set(col.prop!,col.dict);
+  let { data } = await col.dict();
+  dictMap.value.set(col.prop!,data)
+  console.log('🚀::::::🐶',data,'获取到了1')
+}
+
 // 过滤需要搜索的配置
 const searchColumns = props.columns.filter(item => item.search?.el);
 // 初始化需要搜索的默认值
 searchColumns.forEach((column,index)=>{
+  setDict(column)
   if(column.search?.defaultValue??'' !== ''){
     searchParams.value[column?.search?.key??column.prop] = column.search?.defaultValue
   }
 })
 const tableRef = ref<InstanceType<typeof ElTable>>();
 const { getTableList, tableData, pageable, searchParams, search, reset, handleSizeChange, handleCurrentChange } = useTable(props.requestApi);
+
 onMounted(() => {
   getTableList();
 });
