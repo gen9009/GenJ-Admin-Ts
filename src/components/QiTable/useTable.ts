@@ -77,6 +77,7 @@ export const useTable = (api: (params: any) => Promise<any>) => {
   const reset = (param: any) => {
     state.pageable.pageNum = 1
     state.searchParams = {};
+    updatedTotalParam()
     getTableList();
   };
 

@@ -1,8 +1,7 @@
 <script setup lang="tsx">
 // 如果全局引入则不需导入 如果是自动导入和按需导入则需要导入
-import { ElInput, ElSelect, ElOption, ElSelectV2 } from 'element-plus';
+import { ElInput, ElSelect, ElOption } from 'element-plus';
 import { ColumnProps, SearchType, DictEnum } from '@/components/QiTable/interface';
-import {  isArray } from 'lodash';
 import { inject ,onBeforeMount,ref,onMounted} from 'vue';
 import { getDictApi} from '@/service/modules/dict'
 
@@ -21,18 +20,12 @@ const props = withDefaults(defineProps<SearchFormItemProps>(), {
   searchParams: () => ({})
 });
 const dictMap = inject('dictMap',ref(new Map<string,DictEnum[]>()))
-const dict = ref()
-getDictApi().then(res=>{
-    dict.value = res.data
-    console.log('🚀::::::🐶',dict.value,'获取到了2')
-})
 // 方便自定义节点
 const renderFormItem = (column: ColumnProps) => {
   switch (column.search?.el!) {
     case 'input':
       return renderInput(column);
     case 'select':
-  
       return renderSelect(column);
     case 'select-v2':
       return renderSelectV2(column);
@@ -56,27 +49,28 @@ const renderInput = (column: ColumnProps) => {
 
 const renderSelect =   (column: ColumnProps) => {
   // [problem] 为什么此处不能 使用col.dict()异步获取字典渲染呢
+  // await column.search.dict()
   return (
-    <>
-    {{"a":JSON.parse(dict.value)}}
       <ElSelect v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请选择'} {...handleSearchProps(column)}>
         {
           dictMap.value.get(column.prop!)?.map(item=><ElOption value={item.code} label={item.value} key={item.code}></ElOption>)
         }
-      </ElSelect>   
-    </>
+      </ElSelect>
   );
 };
 const renderSelectV2 = (column: ColumnProps) => {
   return (
-    <>
-      <div v-qiLoading={true}>
-        <div>123112323</div>
-      </div>
-    </>
-    // <ElSelectV2></ElSelectV2>
+        // @ts-ignore
+        <ElSelectV2  v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请选择'} {...handleSearchProps(column)} options={(dictMap.value.get(column.prop!)??[]).map(v=>({value:v.code,label:v.value}))}></ElSelectV2>
   );
 };
+const renderCascader = (column:ColumnProps)=>{
+  return (
+    <>
+    renderCascader
+    </>
+  )
+}
 // 将search.props表单属性 透传至定义的表单中, el 为 tree-select、cascader 的时候需要给下默认 label 和 value
 const handleSearchProps = (column: ColumnProps) => {
   const searchProps = column.search?.props ?? {};

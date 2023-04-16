@@ -14,7 +14,8 @@ export interface SearchProps {
   el:SearchType;// 当前项搜索的类型
   key?:any;//搜索字段 默认会取 column prop
   props?: any; // 搜索项参数，根据 element plus 官方文档来传递，该属性所有值会透传到组件
-  event?: any; // 搜索项事件，根据 element plus 官方文档来传递，该事件所有值会透传到组件
+  span?:number;//所占列数
+  order?:number;//[problem] 尚未实现 搜索项从大到小排序 目前使用FlexELCol从小到大
   defaultValue?:any //搜索默认值
 }
 export interface DictEnum {

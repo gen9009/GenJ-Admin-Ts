@@ -27,7 +27,6 @@ const setDict = async (col:ColumnProps)=>{
   if(typeof col.dict !== 'function')return dictMap.value.set(col.prop!,col.dict);
   let { data } = await col.dict();
   dictMap.value.set(col.prop!,data)
-  console.log('🚀::::::🐶',data,'获取到了1')
 }
 
 // 过滤需要搜索的配置
@@ -62,12 +61,11 @@ defineExpose({
       </div>
       <div class="table-main-header-right">
         <slot name="toolButton">
-          <ElButton type="text">打印</ElButton>
         </slot>
       </div>
     </div>
     <!-- ElTabel -->
-    <ElTable ref="tableRef" :data="tableData" style="width: 100%" v-bind="$attrs">
+    <ElTable v-loading ref="tableRef" :data="tableData" style="width: 100%" v-bind="$attrs">
       <!-- 1、默认插槽 -->
       <slot></slot>
       <template v-for="item in props.columns" :key="item">

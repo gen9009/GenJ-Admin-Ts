@@ -149,3 +149,11 @@
   visibility: unset;
   margin-right: 0px;
 }
+
+//SearchForm
+.table-search{
+  .el-form-item__content>*{
+    width: 100%;
+  }
+}
+

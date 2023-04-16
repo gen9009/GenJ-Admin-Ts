@@ -1,6 +1,6 @@
 <script setup lang="tsx">
 import { getList } from '@/service/modules/table';
-import { getDictApi} from '@/service/modules/dict'
+import { getDictApi } from '@/service/modules/dict';
 import { ColumnProps } from '@/components/QiTable/interface';
 import { ElMessage } from 'element-plus';
 const columns: ColumnProps[] = [
@@ -27,7 +27,7 @@ const columns: ColumnProps[] = [
         onFocus: (event: FocusEvent) => {
           console.log('🚀::::::🐶', 'onFocus', event);
         }
-      },
+      }
     }
   }, //普通列
   {
@@ -39,15 +39,15 @@ const columns: ColumnProps[] = [
     //   {code:0,value:'大哥'},
     //   {code:1,value:'二哥'},
     //   {code:2,value:'三弟'}
-    // ], 
+    // ],
     // 字典请求不带参数
     dict: getDictApi,
     // 字典请求携带参数
     // dict: () => getUserGender({ id: 1 }),
 
-    search: { el: 'select' }
+    search: { el: 'select', span: 10, }
   }, //搜索列
-  { prop: 'name', label: '名称', width: 80, search: { el: 'select-v2' } }, //搜索列
+  { prop: 'name', label: '名称', width: 80,   dict: getDictApi, search: { el: 'select-v2',span: 8, } }, //搜索 
   // // tsx渲染列
   {
     prop: 'image',
