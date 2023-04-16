@@ -168,6 +168,43 @@
   }
  
 }
+//Theme
+.el-overlay {
+  backdrop-filter: blur(3px);
+  .el-drawer {
+    color: #000;
+  }
+  .el-drawer__header {
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+    border-bottom: 1px solid rgb(241, 241, 241);
+    .el-drawer__title {
+      font-size: 16px;
+    }
+  }
+  .el-drawer__body {
+    color: #000;
+    font-size: 16px;
+  }
+  .el-divider__text {
+    font-size: 18px;
+  }
+  .theme_item {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    padding: 20px;
+    span {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  .title {
+    font-family: serif;
+    padding: 5px;
+  }
+}
 //QiTable
 .table-main{
   display: flex;

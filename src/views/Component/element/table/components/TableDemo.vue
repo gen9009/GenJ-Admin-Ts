@@ -62,7 +62,7 @@ const columns: ColumnProps[] = [
     width: 140,
     render: scope => {
       return (
-          <el-image src={scope.row.image} preview-src-list={[scope.row.image]} />
+          <el-image src={scope.row.image} preview-src-list={[scope.row.image]} preview-teleported/>
       );
     }
   },
