@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import QiSearchForm from '@/components/QiSearchForm/index.vue';
-import { ColumnProps,DictEnum } from './interface/index';
+import { ColumnProps, DictEnum } from './interface/index';
 import { ref, reactive, onMounted, provide, onBeforeMount } from 'vue';
 import { useTable } from './useTable';
 import Pagination from './components/Pagination.vue';
 import TableColumn from './components/TableColumn.vue';
 //[problem] 如果移除type, 外部ElTable样式加载失效
-import type  {ElTable,  TableProps } from 'element-plus';
+import type { ElTable, TableProps } from 'element-plus';
 //定义表格的 Props配置
 export interface QiTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
   columns: ColumnProps[]; // 列配置项
@@ -19,28 +19,28 @@ export interface QiTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
 //withDefaults 编译器宏
 const props = withDefaults(defineProps<QiTableProps>(), {
   columns: () => [],
-  border:true
+  border: true
 });
 // 定义dictMap 存储dict值
-const dictMap = ref(new Map<string,DictEnum[]>())
-provide("dictMap",dictMap)
-const setDict = async (col:ColumnProps)=>{
-  if(!col?.dict)return;
+const dictMap = ref(new Map<string, DictEnum[]>());
+provide('dictMap', dictMap);
+const setDict = async (col: ColumnProps) => {
+  if (!col?.dict) return;
   //x! 将从 x 值域中排除 null 和 undefined
-  if(typeof col.dict !== 'function')return dictMap.value.set(col.prop!,col.dict);
+  if (typeof col.dict !== 'function') return dictMap.value.set(col.prop!, col.dict);
   let { data } = await col.dict();
-  dictMap.value.set(col.prop!,data)
-}
+  dictMap.value.set(col.prop!, data);
+};
 
 // 过滤需要搜索的配置
 const searchColumns = props.columns.filter(item => item.search?.el);
 // 初始化需要搜索的默认值
-searchColumns.forEach((column,index)=>{
-  setDict(column)
-  if(column.search?.defaultValue??'' !== ''){
-    searchParams.value[column?.search?.key??column.prop] = column.search?.defaultValue
+searchColumns.forEach((column, index) => {
+  setDict(column);
+  if (column.search?.defaultValue ?? '' !== '') {
+    searchParams.value[column?.search?.key ?? column.prop] = column.search?.defaultValue;
   }
-})
+});
 const tableRef = ref<InstanceType<typeof ElTable>>();
 const { getTableList, tableData, pageable, searchParams, search, reset, handleSizeChange, handleCurrentChange } = useTable(props.requestApi);
 
@@ -54,7 +54,7 @@ defineExpose({
 
 <template>
   <!-- Search搜索区域 -->
-  <QiSearchForm :searchColumns="searchColumns" :searchParams='searchParams' :search="search" :reset="reset"></QiSearchForm>
+  <QiSearchForm :searchColumns="searchColumns" :searchParams="searchParams" :search="search" :reset="reset"></QiSearchForm>
   <!-- Table主体区域 -->
   <div class="table-main">
     <!-- 表格头部的操作按钮插槽 -->
@@ -86,10 +86,19 @@ defineExpose({
         <!-- 2-3、定义表格 columns配置的列 -->
         <!-- item.type存在时不会去渲染当前列 ['expand', 'selection','index'] -->
         <TableColumn v-if="!item.type && item.prop" :column="item">
-          <!-- 生成具名插槽,然后会插入到子组件中的default中,将slotName与item.prop两值比较，进行渲染 -->
+          <!--两种计算方式如下
+          1、生成具名作用域插槽, 2、<slot>内容插入到子组件, 3、render权重大于插槽 -->
           <template v-for="slot in Object.keys($slots)" :key="slot" #[slot]="scope">
             <slot :name="slot" v-bind="scope"></slot>
           </template>
+          <template v-if="Object.keys($slots).includes(item.prop)" :key="item.prop" #[item?.prop]="scope">
+            <slot :name="item.prop" v-bind="scope"></slot>
+          </template>
+          <!-- 例子
+          <template key="operation" #name="scope">
+            <ElButton type="primary" link>查看</ElButton>
+          </template>
+          -->
         </TableColumn>
       </template>
       <!-- 3、定义表格最后一行之后的插槽 -->

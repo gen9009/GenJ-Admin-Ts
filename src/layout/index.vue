@@ -7,8 +7,15 @@
           <el-header><Header></Header></el-header>
           <el-container direction="vertical">
             <Tabs v-if="globalStore.themeConfig.showTabs"></Tabs>
-            <el-main  class="router-content">
-              <router-view></router-view>
+            <el-main class="router-content">
+              <transition appear name="fade-transform" mode="out-in">
+                <!-- <router-view #default="{Component}">-->
+                <router-view v-slot="{ Component }">
+                  <keep-alive>
+                    <component :is="Component"></component>
+                  </keep-alive>
+                </router-view>
+              </transition>
             </el-main>
             <el-footer v-if="globalStore.themeConfig.showFooter"><Footer></Footer></el-footer>
           </el-container>
@@ -24,7 +31,7 @@ import Tabs from './Tabs/index.vue';
 import Footer from './Footer/index.vue';
 import { GlobalStore } from '@/store/modules/GlobalStore';
 import { MenuStore } from '@/store/modules/MenuStore';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 const menuStore = MenuStore();
 const isCollapse = computed((): boolean => menuStore.isCollapse);
 const globalStore = GlobalStore();
