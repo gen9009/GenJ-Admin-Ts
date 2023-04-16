@@ -23,11 +23,11 @@ import SelectTreeTable from './components/SelectTreeTable.vue'
   padding: 10px;
   display: grid;
   min-height: 100%;
-  grid-template-columns:  repeat(auto-fill,calc(100%));
+  grid-template-columns:  repeat(auto-fill,calc(70%));
   grid-gap: 5px;
   margin: auto;
   .item {
-    height: 300px;
+    height: 500px;
     border: 1px solid #eee;
     padding: 10px;
   }

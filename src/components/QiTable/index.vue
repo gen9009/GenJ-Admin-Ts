@@ -5,18 +5,21 @@ import { ref, reactive, onMounted, provide, onBeforeMount } from 'vue';
 import { useTable } from './useTable';
 import Pagination from './components/Pagination.vue';
 import TableColumn from './components/TableColumn.vue';
-import { ElTable, TableProps } from 'element-plus';
+//[problem] 如果移除type, 外部ElTable样式加载失效
+import type  {ElTable,  TableProps } from 'element-plus';
 //定义表格的 Props配置
 export interface QiTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
   columns: ColumnProps[]; // 列配置项
   requestApi: (params: any) => Promise<any>;
+  border?: boolean; // 是否带有纵向边框 ==> 非必传（默认为true）
 }
 // 父组件传递的参数
 // const props = defineProps<TableProps>() //基于类型声明 无法配置默认值
 // const props = defineProps({columns:{type:Array,required:true}}) // 运行时声明 配置基于vue语法配置且编译器无法推断类型
 //withDefaults 编译器宏
 const props = withDefaults(defineProps<QiTableProps>(), {
-  columns: () => []
+  columns: () => [],
+  border:true
 });
 // 定义dictMap 存储dict值
 const dictMap = ref(new Map<string,DictEnum[]>())
@@ -61,11 +64,15 @@ defineExpose({
       </div>
       <div class="table-main-header-right">
         <slot name="toolButton">
+          <ElButton>🔨</ElButton>
+          <ElButton>🔧</ElButton>
+          <ElButton>🗡</ElButton>
+          <ElButton>🔪</ElButton>
         </slot>
       </div>
     </div>
     <!-- ElTabel -->
-    <ElTable v-loading ref="tableRef" :data="tableData" style="width: 100%" v-bind="$attrs">
+    <ElTable v-loading ref="tableRef" :data="tableData" :border="border" v-bind="$attrs">
       <!-- 1、默认插槽 -->
       <slot></slot>
       <template v-for="item in props.columns" :key="item">
@@ -93,7 +100,7 @@ defineExpose({
       <!-- 4、定义无数据插槽 -->
       <template #empty>
         <slot name="empty">
-          <div>我就是暂无数据</div>
+          <div>👅👅👅我就是暂无数据🦷🦷🦷</div>
         </slot>
       </template>
     </ElTable>

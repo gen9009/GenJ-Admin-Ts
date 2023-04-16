@@ -8,11 +8,10 @@ import '@/styles/flex.scss';
 import '@/assets/iconfont/iconfont.css';
 import { directives } from '@/directives/index';
 import { componments } from '@/components/index';
-
 //Vue3 挂在全局变量
 // app.config.globalProperties
 
 import router from '@/routers/index';
 import pinia from '@/utils/piniaState';
 
-createApp(App).use(router).use(pinia).use(directives).mount('#app');
+createApp(App).use(router).use(pinia).use(directives).use(componments).mount('#app');

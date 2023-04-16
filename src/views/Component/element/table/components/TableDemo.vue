@@ -2,7 +2,7 @@
 import { getList } from '@/service/modules/table';
 import { getDictApi } from '@/service/modules/dict';
 import { ColumnProps } from '@/components/QiTable/interface';
-import { ElMessage } from 'element-plus';
+import { ElMessage,ElButton } from 'element-plus';
 const columns: ColumnProps[] = [
   // {type:'selection', width: 40, fixed: "left"},// select多选框
   { type: 'index', label: '序号', width: 60 }, //index序号
@@ -31,9 +31,16 @@ const columns: ColumnProps[] = [
     }
   }, //普通列
   {
-    prop: 'name',
-    label: '名称',
-    width: 80,
+    prop: 'color',
+    label: '颜色',
+    width: 140,
+    render: scope => {
+      return (
+         <ElButton type="primary" plain style={{'boxShadow':scope.row.color}}  onClick={() => {
+            ElMessage.success('tsx渲染单元格');
+          }}>🫵🏼</ElButton>
+      );
+    },
     // 字典请求为枚举数据
     // dict:[
     //   {code:0,value:'大哥'},
@@ -45,32 +52,26 @@ const columns: ColumnProps[] = [
     // 字典请求携带参数
     // dict: () => getUserGender({ id: 1 }),
 
-    search: { el: 'select', span: 10, }
+    search: { el: 'select' }
   }, //搜索列
-  { prop: 'name', label: '名称', width: 80,   dict: getDictApi, search: { el: 'select-v2',span: 8, } }, //搜索 
+  { prop: 'number', label: '数字', width: 120,   dict: getDictApi, search: { el: 'select-v2' } }, //搜索 
   // // tsx渲染列
   {
     prop: 'image',
     label: '图片',
-    width: 80,
+    width: 140,
     render: scope => {
       return (
-        // <><img src={scope.row.image}  onClick={()=>{ElMessage.success('tsx渲染列')}}></img></>
-        <>
-          {' '}
           <el-image src={scope.row.image} preview-src-list={[scope.row.image]} />
-        </>
       );
     }
   },
-  // placeholder={props.column.search?.props.placeholder}
-
   // tsx渲染表头
   {
     prop: 'time',
     label: '时间',
-    width: 120,
-    search: { el: 'time-picker' },
+    width: 220,
+    search: { el: 'time-picker' , span: 12,},
     headerRender: row => {
       return (
         <el-button
@@ -82,7 +83,8 @@ const columns: ColumnProps[] = [
         </el-button>
       );
     }
-  }
+  },
+  { prop: "operation", label: "操作", fixed: "right", width: 220 }
 ];
 
 const getTableList = (params: any) => {
@@ -90,17 +92,22 @@ const getTableList = (params: any) => {
 };
 </script>
 <template>
-  <ElRow>
-    <ElCol :span="20">
-      <QiTable :columns="columns" :requestApi="getTableList">
+      <QiTable :columns="columns" :requestApi="getTableList" height="300px">
+        <template #tableHeader="scope">
+        <el-button type="primary">新增</el-button>
+        <el-button type="primary">🍔</el-button>
+      </template>
         <!-- Expand -->
         <template #expand="scope">
           {{ scope.row.expand }}
         </template>
+        <template #operation="scope">
+        <ElButton type="primary" link>查看</ElButton>
+        <ElButton type="primary" link>编辑</ElButton>
+        <ElButton type="primary" link>详情</ElButton>
+        <ElButton type="primary" link>删除</ElButton>
+      </template>
       </QiTable>
-    </ElCol>
-    <ElCol :span="4"> </ElCol>
-  </ElRow>
 </template>
 
 <style lang="scss" scoped></style>
