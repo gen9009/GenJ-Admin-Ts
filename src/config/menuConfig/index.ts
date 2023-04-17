@@ -15,8 +15,8 @@ const NavTabs: Menu.MenuNav[] = [
   {
     title: '首页',
     icon: '',
-    active:true,
-    menu: HomeMenu 
+    active: true,
+    menu: HomeMenu
   },
   {
     title: '组件',

@@ -2,7 +2,7 @@ declare namespace Menu {
   interface MenuNav {
     title: string; // 标题
     icon: string; //  router 图标
-    active?:boolean;// 是否激活
+    active?: boolean; // 是否激活
     menu: MenuOptions[]; //router 路由
   }
 
@@ -35,8 +35,8 @@ declare namespace Theme {
 declare type Recordable<T = any> = Record<string, T>;
 
 declare interface ViteEnv {
-	VITE_API_URL: string;
-	VITE_PORT: number;
-	VITE_OPEN: boolean;
-	VITE_GLOB_TITLE: string;
+  VITE_API_URL: string;
+  VITE_PORT: number;
+  VITE_OPEN: boolean;
+  VITE_GLOB_TITLE: string;
 }

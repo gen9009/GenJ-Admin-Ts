@@ -3,12 +3,10 @@
     <div class="item">
       <QiSliderVue2></QiSliderVue2>
     </div>
-    <div class="item">
-    </div>
+    <div class="item"></div>
   </div>
 </template>
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 <style lang="scss" scoped>
 .slider-moudle {
   display: grid;

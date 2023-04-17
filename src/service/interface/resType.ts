@@ -1,3 +1,3 @@
 export interface ResTest {
-  test:any
+  test: any;
 }

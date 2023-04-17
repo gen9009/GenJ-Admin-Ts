@@ -18,9 +18,9 @@ const props = withDefaults(defineProps<TableSearchProps>(), {
   <div class="table-search" v-if="searchColumns.length">
     <el-form :model="searchParams">
       <ElRow :gutter="16">
-      <!-- 搜索Item -->
+        <!-- 搜索Item -->
         <template v-bind="item" v-for="(item, index) in searchColumns" :key="item.prop">
-          <ElCol :span="item.search?.span??6">
+          <ElCol :span="item.search?.span ?? 6">
             <div class="qi-search-form-item">
               <el-form-item :label="item.label">
                 <QiSearchFormItem :column="item" :searchParams="searchParams"></QiSearchFormItem>

@@ -1,11 +1,11 @@
 <template>
   <div class="slider-main" ref="slider" @click="mainClick($event)">
-    <div class="slider-bar" :style='{ "width": barSize}'></div>
+    <div class="slider-bar" :style="{ width: barSize }"></div>
     <slider-button ref="button" v-model="firstValue"></slider-button>
   </div>
 </template>
 <script setup lang="ts">
-import { computed, ref, onMounted, onBeforeUnmount,provide,watch } from 'vue';
+import { computed, ref, onMounted, onBeforeUnmount, provide, watch } from 'vue';
 import SliderButton from './button.vue';
 // 一个简易的滑块组件
 /*
@@ -26,13 +26,13 @@ const props = defineProps({
     default: 0
   },
   min: {
-    type:Number ,
-    default:0,
+    type: Number,
+    default: 0
   },
   max: {
-    type:Number ,
-    default:100,
-  },
+    type: Number,
+    default: 100
+  }
 });
 const emit = defineEmits(['update:modelValue']);
 const slider = ref();
@@ -41,21 +41,26 @@ const sliderSize = ref<number>(1); //sliderMain整体长度
 const firstValue = ref<number>(0); //value 取名firstValue 是因为会有双向滑块组件需求
 
 // bar [problem] 如何将barStyle赋予style?
-const barStyle = computed(() => ({ "width": barSize}));
-const barSize = computed(() => (`${ 100 * (firstValue.value - props.min) / (props.max - props.min) }%`))
+const barStyle = computed(() => ({ width: barSize }));
+const barSize = computed(() => `${(100 * (firstValue.value - props.min)) / (props.max - props.min)}%`);
 onMounted(() => {
   window.addEventListener('resize', resizeSize);
 });
 onBeforeUnmount(() => {
   window.removeEventListener('resize', resizeSize);
 });
-watch(()=>firstValue.value,(newData)=>{
-  emit('update:modelValue', newData);
-
-})
-watch(()=>props.value,(newData)=>{
-  setValue()
-})
+watch(
+  () => firstValue.value,
+  newData => {
+    emit('update:modelValue', newData);
+  }
+);
+watch(
+  () => props.value,
+  newData => {
+    setValue();
+  }
+);
 // 点击主体
 const mainClick = (event: MouseEvent) => {
   resizeSize();
@@ -66,18 +71,18 @@ const mainClick = (event: MouseEvent) => {
 };
 const resizeSize = () => {
   slider.value && !(sliderSize.value = slider.value.clientWidth);
-  console.log('🚀::::::🐶','index',sliderSize.value)
+  console.log('🚀::::::🐶', 'index', sliderSize.value);
 };
 const setPosition = (percent: number): void => {
   button!.value!.setPosition(percent);
 };
-const setValue = ()=>{
-  firstValue.value = props.value
-}
-provide('min',props.min)
-provide('max',props.max)
-provide('sliderSize',sliderSize)
-provide('resizeSize',resizeSize)
+const setValue = () => {
+  firstValue.value = props.value;
+};
+provide('min', props.min);
+provide('max', props.max);
+provide('sliderSize', sliderSize);
+provide('resizeSize', resizeSize);
 </script>
 
 <style lang="scss" scoped>

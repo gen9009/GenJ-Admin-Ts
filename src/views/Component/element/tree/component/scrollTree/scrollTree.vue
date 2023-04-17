@@ -53,8 +53,7 @@ const data: Tree[] = [
   {
     label: 'Level one 7',
     children: treeChildren
-  },
-
+  }
 ];
 </script>
 <style lang="scss" scoped>
@@ -62,12 +61,12 @@ const data: Tree[] = [
   width: 100%;
   overflow: auto;
   height: 100%;
-  :deep(.el-tree){
+  :deep(.el-tree) {
     width: 100%;
     height: 100%;
     overflow: scroll;
   }
-  :deep(.el-tree>.el-tree-node ){
+  :deep(.el-tree > .el-tree-node) {
     display: inline-block;
     min-width: 100%;
   }

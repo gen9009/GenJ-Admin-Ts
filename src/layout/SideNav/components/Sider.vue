@@ -1,7 +1,7 @@
 <template>
   <div class="menu" :style="{ width: isCollapse ? '64px' : '170px' }">
     <div class="menu-header flex-jac" v-show="!isCollapse">GenJ-Admin</div>
-    <el-menu :default-active="activeMenu" :collapse="isCollapse" :collapse-transition="false" :unique-opened="true" :router="true"  class="el-menu-vertical-demo" :text-color="isDark?'#fff':'#000'" @close="handleClose">
+    <el-menu :default-active="activeMenu" :collapse="isCollapse" :collapse-transition="false" :unique-opened="true" :router="true" class="el-menu-vertical-demo" :text-color="isDark ? '#fff' : '#000'" @close="handleClose">
       <SiderItem :siderList="menu"></SiderItem>
     </el-menu>
   </div>
@@ -19,15 +19,15 @@ const props = defineProps(['menu']);
 const route = useRoute();
 const router = useRouter();
 const menuStore = MenuStore();
-const globalStore = GlobalStore()
+const globalStore = GlobalStore();
 const isCollapse = computed((): boolean => menuStore.isCollapse); //折叠状态
-const isDark = computed(()=>globalStore.themeConfig.isDark)
+const isDark = computed(() => globalStore.themeConfig.isDark);
 //激活的菜单路由
 let activeMenu = computed({
   get() {
     return route.path;
   },
-  set(value:string) {
+  set(value: string) {
     router.push({ path: value });
   }
 });

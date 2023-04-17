@@ -15,7 +15,7 @@ export const useTable = (api: (params: any) => Promise<any>) => {
       total: 0 //当前总数
     },
     //查询参数
-    searchParams: {} as {[key: string]: any},
+    searchParams: {} as { [key: string]: any },
     // 总参数(包含分页和查询参数)
     totalParam: {}
   });
@@ -49,35 +49,35 @@ export const useTable = (api: (params: any) => Promise<any>) => {
    * @return void
    * */
   const updatedTotalParam = () => {
-		state.totalParam = {};
-		// 处理查询参数，可以给查询参数加自定义前缀操作
-		let nowSearchParam: { [key: string]: any } = {};
-		// 防止手动清空输入框携带参数（这里可以自定义查询参数前缀）
-		for (let key in state.searchParams) {
-			// * 某些情况下参数为 false/0 也应该携带参数
-			if (state.searchParams[key] || state.searchParams[key] === false || state.searchParams[key] === 0) {
-				nowSearchParam[key] = state.searchParams[key];
-			}
-		}
-		Object.assign(state.totalParam, nowSearchParam,  pageParam.value );
-	};
+    state.totalParam = {};
+    // 处理查询参数，可以给查询参数加自定义前缀操作
+    let nowSearchParam: { [key: string]: any } = {};
+    // 防止手动清空输入框携带参数（这里可以自定义查询参数前缀）
+    for (let key in state.searchParams) {
+      // * 某些情况下参数为 false/0 也应该携带参数
+      if (state.searchParams[key] || state.searchParams[key] === false || state.searchParams[key] === 0) {
+        nowSearchParam[key] = state.searchParams[key];
+      }
+    }
+    Object.assign(state.totalParam, nowSearchParam, pageParam.value);
+  };
   /**
    * @description 表格数据搜索
    * @return void
    * */
   const search = () => {
     state.pageable.pageNum = 1;
-    updatedTotalParam()
+    updatedTotalParam();
     getTableList();
   };
   /**
    * @description 表格数据重置
    * @return void
    * */
-  const reset = (param: any) => {
-    state.pageable.pageNum = 1
+  const reset = () => {
+    state.pageable.pageNum = 1;
     state.searchParams = {};
-    updatedTotalParam()
+    updatedTotalParam();
     getTableList();
   };
 

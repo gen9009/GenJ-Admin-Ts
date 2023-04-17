@@ -12,13 +12,13 @@
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
-import { NavTabsStore} from '@/store/modules/NavTabsStore'
+import { NavTabsStore } from '@/store/modules/NavTabsStore';
 const emit = defineEmits(['switchNav']);
-const navTabsStore = NavTabsStore()
+const navTabsStore = NavTabsStore();
 //点击Tabs 跳转router
 const navTabsList = reactive(navTabsStore.navTabsList);
 const switchNav = (menuNav: Menu.MenuNav) => {
-  navTabsStore.switchNav(menuNav)
+  navTabsStore.switchNav(menuNav);
   emit('switchNav', menuNav);
 };
 </script>

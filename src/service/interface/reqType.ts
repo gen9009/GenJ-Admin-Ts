@@ -1,3 +1,3 @@
 export interface ReqTestParams {
-  testParams:any
+  testParams: any;
 }

@@ -11,12 +11,12 @@ export const NavTabsStore = defineStore({
   }),
   actions: {
     //切换Side
-    switchMenu(menu:any) {
+    switchMenu(menu: any) {
       this.menu = menu;
     },
     //切换Nav
     switchNav(menuNav: Menu.MenuNav) {
-      this.navTabsList.forEach((v:any) => {
+      this.navTabsList.forEach((v: any) => {
         v.active = menuNav.title == v.title ? true : false;
       });
     }

@@ -1,5 +1,5 @@
-import RequestHttp from "./service";
-import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
+import RequestHttp from './service';
+import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
 /* 
   封装思路
@@ -10,18 +10,30 @@ import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 */
 
 const config = {
- // 默认请求 通过环境变量设置
+  // 默认请求 通过环境变量设置
   baseURL: import.meta.env.VITE_API_URL as string,
   //设置超时时间
   timeout: 1000 * 60,
   //跨域允许携带凭证
   withCredentials: true,
-  interceptors:{
-    requsetInterceptors:(config:InternalAxiosRequestConfig)=>{console.log('🚀::::::🐶','实例请求拦截成功');return config},
-    requsetInterceptorsCatch:(error:any)=>{console.log('🚀::::::🐶','实例请求拦截失败');return error},
-    responseInterceptors:(config:AxiosResponse)=>{console.log('🚀::::::🐶','实例响应拦截成功');return config},
-    responseInterceptorsCatch:(error:any)=>{console.log('🚀::::::🐶','实例请求拦截成功');return error}
+  interceptors: {
+    requsetInterceptors: (config: InternalAxiosRequestConfig) => {
+      console.log('🚀::::::🐶', '实例请求拦截成功');
+      return config;
+    },
+    requsetInterceptorsCatch: (error: any) => {
+      console.log('🚀::::::🐶', '实例请求拦截失败');
+      return error;
+    },
+    responseInterceptors: (config: AxiosResponse) => {
+      console.log('🚀::::::🐶', '实例响应拦截成功');
+      return config;
+    },
+    responseInterceptorsCatch: (error: any) => {
+      console.log('🚀::::::🐶', '实例请求拦截成功');
+      return error;
+    }
   }
 };
 
-export default new RequestHttp( config )
+export default new RequestHttp(config);

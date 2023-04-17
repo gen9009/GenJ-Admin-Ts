@@ -16,6 +16,6 @@ import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
 
 // 注册必须的组件
-echarts.use([TitleComponent, TooltipComponent, GridComponent, DatasetComponent, TransformComponent, VisualMapComponent, BarChart, LabelLayout, UniversalTransition, CanvasRenderer, LineChart,PieChart]);
+echarts.use([TitleComponent, TooltipComponent, GridComponent, DatasetComponent, TransformComponent, VisualMapComponent, BarChart, LabelLayout, UniversalTransition, CanvasRenderer, LineChart, PieChart]);
 
 export default echarts;

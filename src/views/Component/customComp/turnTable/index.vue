@@ -9,7 +9,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import TurnTable1 from './component/turnTable1/turnTable1.vue'
+import TurnTable1 from './component/turnTable1/turnTable1.vue';
 </script>
 <style lang="scss" scoped>
 .turnTable-moudle {

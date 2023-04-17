@@ -27,9 +27,9 @@ const elementRouter: Array<RouteRecordRaw> = [
         meta: {
           title: 'Tree树'
         }
-      },
+      }
     ]
-  },
+  }
 ];
 
 export default elementRouter;

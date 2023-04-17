@@ -5,13 +5,13 @@ export const CanvasMenu = [
     icon: 'biaodanzujian-biaoge',
     children: [
       {
-        title: '图表',  
-        path: '/canvas/echarts/charts',
+        title: '图表',
+        path: '/canvas/echarts/charts'
       },
       {
         title: '组件',
-        path: '/canvas/echarts/comp',
-      },
+        path: '/canvas/echarts/comp'
+      }
     ]
   }
 ];

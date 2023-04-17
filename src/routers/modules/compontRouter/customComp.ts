@@ -33,9 +33,9 @@ const customCompRouter: Array<RouteRecordRaw> = [
         meta: {
           title: '弹窗'
         }
-      },
+      }
     ]
-  },
+  }
 ];
 
 export default customCompRouter;

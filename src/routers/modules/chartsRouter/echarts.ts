@@ -19,9 +19,9 @@ const echartsCompRouter: Array<RouteRecordRaw> = [
         meta: {
           title: '组件'
         }
-      },
+      }
     ]
-  },
+  }
 ];
 
 export default echartsCompRouter;

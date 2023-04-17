@@ -17,7 +17,7 @@ import ELSelect from './components/select.vue';
   padding: 10px;
   display: grid;
   min-height: 100%;
-  grid-template-columns: repeat(auto-fill,300px);
+  grid-template-columns: repeat(auto-fill, 300px);
   // grid-template-rows: repeat(4,1fr);
   grid-gap: 5px;
   margin: auto;

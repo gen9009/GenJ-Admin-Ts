@@ -1,13 +1,10 @@
 <template>
   <div class="dialog-moudle">
-    <div class="item">
-    </div>
-    <div class="item">
-    </div>
+    <div class="item"></div>
+    <div class="item"></div>
   </div>
 </template>
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 <style lang="scss" scoped>
 .dialog-moudle {
   display: grid;

@@ -3,22 +3,20 @@
     <div class="item">
       <Pie></Pie>
     </div>
-    <div class="item">
-    </div>
+    <div class="item"></div>
   </div>
 </template>
 <script setup lang="ts">
-import Pie from './pie/index.vue'
-import {ref,reactive} from 'vue';
-
+import Pie from './pie/index.vue';
+import { ref, reactive } from 'vue';
 </script>
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 #echarts_moudle {
   background-color: #fff;
   padding: 10px;
   display: grid;
   height: 100%;
-  grid-template-columns: repeat(auto-fill,300px);
+  grid-template-columns: repeat(auto-fill, 300px);
   // grid-template-rows: repeat(4,1fr);
   grid-gap: 5px;
   margin: auto;

@@ -25,15 +25,14 @@ import { ref } from 'vue';
 const scrollBox = ref();
 const scrollToBottom = () => {
   const height = scrollBox.value.scrollHeight;
-  const c = scrollBox.value.scrollTop
-  if(height-scrollBox.value.offsetHeight <= c){
+  const c = scrollBox.value.scrollTop;
+  if (height - scrollBox.value.offsetHeight <= c) {
     window.cancelAnimationFrame(c);
-  }else{
-    let step=Math.ceil((height-c)/16);
+  } else {
+    let step = Math.ceil((height - c) / 16);
     window.requestAnimationFrame(scrollToBottom);
-    scrollBox.value.scrollTo(0, c+step);
+    scrollBox.value.scrollTo(0, c + step);
   }
-  
 };
 
 const scrollToTop = () => {
@@ -46,9 +45,9 @@ const scrollToTop = () => {
   }
 };
 
-const scrollToSection = (id:string) => {
+const scrollToSection = (id: string) => {
   let section = document.getElementById(id);
-  section&&section.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  section && section.scrollIntoView({ behavior: 'smooth', block: 'end' });
 };
 </script>
 <style lang="scss" scoped>

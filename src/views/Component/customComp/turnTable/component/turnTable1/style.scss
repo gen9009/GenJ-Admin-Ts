@@ -7,58 +7,58 @@
   border: 1px solid #ccc;
   color: #000;
   overflow: hidden;
-  .text-box{
+  .text-box {
     position: absolute;
     display: flex;
     width: 200%;
     animation: move 5s linear infinite;
-    .text-content{
+    .text-content {
       width: 100%;
     }
   }
 
   @keyframes move {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 }
-.outher{
+.outher {
   position: relative;
   width: 100%;
   height: calc(100% - 20px);
   background-color: salmon;
-  border: 1px solid saddlebrown; 
+  border: 1px solid saddlebrown;
   cursor: pointer;
-  .cirle{ 
+  .cirle {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 50px;
     height: 50px;
     line-height: 50px;
     text-align: center;
     border-radius: 50%;
-    background-color:  rgb(237, 119, 0);
-    color:#fff;
+    background-color: rgb(237, 119, 0);
+    color: #fff;
     z-index: 2;
   }
-  .cirle::before{
+  .cirle::before {
     z-index: -1;
     position: absolute;
     top: -75px;
     left: 50%;
     transform: translateX(-50%);
-    content:'';
+    content: '';
     width: 0px;
     height: 0px;
     border-top: 50px solid transparent;
     border-left: 10px solid transparent;
-    border-bottom: 50px solid  rgb(237, 119, 0);
+    border-bottom: 50px solid rgb(237, 119, 0);
     border-right: 10px solid transparent;
   }
 }

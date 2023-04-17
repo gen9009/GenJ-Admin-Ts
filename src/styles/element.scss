@@ -108,7 +108,7 @@
   border: 0px;
 }
 .el-menu {
-  .el-sub-menu__title{
+  .el-sub-menu__title {
     border-left: 5px solid transparent;
   }
   .el-sub-menu__title:hover {
@@ -151,22 +151,21 @@
 }
 
 //SearchForm
-.table-search{
+.table-search {
   .el-form {
-    .el-row{
-     .el-col{
-      padding-top: 6px;
-      padding-bottom: 6px;
-     }
+    .el-row {
+      .el-col {
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
     }
-    .el-form-item{
+    .el-form-item {
       margin-bottom: 0;
-      .el-form-item__content>*{
+      .el-form-item__content > * {
         width: 100%;
       }
     }
   }
- 
 }
 //Theme
 .el-overlay {
@@ -206,11 +205,11 @@
   }
 }
 //QiTable
-.table-main{
+.table-main {
   display: flex;
   flex-flow: column;
   overflow: hidden;
-  .table-main-header{
+  .table-main-header {
     display: flex;
     justify-content: space-between;
     padding: 6px 0;
@@ -225,12 +224,12 @@
   .el-table__row {
     height: 45px;
     font-size: 14px;
-    .el-table__cell{
+    .el-table__cell {
       padding: 8px 0;
-      .el-image{
+      .el-image {
         height: calc(45px - 16px);
       }
-      img{
+      img {
         width: calc(45px - 16px);
         height: calc(45px - 16px);
         border-radius: 50%;
@@ -240,10 +239,9 @@
       display: inline;
     }
   }
-  .pagination{
+  .pagination {
     display: flex;
     justify-content: flex-end;
     padding: 6px 0;
   }
 }
-

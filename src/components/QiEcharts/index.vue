@@ -1,16 +1,16 @@
 <template>
-  <div ref="myChartElement" style="width:100%;height:100%"></div>
+  <div ref="myChartElement" style="width: 100%; height: 100%"></div>
 </template>
 <script setup lang="ts">
 import echarts from '@/utils/echarts';
 import { ref, reactive, onMounted, toRefs } from 'vue';
 
-const props= (defineProps({
-  option:{
-    type:Object,
-    default:{}
+const props = defineProps({
+  option: {
+    type: Object,
+    default: {}
   }
-}));
+});
 let myChartElement = ref<HTMLElement>();
 let myCharts = ref<any>();
 //初始化echarts

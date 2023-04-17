@@ -3,7 +3,7 @@
   <!-- https://github.com/xfy520/vue3-seamless-scroll -->
   <div class="autoplay_list">
     <el-button class="control_btn" type="primary" @click="controlStop">控制滚动</el-button>
-    <vue3-seamless-scroll :list="list" class="seamless-warp" v-model="isStop" :hover="true" :wheel="true" >
+    <vue3-seamless-scroll :list="list" class="seamless-warp" v-model="isStop" :hover="true" :wheel="true">
       <div class="list_item" v-for="item in list" :key="item">{{ item + 1 }}</div>
     </vue3-seamless-scroll>
   </div>
@@ -20,13 +20,13 @@ const controlStop = () => {
 <style lang="scss" scoped>
 .autoplay_list {
   height: 100%;
-  .control_btn{
+  .control_btn {
     height: 30px;
     margin-bottom: 10px;
   }
   .seamless-warp {
     height: calc(100% - 40px);
-    overflow:hidden;
+    overflow: hidden;
     .list_item {
       height: 30px;
       line-height: 30px;

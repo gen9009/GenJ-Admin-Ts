@@ -3,22 +3,18 @@
     <div class="item">
       <scrollTree></scrollTree>
     </div>
-    <div class="item">
-    </div>
-    <div class="item">
-    </div>
-    <div class="item">
-    </div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
   </div>
 </template>
 <script setup lang="ts">
-import scrollTree from './component/scrollTree/scrollTree.vue'
-
+import scrollTree from './component/scrollTree/scrollTree.vue';
 </script>
 <style lang="scss" scoped>
 #tree_moudle {
   display: grid;
-  grid-template-columns: repeat(auto-fill,300px);
+  grid-template-columns: repeat(auto-fill, 300px);
   grid-gap: 5px;
   min-height: 100%;
   margin: auto;

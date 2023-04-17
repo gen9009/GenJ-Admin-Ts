@@ -64,10 +64,10 @@ defineExpose({
       </div>
       <div class="table-main-header-right">
         <slot name="toolButton">
-          <ElButton>🔨</ElButton>
-          <ElButton>🔧</ElButton>
-          <ElButton>🗡</ElButton>
-          <ElButton>🔪</ElButton>
+          <ElButton plain>🔨</ElButton>
+          <ElButton plain>🔧</ElButton>
+          <ElButton plain>🗡</ElButton>
+          <ElButton plain>🔪</ElButton>
         </slot>
       </div>
     </div>

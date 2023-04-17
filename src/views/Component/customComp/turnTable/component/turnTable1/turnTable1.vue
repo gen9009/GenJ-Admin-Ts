@@ -13,7 +13,7 @@
       <div>2</div>
       <div>3</div>
       <div>4</div>
-      <div>5</div>  
+      <div>5</div>
     </div>
     <!-- 抽奖按钮 -->
     <div ref="luckDraw" @click="drawTurnTable" class="cirle">抽奖</div>

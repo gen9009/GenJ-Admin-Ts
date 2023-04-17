@@ -10,13 +10,12 @@ html.dark {
   --bg-color-dark-4: #434447;
   --bg-color-dark-5: #4f5154;
 
-
   // 自定义暗黑模式样式
-  .common-layout{
+  .common-layout {
     background-color: var(--bg-color-dark);
     // background-color: red;
     .header {
-      background-color: var(  --bg-color-dark-4);
+      background-color: var(--bg-color-dark-4);
       color: var(--text-color-dark);
     }
     #tab {
@@ -25,9 +24,9 @@ html.dark {
     .el-main.router-content {
       background-color: var(--bg-color-dark-2);
     }
-    .el-aside{
+    .el-aside {
       color: var(--text-color-dark);
-      .menu{
+      .menu {
         background-color: var(--main-bg-color);
       }
     }
@@ -36,7 +35,6 @@ html.dark {
       color: var(--text-color-dark);
     }
   }
-  
 
   .color_theme {
     .el-drawer__header {

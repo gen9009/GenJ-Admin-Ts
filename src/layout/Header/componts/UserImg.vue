@@ -17,7 +17,7 @@
   <PasswordDia ref="passRef"></PasswordDia>
 </template>
 <script setup lang="ts">
-import notAvatar from '@/assets/images/notAvatar.png'
+import notAvatar from '@/assets/images/notAvatar.png';
 import PasswordDia from './PasswordDia.vue';
 import UserInfoDia from './UserInfoDia.vue';
 import { reactive, ref } from 'vue';

@@ -10,8 +10,8 @@ const homeRouter: Array<RouteRecordRaw> = [
       {
         path: 'scroll',
         component: () => import('@/views/FunDemo/scroll.vue'),
-        meta: { title: '页面滚动' },
-      },
+        meta: { title: '页面滚动' }
+      }
     ]
   }
 ];

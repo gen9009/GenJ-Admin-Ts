@@ -4,9 +4,9 @@
 <script setup lang="ts">
 import { testApi } from '@/service/modules/test';
 import { onMounted } from 'vue';
-onMounted(()=>{
-  testApi({testParams:'123'})
-})
+onMounted(() => {
+  testApi({ testParams: '123' });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -18,12 +18,12 @@ img {
   width: 80%;
   height: 80%;
 }
-.tab{
+.tab {
   display: flex;
   width: 100px;
   background-color: bisque;
   overflow: auto;
-  div{
+  div {
     width: max-content;
     padding: 0 20px;
     background-color: burlywood;

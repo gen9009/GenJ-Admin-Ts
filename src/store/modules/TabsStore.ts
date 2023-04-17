@@ -16,7 +16,7 @@ export const TabsStore = defineStore({
     },
     //删除当前Tab
     removeCurrentTab() {
-      if(this.TabsCurrent == HOME_URL)return;
+      if (this.TabsCurrent == HOME_URL) return;
       let tabIndex = this.TabsList.findIndex(v => v.path === this.TabsCurrent);
       let nextPath = tabIndex === this.TabsList.length - 1 ? this.TabsList[tabIndex - 1].path : this.TabsList[tabIndex + 1].path;
       router.push(nextPath);
@@ -41,8 +41,8 @@ export const TabsStore = defineStore({
     },
     addTabBtn(tab: Menu.MenuOptions) {
       //过滤掉已存在和黑名单
-      if (TABS_BLACK.find((v:any) => v === tab.path)) return;
-      if (this.TabsList.find((v:any) => v.path === tab.path)) return;
+      if (TABS_BLACK.find((v: any) => v === tab.path)) return;
+      if (this.TabsList.find((v: any) => v.path === tab.path)) return;
       this.TabsList.push(tab);
     }
   },
