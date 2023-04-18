@@ -1,11 +1,11 @@
 <template>
-  <div id="scroll_demo">
+  <div id="scroll-demo">
     <div class="item">
       <h5>scrollTo🔨</h5>
       <div ref="scrollBox" class="scrollBox">
         <div class="jsScroll">
-          <el-button @click="scrollToBottom" class="top_button">丝滑到底</el-button>
-          <el-button @click="scrollToTop" class="bottom_button">返回顶部</el-button>
+          <el-button @click="scrollToBottom" class="top-button">丝滑到底</el-button>
+          <el-button @click="scrollToTop" class="bottom-button">返回顶部</el-button>
         </div>
       </div>
     </div>
@@ -13,8 +13,8 @@
       <h5>scrollIntoView🔧</h5>
       <div class="scrollBox">
         <div class="cssScroll">
-          <el-button class="top_button" id="top" @click="scrollToSection('bottom')">丝滑到底</el-button>
-          <el-button class="bottom_button" id="bottom" @click="scrollToSection('top')">返回顶部</el-button>
+          <el-button class="top-button" id="top" @click="scrollToSection('bottom')">丝滑到底</el-button>
+          <el-button class="bottom-button" id="bottom" @click="scrollToSection('top')">返回顶部</el-button>
         </div>
       </div>
     </div>
@@ -51,27 +51,28 @@ const scrollToSection = (id: string) => {
 };
 </script>
 <style lang="scss" scoped>
-#scroll_demo {
-  scroll-behavior: smooth;
-  padding: 10px;
+#scroll-demo {
   display: grid;
-  height: 100%;
   grid-template-columns: repeat(auto-fill, 300px);
+
   // grid-template-rows: repeat(4,1fr);
   grid-gap: 5px;
+  height: 100%;
+  padding: 10px;
   margin: auto;
+  scroll-behavior: smooth;
   .item {
     position: relative;
     height: 300px;
-    border: 1px solid #eee;
     padding: 10px;
+    border: 1px solid #eeeeee;
     h5 {
       position: absolute;
-      z-index: 2;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      z-index: 2;
       white-space: nowrap;
+      transform: translate(-50%, -50%);
     }
   }
 }
@@ -82,21 +83,19 @@ const scrollToSection = (id: string) => {
   .jsScroll,
   .cssScroll {
     position: relative;
-
     height: 1000%;
     background-image: linear-gradient(to bottom, var(--el-color-primary-light-9), var(--el-color-primary-light-1));
   }
   .cssScroll {
     scroll-behavior: smooth;
   }
-
-  .top_button {
+  .top-button {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
   }
-  .bottom_button {
+  .bottom-button {
     position: absolute;
     bottom: 0;
     left: 50%;

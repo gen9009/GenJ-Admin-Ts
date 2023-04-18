@@ -1,5 +1,5 @@
 <template>
-  <div id="tree_moudle">
+  <div id="tree-moudle">
     <div class="item">
       <scrollTree></scrollTree>
     </div>
@@ -12,17 +12,17 @@
 import scrollTree from './component/scrollTree/scrollTree.vue';
 </script>
 <style lang="scss" scoped>
-#tree_moudle {
+#tree-moudle {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
   grid-gap: 5px;
   min-height: 100%;
-  margin: auto;
   padding: 10px;
+  margin: auto;
   .item {
     height: 300px;
-    border: 1px solid #eee;
     padding: 10px;
+    border: 1px solid #eeeeee;
   }
 }
 </style>

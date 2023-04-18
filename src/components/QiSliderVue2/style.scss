@@ -14,11 +14,11 @@
   .slider-btn {
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
+    cursor: pointer;
     background-color: var(--el-color-primary-light-1);
     border-radius: 50%;
-    cursor: pointer;
+    transform: translate(-50%, -50%);
   }
 }

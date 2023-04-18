@@ -1,8 +1,10 @@
-//按需导入需要手动引入 message 与 loading 样式
+// 按需导入需要手动引入 message 与 loading 样式
 @use 'element-plus/theme-chalk/el-loading.css';
 @use 'element-plus/theme-chalk/el-message.css';
+
 // Element的Dark 样式
 @use 'element-plus/theme-chalk/dark/css-vars.css';
+
 // 其他结构的Dark 样式
 @use '@/styles/element-dark.scss';
 
@@ -92,38 +94,37 @@
     --el-border: var(--el-border-width) var(--el-border-style) var(--el-border-color);
     --el-svg-monochrome-grey: var(--el-border-color);
 */
-
 .el-tabs--card > .el-tabs__header .el-tabs__nav {
-  border: 0px !important;
+  border: 0 !important;
 }
 .el-tabs--card > .el-tabs__header .el-tabs__item {
-  border-left: 0px !important;
   margin-right: 5px;
+  border-left: 0 !important;
   border-radius: 5px;
 }
 .el-tabs--card > .el-tabs__header {
-  border-bottom: 0px !important;
+  border-bottom: 0 !important;
 }
 .el-tabs--card > .el-tabs__header .el-tabs__item.is-active {
-  border: 0px;
+  border: 0;
 }
 .el-menu {
   .el-sub-menu__title {
     border-left: 5px solid transparent;
   }
   .el-sub-menu__title:hover {
-    border-left: 5px solid var(--el-color-primary-light-1);
     background-color: var(--el-color-primary-light-5);
+    border-left: 5px solid var(--el-color-primary-light-1);
   }
   .el-menu-item {
     box-sizing: border-box;
-    font-size: 14px !important;
-    height: 50px !important;
     min-width: 170px !important;
+    height: 50px !important;
+    font-size: 14px !important;
     border-left: 5px solid transparent;
     &:hover:hover {
-      border-left: 5px solid var(--el-color-primary-light-1);
       background-color: var(--el-color-primary-light-5);
+      border-left: 5px solid var(--el-color-primary-light-1);
     }
     &.is-active {
       background-color: var(--el-color-primary-light-7);
@@ -133,24 +134,23 @@
     .el-sub-menu > span.iconfont,
     .el-sub-menu__title > span.iconfont,
     .el-menu-item .el-menu-tooltip__trigger > span.iconfont {
+      margin-right: 10px;
       font-size: 18px;
       font-weight: 700;
-      margin-right: 10px;
     }
   }
 }
-
 .el-menu--collapse > .el-menu-item > span,
 .el-menu--collapse > .el-sub-menu > .el-sub-menu__title > span.iconfont {
-  font-size: 18px;
   width: 18px;
   height: 18px;
+  margin-right: 0;
+  font-size: 18px;
   line-height: 18px;
   visibility: unset;
-  margin-right: 0px;
 }
 
-//SearchForm
+// SearchForm
 .table-search {
   .el-form {
     .el-row {
@@ -167,24 +167,25 @@
     }
   }
 }
-//Theme
+
+// Theme
 .el-overlay {
   backdrop-filter: blur(3px);
   .el-drawer {
-    color: #000;
+    color: #000000;
   }
   .el-drawer__header {
-    margin: 0;
     padding: 0;
     padding: 10px;
-    border-bottom: 1px solid rgb(241, 241, 241);
+    margin: 0;
+    border-bottom: 1px solid rgb(241 241 241);
     .el-drawer__title {
       font-size: 16px;
     }
   }
   .el-drawer__body {
-    color: #000;
     font-size: 16px;
+    color: #000000;
   }
   .el-divider__text {
     font-size: 18px;
@@ -200,11 +201,12 @@
     }
   }
   .title {
-    font-family: serif;
     padding: 5px;
+    font-family: serif;
   }
 }
-//QiTable
+
+// QiTable
 .table-main {
   display: flex;
   flex-flow: column;

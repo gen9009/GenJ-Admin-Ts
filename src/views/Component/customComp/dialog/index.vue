@@ -14,8 +14,8 @@
   padding: 10px;
   .item {
     height: 300px;
-    border: 1px solid #eee;
     padding: 5px;
+    border: 1px solid #eeeeee;
   }
 }
 </style>

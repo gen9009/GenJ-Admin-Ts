@@ -1,5 +1,5 @@
 <template>
-  <div id="form_moudle">
+  <div id="form-moudle">
     <div class="item">
       <ELInput></ELInput>
     </div>
@@ -13,18 +13,19 @@ import ELInput from './components/input.vue';
 import ELSelect from './components/select.vue';
 </script>
 <style lang="scss" scoped>
-#form_moudle {
-  padding: 10px;
+#form-moudle {
   display: grid;
-  min-height: 100%;
   grid-template-columns: repeat(auto-fill, 300px);
+
   // grid-template-rows: repeat(4,1fr);
   grid-gap: 5px;
+  min-height: 100%;
+  padding: 10px;
   margin: auto;
   .item {
     height: 300px;
-    border: 1px solid #eee;
     padding: 10px;
+    border: 1px solid #eeeeee;
   }
 }
 </style>

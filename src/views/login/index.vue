@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="login_form">
+    <div class="login-form">
       <el-form ref="loginRef" :model="loginForm" :rules="loginRules" class="demo-ruleForm" status-icon>
         <el-form-item prop="userName">
           <el-input v-model="loginForm.userName" placeholder="请输入账号">

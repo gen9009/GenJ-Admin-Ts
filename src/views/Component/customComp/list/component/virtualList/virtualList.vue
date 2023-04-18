@@ -5,7 +5,7 @@
     infinite-list 为列表项的渲染区域
     -->
   <!-- https://juejin.cn/post/6844903982742110216#comment -->
-  <div class="virtual_list">
+  <div class="virtual-list">
     <div ref="listRef" class="infinite-list-container" @scroll="scrollEvent()">
       <div class="infinite-list-phantom" :style="{ height: listHeight + 'px' }">
         <div class="infinite-list" :style="{ transform: `translate3d(0,${startOffset}px,0)` }">
@@ -51,21 +51,21 @@ let scrollEvent = () => {
 };
 </script>
 <style lang="scss" scoped>
-.virtual_list {
+.virtual-list {
   height: 100%;
   .infinite-list-container {
-    overflow: auto;
     height: 100%;
+    overflow: auto;
     .infinite-list-phantom {
       // height: 100%;
-      background-color: #eee;
+      background-color: #eeeeee;
       .infinite-list {
         height: 100%;
         .item {
           width: 100%;
           text-align: center;
-          background-color: #fff;
-          border: 1px dashed #eee;
+          background-color: #ffffff;
+          border: 1px dashed #eeeeee;
         }
       }
     }

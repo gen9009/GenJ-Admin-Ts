@@ -1,8 +1,8 @@
 /* 自定义 element 暗黑模式样式 */
 html.dark {
-  --main-bg-color: rgb(36, 36, 36);
-  --bord-color-dark: rgb(108, 110, 114);
-  --text-color-dark: rgb(255, 255, 255);
+  --main-bg-color: rgb(36 36 36);
+  --bord-color-dark: rgb(108 110 114);
+  --text-color-dark: rgb(255 255 255);
   --bg-color-dark: #191a20;
   --bg-color-dark-1: #191a20;
   --bg-color-dark-2: #2b2c2e;
@@ -13,10 +13,11 @@ html.dark {
   // 自定义暗黑模式样式
   .common-layout {
     background-color: var(--bg-color-dark);
+
     // background-color: red;
     .header {
-      background-color: var(--bg-color-dark-4);
       color: var(--text-color-dark);
+      background-color: var(--bg-color-dark-4);
     }
     #tab {
       background-color: var(--bg-color-dark-3);
@@ -31,18 +32,16 @@ html.dark {
       }
     }
     .el-footer {
-      background-color: var(--bg-color-dark-2);
       color: var(--text-color-dark);
+      background-color: var(--bg-color-dark-2);
     }
   }
-
   .color_theme {
     .el-drawer__header {
       color: var(--text-color-dark);
       border-bottom: 1px solid var(--el-border-color) !important;
     }
   }
-
   .theme_item span {
     color: var(--text-color-dark);
   }

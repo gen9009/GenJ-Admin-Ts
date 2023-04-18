@@ -1,14 +1,14 @@
 #tab {
-  background-color: #fff;
+  z-index: 1;
   height: 45px;
   padding: 5px 10px 0;
+  background-color: #ffffff;
   box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
-  z-index: 1;
 }
 .el-tabs {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   height: 40px;
   :deep(.el-tabs__header) {
     margin: 0 !important;
@@ -16,7 +16,7 @@
       .el-tabs__item {
         margin-right: -20px !important;
         &:last-child {
-          margin-right: 0px !important;
+          margin-right: 0 !important;
         }
       }
     }

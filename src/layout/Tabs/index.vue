@@ -4,7 +4,7 @@
       <el-tab-pane v-for="item in tabsList" :key="item.title" :closable="item.close" :label="item.title" :name="item.path">
         <template #label v-if="item.path === HOME_URL">
           <span class="custom-tabs-label">
-            <span class="iconfont" :class="`icon-${item.icon}`" style="font-size: 18px; margin-right: 6px; vertical-align: bottom"></span>
+            <span class="iconfont" :class="`icon-${item.icon}`" style="margin-right: 6px; font-size: 18px; vertical-align: bottom"></span>
             <span> {{ item.title }}</span>
           </span>
         </template>
@@ -129,23 +129,23 @@ const doTabOption = (commandInfo: string) => {
 </script>
 <style lang="scss" scoped>
 @use 'style.scss';
-//Tab active 样式
+
+// Tab active 样式
 :deep(.el-tabs--card > .el-tabs__header .el-tabs__item.is-active) {
-  mask: v-bind(markUrl);
-  -webkit-mask: v-bind(markUrl);
-  mask-size: 100% 100%;
-  -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   background-color: var(--el-color-primary-light-7);
-  transition: all 0.2s ease;
-}
-//Tab hover 样式
-:deep(.el-tabs--card > .el-tabs__header .el-tabs__item:hover) {
   mask: v-bind(markUrl);
-  -webkit-mask: v-bind(markUrl);
-  mask-size: 100% 100%;
-  -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
-  padding: 0 20px 0px;
-  background-color: var(--el-color-primary-light-5);
   transition: all 0.2s ease;
+  mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
+  mask-size: 100% 100%;
+}
+
+// Tab hover 样式
+:deep(.el-tabs--card > .el-tabs__header .el-tabs__item:hover) {
+  padding: 0 20px;
+  background-color: var(--el-color-primary-light-5);
+  mask: v-bind(markUrl);
+  transition: all 0.2s ease;
+  mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
+  mask-size: 100% 100%;
 }
 </style>

@@ -13,8 +13,8 @@ const locale = zhCn;
 #app,
 html,
 body {
-  height: 100%;
   width: 100%;
-  background-color: #000;
+  height: 100%;
+  background-color: #000000;
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
-  <div class="nav_tabs">
-    <div class="nav_tabs_header flex-jac">
+  <div class="nav-tabs">
+    <div class="nav-tabs-header flex-jac">
       <img src="@/assets/images/avatar.png" alt="" />
     </div>
-    <div class="nav_tabs_content flex-ac flex-col">
-      <div :class="{ active: item.active }" class="nav_tabs_item" v-for="(item, index) in navTabsList" :key="index" @click="switchNav(item)">
-        <div class="nav_tabs_title">{{ item.title }}</div>
+    <div class="nav-tabs-content flex-ac flex-col">
+      <div :class="{ active: item.active }" class="nav-tabs-item" v-for="(item, index) in navTabsList" :key="index" @click="switchNav(item)">
+        <div class="nav-tabs-title">{{ item.title }}</div>
       </div>
     </div>
   </div>

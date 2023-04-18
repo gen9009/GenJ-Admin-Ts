@@ -1,5 +1,5 @@
 <template>
-  <div id="table_moudle">
+  <div id="table-moudle">
     <div class="item">
       <TableDemo></TableDemo>
     </div>
@@ -19,17 +19,17 @@ import TableDemo from './components/TableDemo.vue';
 import SelectTreeTable from './components/SelectTreeTable.vue';
 </script>
 <style lang="scss" scoped>
-#table_moudle {
-  padding: 10px;
+#table-moudle {
   display: grid;
-  min-height: 100%;
   grid-template-columns: repeat(auto-fill, calc(70%));
   grid-gap: 5px;
+  min-height: 100%;
+  padding: 10px;
   margin: auto;
   .item {
     height: 500px;
-    border: 1px solid #eee;
     padding: 10px;
+    border: 1px solid #eeeeee;
   }
 }
 </style>

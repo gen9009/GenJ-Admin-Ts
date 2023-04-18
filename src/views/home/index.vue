@@ -14,15 +14,15 @@ img {
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 80%;
   height: 80%;
+  transform: translate(-50%, -50%);
 }
 .tab {
   display: flex;
   width: 100px;
-  background-color: bisque;
   overflow: auto;
+  background-color: bisque;
   div {
     width: max-content;
     padding: 0 20px;

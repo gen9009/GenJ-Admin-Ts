@@ -18,11 +18,11 @@ import TurnTable1 from './component/turnTable1/turnTable1.vue';
   grid-gap: 5px;
   height: 100%;
   padding: 10px;
-  background-color: #fff;
+  background-color: #ffffff;
   .item {
     height: 300px;
-    border: 1px solid #eee;
     padding: 5px;
+    border: 1px solid #eeeeee;
   }
 }
 </style>

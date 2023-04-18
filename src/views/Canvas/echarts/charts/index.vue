@@ -1,5 +1,5 @@
 <template>
-  <div id="echarts_moudle">
+  <div id="echarts-moudle">
     <div class="item">
       <Pie></Pie>
     </div>
@@ -8,22 +8,22 @@
 </template>
 <script setup lang="ts">
 import Pie from './pie/index.vue';
-import { ref, reactive } from 'vue';
 </script>
 <style lang="scss" scoped>
-#echarts_moudle {
-  background-color: #fff;
-  padding: 10px;
+#echarts-moudle {
   display: grid;
-  height: 100%;
   grid-template-columns: repeat(auto-fill, 300px);
+
   // grid-template-rows: repeat(4,1fr);
   grid-gap: 5px;
+  height: 100%;
+  padding: 10px;
   margin: auto;
+  background-color: #ffffff;
   .item {
     height: 300px;
-    border: 1px solid #eee;
     padding: 10px;
+    border: 1px solid #eeeeee;
   }
 }
 </style>

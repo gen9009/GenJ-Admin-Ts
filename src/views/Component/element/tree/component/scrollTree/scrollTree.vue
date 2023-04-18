@@ -59,8 +59,8 @@ const data: Tree[] = [
 <style lang="scss" scoped>
 .scroll-container {
   width: 100%;
-  overflow: auto;
   height: 100%;
+  overflow: auto;
   :deep(.el-tree) {
     width: 100%;
     height: 100%;

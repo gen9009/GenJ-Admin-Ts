@@ -4,46 +4,48 @@
 }
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
-  color: #000;
-  background-color: #fff;
+  color: #000000;
+  background-color: #ffffff;
+
   // z-index: 3;
   .logo {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100%;
+
     // border-right: 1px solid rgb(47, 47, 47);
     transition: all 0.2s ease;
     img {
       width: 40px;
     }
     .title {
-      font-weight: 900;
-      font-size: 18px;
       padding-left: 10px;
+      font-size: 18px;
+      font-weight: 900;
       white-space: nowrap;
     }
   }
   .comp {
-    flex: 1;
     display: flex;
-    justify-content: space-between;
+    flex: 1;
     align-items: center;
+    justify-content: space-between;
     height: 100%;
     margin-left: 10px;
   }
-  .comp_options {
+  .comp-options {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
     width: 300px;
     min-width: 250px;
   }
 }
 
 // ColorTheme
-//样式见 element.scss
+// 样式见 element.scss

@@ -4,26 +4,26 @@
     <Logo :isCollapse="menuStore.isCollapse" />
     <!-- Right 折叠 组件大小 中英翻译 换肤 全屏 账号切换-->
     <div class="comp">
-      <div class="comp_collapse">
-        <div class="collapse_controller" @click="menuStore.changeCollapse()">
+      <div class="comp-collapse">
+        <div class="collapse-controller" @click="menuStore.changeCollapse()">
           <i-ep-expand v-if="menuStore.isCollapse"></i-ep-expand>
           <i-ep-fold v-else></i-ep-fold>
         </div>
       </div>
-      <div class="comp_options">
-        <div class="comp_size">
+      <div class="comp-options">
+        <div class="comp-size">
           <CompSize></CompSize>
         </div>
         <div class="language">
           <Language></Language>
         </div>
-        <div class="color_theme">
+        <div class="color-theme">
           <Theme></Theme>
         </div>
-        <div class="full_screen">
+        <div class="full-screen">
           <FullScreen></FullScreen>
         </div>
-        <div class="user_change">
+        <div class="user-change">
           <UseImg></UseImg>
         </div>
       </div>
