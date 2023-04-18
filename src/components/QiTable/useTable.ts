@@ -3,8 +3,9 @@ import { computed, reactive, toRefs } from 'vue';
 
 /**
  *  @param {Funtion} api 获取表格数据api方法(必传)
+ *  @param {Object} tableParams 配置表格参数 比如是否开启Loading(非必传)
  **/
-export const useTable = (api: (params: any) => Promise<any>) => {
+export const useTable = (api: (params: any) => Promise<any>, tableParams?: any) => {
   const state = reactive({
     // 表格数据
     tableData: [],
@@ -14,10 +15,14 @@ export const useTable = (api: (params: any) => Promise<any>) => {
       pageSize: 10, //每页条数
       total: 0 //当前总数
     },
-    //查询参数
+    // 查询参数
     searchParams: {} as { [key: string]: any },
     // 总参数(包含分页和查询参数)
-    totalParam: {}
+    totalParam: {},
+    // 开启表格Loading 默认开启
+    hasLoading: tableParams?.hasLoading ?? true,
+    // 表格Loading效果
+    tableLoading: true
   });
   //分页参数
   const pageParam = computed({
@@ -35,7 +40,10 @@ export const useTable = (api: (params: any) => Promise<any>) => {
     try {
       //进行查询前 合并搜索参数
       Object.assign(state.totalParam, pageParam.value);
+      state.hasLoading && !(state.tableLoading = true);
       let { data } = await api({ ...state.totalParam });
+      state.hasLoading && !(state.tableLoading = false);
+
       state.tableData = data?.list;
       //更新分页模块参数
       let { total, pageNum, pageSize } = data;

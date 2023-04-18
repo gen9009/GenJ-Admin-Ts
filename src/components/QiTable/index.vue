@@ -42,11 +42,9 @@ searchColumns.forEach((column, index) => {
   }
 });
 const tableRef = ref<InstanceType<typeof ElTable>>();
-const { getTableList, tableData, pageable, searchParams, search, reset, handleSizeChange, handleCurrentChange } = useTable(props.requestApi);
+const { getTableList, tableData, pageable, searchParams,tableLoading, search, reset, handleSizeChange, handleCurrentChange } = useTable(props.requestApi);
 
-onMounted(() => {
-  getTableList();
-});
+onMounted(getTableList);
 defineExpose({
   el: tableRef
 });
@@ -72,7 +70,7 @@ defineExpose({
       </div>
     </div>
     <!-- ElTabel -->
-    <ElTable v-loading ref="tableRef" :data="tableData" :border="border" v-bind="$attrs">
+    <ElTable v-loading="tableLoading" ref="tableRef" :data="tableData" :border="border" v-bind="$attrs">
       <!-- 1、默认插槽 -->
       <slot></slot>
       <template v-for="item in props.columns" :key="item">
