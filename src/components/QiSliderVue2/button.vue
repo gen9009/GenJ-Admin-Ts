@@ -44,7 +44,7 @@ const onDragging = (event: MouseEvent) => {
   }
 };
 //鼠标弹起 关闭drag状态
-const onDragEnd = (event: MouseEvent) => {
+const onDragEnd = () => {
   if (dragging.value) {
     dragging.value = false;
   }

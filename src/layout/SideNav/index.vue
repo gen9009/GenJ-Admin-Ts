@@ -9,7 +9,7 @@
 <script lang="ts" setup>
 import NavTabs from './components/NavTabs.vue';
 import Sider from './components/Sider.vue';
-import { ComputedOptions, ref } from 'vue';
+import { ref } from 'vue';
 import { NavTabsStore } from '@/store/modules/NavTabsStore';
 const navTabsStore = NavTabsStore();
 const sider = ref<InstanceType<typeof Sider>>();

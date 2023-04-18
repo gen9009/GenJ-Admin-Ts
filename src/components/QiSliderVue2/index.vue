@@ -41,7 +41,6 @@ const sliderSize = ref<number>(1); //sliderMain整体长度
 const firstValue = ref<number>(0); //value 取名firstValue 是因为会有双向滑块组件需求
 
 // bar [problem] 如何将barStyle赋予style?
-const barStyle = computed(() => ({ width: barSize }));
 const barSize = computed(() => `${(100 * (firstValue.value - props.min)) / (props.max - props.min)}%`);
 onMounted(() => {
   window.addEventListener('resize', resizeSize);
@@ -57,7 +56,7 @@ watch(
 );
 watch(
   () => props.value,
-  newData => {
+  () => {
     setValue();
   }
 );

@@ -76,7 +76,7 @@ th {
 /* Removes quotation marks from q */
 q::before,
 q::after {
-  content: "";
+  content: '';
 }
 html,
 body {

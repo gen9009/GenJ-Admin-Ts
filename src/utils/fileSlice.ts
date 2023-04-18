@@ -8,10 +8,10 @@
   2、读取文件,文件片段生成唯一标识
   3、
 */
-export const imgSlice = (file: File, sliceSize: number) => {
-  const md5 = ''; //唯一标识
-  const { name, size: totalSize } = file;
-};
+// export const imgSlice = (file: File, sliceSize: number) => {
+//   const md5 = ''; //唯一标识
+//   const { name, size: totalSize } = file;
+// };
 
 /* 
   @actionsName imgSlice 图片文件切片上传
@@ -20,4 +20,4 @@ export const imgSlice = (file: File, sliceSize: number) => {
     使用规范 fileSlice(params).then(res=>{})
   总结:
 */
-export const fileSlice = (file: File, sliceSize: number) => {};
+// export const fileSlice = (file: File, sliceSize: number) => {};

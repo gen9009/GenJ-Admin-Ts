@@ -30,7 +30,7 @@
     n();
   }
   (h = function () {
-    var c,
+    let c,
       h = document.createElement('div');
     (h.innerHTML = e), (e = null), (h = h.getElementsByTagName('svg')[0]) && (h.setAttribute('aria-hidden', 'true'), (h.style.position = 'absolute'), (h.style.width = 0), (h.style.height = 0), (h.style.overflow = 'hidden'), (h = h), (c = document.body).firstChild ? i(h, c.firstChild) : c.appendChild(h));
   }),

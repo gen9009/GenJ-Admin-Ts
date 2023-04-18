@@ -1,5 +1,5 @@
 <script setup lang="tsx">
-import { ref, reactive, useSlots } from 'vue';
+import { useSlots } from 'vue';
 import { ColumnProps } from '../interface/index';
 import { ElTableColumn } from 'element-plus';
 defineProps<{ column: ColumnProps }>();

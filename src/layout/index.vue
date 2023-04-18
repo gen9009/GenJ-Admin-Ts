@@ -31,7 +31,7 @@ import Tabs from './Tabs/index.vue';
 import Footer from './Footer/index.vue';
 import { GlobalStore } from '@/store/modules/GlobalStore';
 import { MenuStore } from '@/store/modules/MenuStore';
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 const menuStore = MenuStore();
 const isCollapse = computed((): boolean => menuStore.isCollapse);
 const globalStore = GlobalStore();

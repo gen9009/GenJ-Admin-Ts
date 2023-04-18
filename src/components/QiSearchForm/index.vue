@@ -8,7 +8,7 @@ interface TableSearchProps {
   search: (params: any) => void; //搜索方法
   reset: (params: any) => void; //重置方法
 }
-const props = withDefaults(defineProps<TableSearchProps>(), {
+withDefaults(defineProps<TableSearchProps>(), {
   searchColumns: () => [],
   searchParams: () => ({})
 });
@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<TableSearchProps>(), {
     <el-form :model="searchParams">
       <ElRow :gutter="16">
         <!-- 搜索Item -->
-        <template v-bind="item" v-for="(item, index) in searchColumns" :key="item.prop">
+        <template v-bind="item" v-for="item in searchColumns" :key="item.prop">
           <ElCol :span="item.search?.span ?? 6">
             <div class="qi-search-form-item">
               <el-form-item :label="item.label">

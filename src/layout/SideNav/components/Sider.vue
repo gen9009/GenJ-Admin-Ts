@@ -15,7 +15,7 @@ import { MenuStore } from '@/store/modules/MenuStore';
 import { GlobalStore } from '@/store/modules/GlobalStore';
 import { computed } from 'vue';
 //获取 当前Tab 指定菜单
-const props = defineProps(['menu']);
+defineProps<{ menu: Menu.MenuOptions[] }>();
 const route = useRoute();
 const router = useRouter();
 const menuStore = MenuStore();

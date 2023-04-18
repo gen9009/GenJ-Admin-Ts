@@ -1,6 +1,4 @@
-<script setup>
-import { ref, reactive } from 'vue';
-</script>
+<script setup></script>
 <template>Form</template>
 
 <style lang="scss" scoped></style>

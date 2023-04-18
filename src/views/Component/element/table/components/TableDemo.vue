@@ -110,7 +110,7 @@ const selectRow = (selection: any, row: any) => {
 </script>
 <template>
   <QiTable :columns="columns" :requestApi="getTableList" height="300px" row-key="id" @select-all="selectAll" @selection-change="selectChange" @select="selectRow">
-    <template #tableHeader="scope">
+    <template #tableHeader>
       <ElButton type="primary">新增</ElButton>
       <ElButton type="primary">🍔</ElButton>
     </template>
@@ -118,7 +118,7 @@ const selectRow = (selection: any, row: any) => {
     <template #expand="scope">
       {{ scope.row.expand }}
     </template>
-    <template #operation="scope">
+    <template #operation>
       <ElButton type="primary" link>查看</ElButton>
       <ElButton type="primary" link>编辑</ElButton>
       <ElButton type="primary" link>详情</ElButton>

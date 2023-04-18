@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import QiSearchForm from '@/components/QiSearchForm/index.vue';
 import { ColumnProps, DictEnum } from './interface/index';
-import { ref, reactive, onMounted, provide, onBeforeMount } from 'vue';
+import { ref, onMounted, provide } from 'vue';
 import { useTable } from './useTable';
 import Pagination from './components/Pagination.vue';
 import TableColumn from './components/TableColumn.vue';
@@ -35,14 +35,14 @@ const setDict = async (col: ColumnProps) => {
 // 过滤需要搜索的配置
 const searchColumns = props.columns.filter(item => item.search?.el);
 // 初始化需要搜索的默认值
-searchColumns.forEach((column, index) => {
+searchColumns.forEach(column => {
   setDict(column);
   if (column.search?.defaultValue ?? '' !== '') {
     searchParams.value[column?.search?.key ?? column.prop] = column.search?.defaultValue;
   }
 });
 const tableRef = ref<InstanceType<typeof ElTable>>();
-const { getTableList, tableData, pageable, searchParams,tableLoading, search, reset, handleSizeChange, handleCurrentChange } = useTable(props.requestApi);
+const { getTableList, tableData, pageable, searchParams, tableLoading, search, reset, handleSizeChange, handleCurrentChange } = useTable(props.requestApi);
 
 onMounted(getTableList);
 defineExpose({

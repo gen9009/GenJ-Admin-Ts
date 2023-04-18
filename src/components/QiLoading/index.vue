@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import { ref, reactive } from 'vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="qi-loading">Loading XI</div>

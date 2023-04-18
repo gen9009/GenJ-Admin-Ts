@@ -7,11 +7,11 @@ export const NavTabsStore = defineStore({
   state: () => ({
     //存放当前NavTabs
     navTabsList: NavTabs,
-    menu: HomeMenu
+    menu: HomeMenu as Menu.MenuOptions[]
   }),
   actions: {
     //切换Side
-    switchMenu(menu: any) {
+    switchMenu(menu: Menu.MenuOptions[]) {
       this.menu = menu;
     },
     //切换Nav

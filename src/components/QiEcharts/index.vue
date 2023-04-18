@@ -3,12 +3,12 @@
 </template>
 <script setup lang="ts">
 import echarts from '@/utils/echarts';
-import { ref, reactive, onMounted, toRefs } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const props = defineProps({
   option: {
     type: Object,
-    default: {}
+    default: () => ({})
   }
 });
 let myChartElement = ref<HTMLElement>();

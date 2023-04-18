@@ -20,7 +20,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 const luckDraw = ref<HTMLElement>();
 //抽奖点击事件
 const drawTurnTable = () => {

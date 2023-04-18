@@ -1,9 +1,8 @@
 <script setup lang="tsx">
 // 如果全局引入则不需导入 如果是自动导入和按需导入则需要导入
 import { ElInput, ElSelect, ElOption } from 'element-plus';
-import { ColumnProps, SearchType, DictEnum } from '@/components/QiTable/interface';
+import { ColumnProps, DictEnum } from '@/components/QiTable/interface';
 import { inject, onBeforeMount, ref, onMounted } from 'vue';
-import { getDictApi } from '@/service/modules/dict';
 
 interface SearchFormItemProps {
   column: ColumnProps;
@@ -22,7 +21,7 @@ const props = withDefaults(defineProps<SearchFormItemProps>(), {
 const dictMap = inject('dictMap', ref(new Map<string, DictEnum[]>()));
 // 方便自定义节点
 const renderFormItem = (column: ColumnProps) => {
-  switch (column.search?.el!) {
+  switch (column.search!.el) {
     case 'input':
       return renderInput(column);
     case 'select':
@@ -64,9 +63,9 @@ const renderSelectV2 = (column: ColumnProps) => {
     <ElSelectV2 v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请选择'} {...handleSearchProps(column)} options={(dictMap.value.get(column.prop!) ?? []).map(v => ({ value: v.code, label: v.value }))}></ElSelectV2>
   );
 };
-const renderCascader = (column: ColumnProps) => {
-  return <>renderCascader</>;
-};
+// const renderCascader = (column: ColumnProps) => {
+//   return <>renderCascader</>;
+// };
 // 将search.props表单属性 透传至定义的表单中, el 为 tree-select、cascader 的时候需要给下默认 label 和 value
 const handleSearchProps = (column: ColumnProps) => {
   const searchProps = column.search?.props ?? {};

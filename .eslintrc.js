@@ -27,6 +27,9 @@ module.exports = {
      * "warn" 或 1   ==>  打开的规则作为警告（不影响代码执行）
      * "error" 或 2  ==>  规则作为一个错误（代码不能执行，界面报错）
      */
+    'vue/v-on-event-hyphenation': 'off', // 禁止自定义事件使用v-on和@时 要求事件名为 “-” 衔接
+    'vue/no-useless-template-attributes': 'off', // 禁止<template>无法定义属性
+    'vue/no-template-key': 'off', // 禁止<template>无法定义key
     'no-var': 'error', // 要求使用 let 或 const 而不是 var
     '@typescript-eslint/no-unused-vars': 'error', // 禁止定义未使用的变量
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',

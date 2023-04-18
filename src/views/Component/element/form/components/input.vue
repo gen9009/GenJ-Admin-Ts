@@ -34,7 +34,7 @@
   </el-input>
 </template>
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 const input = ref('');
 </script>
 <style lang="scss" scoped>

@@ -133,8 +133,10 @@ const doTabOption = (commandInfo: string) => {
 // Tab active 样式
 :deep(.el-tabs--card > .el-tabs__header .el-tabs__item.is-active) {
   background-color: var(--el-color-primary-light-7);
+  -webkit-mask: v-bind(markUrl);
   mask: v-bind(markUrl);
   transition: all 0.2s ease;
+  -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   mask-size: 100% 100%;
 }
@@ -143,8 +145,10 @@ const doTabOption = (commandInfo: string) => {
 :deep(.el-tabs--card > .el-tabs__header .el-tabs__item:hover) {
   padding: 0 20px;
   background-color: var(--el-color-primary-light-5);
+  -webkit-mask: v-bind(markUrl);
   mask: v-bind(markUrl);
   transition: all 0.2s ease;
+  -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   mask-size: 100% 100%;
 }
