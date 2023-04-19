@@ -13,6 +13,7 @@ const columns: ColumnProps[] = [
     width: 80,
     search: {
       el: 'input',
+      order: 1,
       props: {
         placeholder: '我是输入提示',
         onInput: (value: string | number) => {
@@ -109,10 +110,10 @@ const selectRow = (selection: any, row: any) => {
 };
 </script>
 <template>
-  <QiTable :columns="columns" :requestApi="getTableList" height="300px" row-key="id" @select-all="selectAll" @selection-change="selectChange" @select="selectRow">
+  <QiTable :columns="columns" :hasCollapse="true" :requestApi="getTableList" height="300px" row-key="id" @select-all="selectAll" @selection-change="selectChange" @select="selectRow">
     <template #tableHeader>
       <ElButton type="primary">新增</ElButton>
-      <ElButton type="primary">🍔</ElButton>
+      <ElButton type="primary">🍔 Form与Table一体</ElButton>
     </template>
     <!-- Expand -->
     <template #expand="scope">

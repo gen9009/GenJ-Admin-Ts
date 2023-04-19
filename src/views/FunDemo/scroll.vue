@@ -45,6 +45,7 @@ const scrollToTop = () => {
   }
 };
 
+// scrollIntoView 滚动父级容器,使得元素出现在视口
 const scrollToSection = (id: string) => {
   let section = document.getElementById(id);
   section && section.scrollIntoView({ behavior: 'smooth', block: 'end' });

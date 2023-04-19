@@ -15,7 +15,7 @@ export interface SearchProps {
   key?: any; //搜索字段 默认会取 column prop
   props?: any; // 搜索项参数，根据 element plus 官方文档来传递，该属性所有值会透传到组件
   span?: number; //所占列数
-  order?: number; //[problem] 尚未实现 搜索项从大到小排序 目前使用FlexELCol从小到大
+  order?: number; //[problem] 目前使用JS方式排序 非Gird和Flex 搜索项从小到大排序
   defaultValue?: any; //搜索默认值
 }
 export interface DictEnum {

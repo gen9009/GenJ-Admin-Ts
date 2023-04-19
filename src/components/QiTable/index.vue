@@ -12,6 +12,9 @@ export interface QiTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
   columns: ColumnProps[]; // 列配置项
   requestApi: (params: any) => Promise<any>;
   border?: boolean; // 是否带有纵向边框 ==> 非必传（默认为true）
+  hasReset?: boolean; // 是否带有重置 ==> 非必传（默认为true）
+  hasSearch?: boolean; // 是否带有搜索 ==> 非必传（默认为true）
+  hasCollapse?: boolean; // 是否带有展开 ==> 非必传（默认为false）
 }
 // 父组件传递的参数
 // const props = defineProps<TableProps>() //基于类型声明 无法配置默认值
@@ -19,7 +22,10 @@ export interface QiTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
 //withDefaults 编译器宏
 const props = withDefaults(defineProps<QiTableProps>(), {
   columns: () => [],
-  border: true
+  border: true,
+  hasReset: true,
+  hasSearch: true,
+  hasCollapse: false
 });
 // 定义dictMap 存储dict值
 const dictMap = ref(new Map<string, DictEnum[]>());
@@ -33,7 +39,7 @@ const setDict = async (col: ColumnProps) => {
 };
 
 // 过滤需要搜索的配置
-const searchColumns = props.columns.filter(item => item.search?.el);
+const searchColumns = props.columns.filter(item => item.search?.el).sort((a, b) => (a.search?.order ?? 0) - (b.search?.order ?? 0));
 // 初始化需要搜索的默认值
 searchColumns.forEach(column => {
   setDict(column);
@@ -52,7 +58,7 @@ defineExpose({
 
 <template>
   <!-- Search搜索区域 -->
-  <QiSearchForm :searchColumns="searchColumns" :searchParams="searchParams" :search="search" :reset="reset"></QiSearchForm>
+  <QiSearchForm :searchColumns="searchColumns" :searchParams="searchParams" :search="search" :reset="reset" :hasCollapse="hasCollapse" :hasReset="hasReset" :hasSearch="hasSearch"></QiSearchForm>
   <!-- Table主体区域 -->
   <div class="table-main">
     <!-- 表格头部的操作按钮插槽 -->
