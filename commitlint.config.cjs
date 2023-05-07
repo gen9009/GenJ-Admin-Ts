@@ -9,15 +9,11 @@
 */
 
 /* 
-  1、cz-git  高度自定义的commitizen适配器
-  2、czg 零配置的交互式命令行工具（界面）
-  以上两者便于自定义git commit 
-  使用: pkg配置了cz   执行npm run cz 启动czgCLI
+  1、czg 零配置的交互式命令行工具 (cz-git + Commitizen适配器)
 
-  3、@commitlint/cli 用于commit message 的检查，并且能通过 npm 安装包的形式分享commit rules
-  4、@commitlint/config-conventional 是通用的commit rules，你也可以在它的基础上自定义 rules
+  2、@commitlint/cli 用于commit message 的检查，并且能通过 npm 安装包的形式分享commit rules
+  3、@commitlint/config-conventional 是通用的commit rules，你也可以在它的基础上自定义 rules
 */
-/** @type {import('cz-git').UserConfig} */
 module.exports = {
   // ignores: [commit => commit.includes("init")],
   extends: ['@commitlint/config-conventional'],
@@ -79,7 +75,7 @@ module.exports = {
     },
     types: [
       { value: "feat", name: "特性:   🚀  新增功能", emoji: "🚀" },
-      { value: "fix", name: "修复:   🐞  修复缺陷", emoji: "🐞z" },
+      { value: "fix", name: "修复:   🐞  修复缺陷", emoji: "🐞" },
       { value: "docs", name: "文档:   📚  文档变更", emoji: "📚" },
       { value: "style", name: "格式:   🎨  代码格式（不影响功能，例如空格、分号等格式修正）", emoji: "🎨" },
       { value: "refactor", name: "重构:   ♻️   代码重构（不包括 bug 修复、功能新增）", emoji: "♻️" },

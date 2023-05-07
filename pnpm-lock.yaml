@@ -60,9 +60,6 @@ devDependencies:
   '@vitejs/plugin-vue-jsx':
     specifier: ^2.0.0
     version: 2.0.0(vite@3.2.5)(vue@3.2.37)
-  cz-git:
-    specifier: ^1.6.1
-    version: 1.6.1
   czg:
     specifier: ^1.6.1
     version: 1.6.1
@@ -1846,10 +1843,6 @@ packages:
 
   /csstype@2.6.21:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==}
-
-  /cz-git@1.6.1:
-    resolution: {integrity: sha512-+ohk/MFETERw4o/WpN3hUk7GM8oAwnaQI/uDuREGm4/B+G3DghGvNZQ/0MbFqZHWgKWvMzNZI6eKmPo0uPCu1A==}
-    dev: true
 
   /czg@1.6.1:
     resolution: {integrity: sha512-F6xzZ+ooLqCOLdsT7miEZRInaTjoglY5CjT5Hc4Yg9gxwLS2zjfUUFGvemVgUZI+ggzFAHE6VL0PA+4ukbOWgQ==}

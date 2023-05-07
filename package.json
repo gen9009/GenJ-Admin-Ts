@@ -37,7 +37,6 @@
     "@typescript-eslint/parser": "^5.31.0",
     "@vitejs/plugin-vue": "^3.0.0",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
-    "cz-git": "^1.6.1",
     "czg": "^1.6.1",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
@@ -62,10 +61,5 @@
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-require-transform": "^1.0.4",
     "vue-tsc": "^0.38.4"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git"
-    }
   }
 }
