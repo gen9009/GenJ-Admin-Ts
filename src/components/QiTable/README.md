@@ -1,1 +1,15 @@
-使用方式 1、传入 columns 配置表头 [ {type:'index',label:'序号',width:80},//table 序号 {type:'name',label:'名称',width:80},//展示的表头数据 {type:'selection',fixed:'right'}//选择行 多选框 ] 2、传入 requestApi 获取表格数据
+# 说明
+
+[模仿链接](https://github.com/HalseySpicy/Geeker-Admin)
+
+## 需要封装啥?
+
+- Table 与 Form 的结合 && Json 的配置方式 实现表格渲染
+- 表格的表头与内容 实现 TSX 自定义
+- SearchForm 实现 TSX 自定义
+
+## 案例
+
+```vue
+demo
+```

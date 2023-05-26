@@ -50,6 +50,7 @@ declare module '@vue/runtime-core' {
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpUser: typeof import('~icons/ep/user')['default']
     Pagination: typeof import('./src/components/QiTable/components/Pagination.vue')['default']
+    QiDialog: typeof import('./src/components/QiDialog/index.vue')['default']
     QiEcharts: typeof import('./src/components/QiEcharts/index.vue')['default']
     QiForm: typeof import('./src/components/QiForm/index.vue')['default']
     QiLoading: typeof import('./src/components/QiLoading/index.vue')['default']

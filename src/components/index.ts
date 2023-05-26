@@ -5,12 +5,14 @@ import qiEcharts from './QiEcharts/index.vue';
 import QiSliderVue2 from './QiSliderVue2/index.vue';
 import QiTable from './QiTable/index.vue';
 import QiForm from './QiForm/index.vue';
+import QiDialog from './QiDialog/index.vue';
 const compList = {
   testComp,
   qiEcharts,
   QiSliderVue2,
   QiForm,
-  QiTable
+  QiTable,
+  QiDialog
 };
 
 export const componments = {

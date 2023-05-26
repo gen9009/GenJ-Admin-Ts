@@ -17,8 +17,8 @@ export const CompMenu = [
         path: '/component/element/tree'
       },
       {
-        title: '图片预览',
-        path: '/component/element/imgview'
+        title: 'Dialog',
+        path: '/component/element/dialog'
       }
     ]
   },

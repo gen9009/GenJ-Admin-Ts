@@ -8,6 +8,8 @@ import TableColumn from './components/TableColumn.vue';
 //[problem] 如果移除type, 外部ElTable样式加载失效
 import type { ElTable, TableProps } from 'element-plus';
 //定义表格的 Props配置
+// Partial 使所有配置变为可选
+// Omit 剔除配置项
 export interface QiTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
   columns: ColumnProps[]; // 列配置项
   requestApi: (params: any) => Promise<any>;

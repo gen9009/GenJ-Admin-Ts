@@ -27,6 +27,13 @@ const elementRouter: Array<RouteRecordRaw> = [
         meta: {
           title: 'Tree树'
         }
+      },
+      {
+        path: 'dialog',
+        component: () => import('@/views/Component/element/dialog/index.vue'),
+        meta: {
+          title: 'Dialog弹框'
+        }
       }
     ]
   }
