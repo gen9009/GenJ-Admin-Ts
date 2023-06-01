@@ -43,7 +43,7 @@ const breakColIndex = computed(() => {
   }, 0);
   return endIndex;
 });
-// 计算按钮偏移量offset
+// 计算 展开和合并时 按钮偏移量offset
 const buttonOffet = computed(() => {
   if (collapsed.value) {
     // 两种方案 1、指定需要展示的搜索框 2、动态计算应该展示的搜索框
@@ -51,7 +51,27 @@ const buttonOffet = computed(() => {
     let residueSpan = 24 - buttonSpan.value; //单行剩余量
     return residueSpan - spanList.value.slice(0, breakColIndex.value + 1).reduce((pre, cur) => (pre += cur), 0);
   } else {
-    return 24 - (spanList.value.reduce((pre, cur) => (pre += cur), 0) % 24) - buttonSpan.value;
+    //计算 表格需要的span分布
+    function computeNewSpanList(spanList: number[], num: number) {
+      let row = 0; // 表格行数
+      let spanSum = 0; // 记录行数累加值
+      let newSpanList: number[][] = [];
+      for (let index = 0; index < spanList.length; index++) {
+        const a = spanList[index];
+        spanSum += a;
+        if (spanSum > num) {
+          row += 1;
+          spanSum = spanList[index];
+        }
+        !Array.isArray(newSpanList[row]) && !(newSpanList[row] = []);
+        newSpanList[row].push(spanList[index]);
+      }
+      return newSpanList;
+    }
+    let lastSpanList = computeNewSpanList(spanList.value, 24).at(-1) as number[]; // 最后一行的span列表 也可能只存在一行
+    let lastSpanListCount = lastSpanList?.reduce((pre, cur) => (pre += cur), 0); // 最后一行span的总和
+    let formSpan = lastSpanListCount + buttonSpan.value >= 24 ? 0 : lastSpanListCount; // 计算按钮那一行需要填充的span
+    return 24 - formSpan - buttonSpan.value;
   }
 });
 // 判断是否存在展开 间距总数大于（24-按钮间距）代表存在
@@ -59,7 +79,7 @@ const showCollapse = computed(() => {
   return spanList.value.reduce((pre, cur) => (pre += cur), 0) > 24 - buttonSpan.value;
 });
 // 是否默认折叠搜索项
-const collapsed = ref(true);
+let collapsed = ref(true);
 
 //动态渲染重置搜索按钮
 const renderSearchButton = () => {
@@ -86,7 +106,6 @@ const renderSearchButton = () => {
   <div class="table-search" v-if="searchColumns.length">
     <el-form :model="searchParams">
       <ElRow :gutter="16">
-        <!-- 搜索Item -->
         <template v-bind="item" v-for="(item, index) in searchColumns" :key="item.prop">
           <ElCol :span="item.search?.span ?? 6" v-show="!collapsed || (collapsed && index <= breakColIndex)">
             <div class="qi-search-form-item">
