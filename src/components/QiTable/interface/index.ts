@@ -3,7 +3,7 @@ export type SearchType =
   | 'input'
   | 'select'
   | 'select-v2' //虚拟select
-  | 'tree-select'
+  // | 'tree-select'
   | 'cascader'
   | 'date-picker'
   | 'time-picker'

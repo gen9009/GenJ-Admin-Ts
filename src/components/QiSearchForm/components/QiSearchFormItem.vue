@@ -1,6 +1,6 @@
 <script setup lang="tsx">
 // 如果全局引入则不需导入 如果是自动导入和按需导入则需要导入
-import { ElInput, ElSelect, ElOption } from 'element-plus';
+import { ElInput, ElSelect, ElOption, ElCascader } from 'element-plus';
 import { ColumnProps, DictEnum } from '@/components/QiTable/interface';
 import { inject, onBeforeMount, ref, onMounted } from 'vue';
 
@@ -28,16 +28,16 @@ const renderFormItem = (column: ColumnProps) => {
       return renderSelect(column);
     case 'select-v2':
       return renderSelectV2(column);
-    case 'tree-select':
-      return renderInput(column);
+    // case 'tree-select':
+    //   return renderTreeSelect(column);
     case 'cascader':
-      return renderInput(column);
+      return renderCascader(column);
     case 'date-picker':
-      return renderInput(column);
+      return renderDatePicker(column);
     case 'time-picker':
-      return renderInput(column);
+      return renderTimePicker(column);
     case 'time-select':
-      return renderInput(column);
+      return renderTimeSelect(column);
     default:
       break;
   }
@@ -45,10 +45,7 @@ const renderFormItem = (column: ColumnProps) => {
 const renderInput = (column: ColumnProps) => {
   return <ElInput v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请输入'} {...handleSearchProps(column)}></ElInput>;
 };
-
 const renderSelect = (column: ColumnProps) => {
-  // [problem] 为什么此处不能 使用col.dict()异步获取字典渲染呢
-  // await column.search.dict()
   return (
     <ElSelect v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请选择'} {...handleSearchProps(column)}>
       {dictMap.value.get(column.prop!)?.map(item => (
@@ -63,9 +60,21 @@ const renderSelectV2 = (column: ColumnProps) => {
     <ElSelectV2 v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请选择'} {...handleSearchProps(column)} options={(dictMap.value.get(column.prop!) ?? []).map(v => ({ value: v.code, label: v.value }))}></ElSelectV2>
   );
 };
-// const renderCascader = (column: ColumnProps) => {
-//   return <>renderCascader</>;
+// const renderTreeSelect = (column: ColumnProps) => {
 // };
+const renderCascader = (column: ColumnProps) => {
+  return <ElCascader v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请选择'} {...handleSearchProps(column)} options={(dictMap.value.get(column.prop!) ?? []).map(v => ({ value: v.code, label: v.value }))}></ElCascader>;
+};
+const renderDatePicker = (column: ColumnProps) => {
+  return <el-date-picker v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请选择'} {...handleSearchProps(column)} />;
+};
+const renderTimePicker = (column: ColumnProps) => {
+  return <el-time-picker v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请选择'} {...handleSearchProps(column)} />;
+};
+const renderTimeSelect = (column: ColumnProps) => {
+  return <el-time-select v-model={props.searchParams[column.search?.key ?? column.prop]} placeholder={column.search?.props?.placeholder ?? '请选择'} {...handleSearchProps(column)} />;
+};
+
 // 将search.props表单属性 透传至定义的表单中, el 为 tree-select、cascader 的时候需要给下默认 label 和 value
 const handleSearchProps = (column: ColumnProps) => {
   const searchProps = column.search?.props ?? {};

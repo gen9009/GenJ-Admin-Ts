@@ -62,7 +62,7 @@ const columns: ColumnProps[] = [
 
     search: { el: 'select' }
   }, //搜索列
-  { prop: 'number', label: '数字', width: 120, dict: getDictApi, search: { el: 'select-v2' } }, //搜索
+  { prop: 'number', label: '数字', width: 120, dict: getDictApi, search: { el: 'cascader' } }, //搜索
   // // tsx渲染列
   {
     prop: 'image',
@@ -73,11 +73,28 @@ const columns: ColumnProps[] = [
     }
   },
   // tsx渲染表头
+  // {
+  //   prop: 'time',
+  //   label: '时间',
+  //   width: 220,
+  //   search: { el: 'time-picker', span: 12, props: { 'is-range': true, 'start-placeholder': '我是输入提示', 'end-placeholder': '我是输入提示' } },
+  //   headerRender: row => {
+  //     return (
+  //       <el-button
+  //         type="primary"
+  //         onClick={() => {
+  //           ElMessage.success('tsx渲染表头');
+  //         }}>
+  //         {row.label + 'tsx'}
+  //       </el-button>
+  //     );
+  //   }
+  // },
   {
     prop: 'time',
     label: '时间',
     width: 220,
-    search: { el: 'time-picker', span: 12 },
+    search: { el: 'date-picker', span: 12, props: { type: 'daterange', 'start-placeholder': '我是输入提示', 'end-placeholder': '我是输入提示' } },
     headerRender: row => {
       return (
         <el-button
