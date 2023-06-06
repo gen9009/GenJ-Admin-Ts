@@ -4,6 +4,7 @@ import testComp from './testComp';
 import qiEcharts from './QiEcharts/index.vue';
 import QiSliderVue2 from './QiSliderVue2/index.vue';
 import QiTable from './QiTable/index.vue';
+import QiDictSelect from './QiDictSelect/index.vue';
 import QiForm from './QiForm/index.vue';
 import QiDialog from './QiDialog/index.vue';
 const compList = {
@@ -12,7 +13,8 @@ const compList = {
   QiSliderVue2,
   QiForm,
   QiTable,
-  QiDialog
+  QiDialog,
+  QiDictSelect
 };
 
 export const componments = {

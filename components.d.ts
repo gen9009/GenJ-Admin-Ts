@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Button: typeof import('./src/components/QiSliderVue2/button.vue')['default']
+    copy: typeof import('./src/components/QiDialog copy/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -51,6 +52,7 @@ declare module '@vue/runtime-core' {
     IEpUser: typeof import('~icons/ep/user')['default']
     Pagination: typeof import('./src/components/QiTable/components/Pagination.vue')['default']
     QiDialog: typeof import('./src/components/QiDialog/index.vue')['default']
+    QiDictSelect: typeof import('./src/components/QiDictSelect/index.vue')['default']
     QiEcharts: typeof import('./src/components/QiEcharts/index.vue')['default']
     QiForm: typeof import('./src/components/QiForm/index.vue')['default']
     QiLoading: typeof import('./src/components/QiLoading/index.vue')['default']
