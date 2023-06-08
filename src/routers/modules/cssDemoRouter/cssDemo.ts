@@ -11,6 +11,11 @@ const homeRouter: Array<RouteRecordRaw> = [
         path: 'scroll',
         component: () => import('@/views/FunDemo/scroll.vue'),
         meta: { title: '页面滚动' }
+      },
+      {
+        path: 'litterFont',
+        component: () => import('@/views/FunDemo/litterFont.vue'),
+        meta: { title: '小字号' }
       }
     ]
   }
