@@ -9,8 +9,8 @@
     "build:pro": "vue-tsc --noEmit && vite build --mode production",
     "preview": "vite preview --open",
     "prepare": "husky install",
-    "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
-    "lint:prettier": "prettier --write \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:eslint": "eslint --fix --ext .js,.ts,.json,.cjs,.vue ./",
+    "lint:prettier": "prettier --write \"src/**/*.{js,ts,cjs,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,css,less,scss}\" --cache --cache-location node_modules/.cache/stylelint",
     "lint:lint-staged": "lint-staged",
     "commit": "git add -A && czg"

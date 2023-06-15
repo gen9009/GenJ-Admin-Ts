@@ -2,8 +2,8 @@ import { defineConfig, loadEnv, ConfigEnv, UserConfig } from 'vite';
 import { wrapperEnv } from './src/utils/getEnv';
 import vue from '@vitejs/plugin-vue';
 import requireTransform from 'vite-plugin-require-transform';
-import { createHtmlPlugin } from "vite-plugin-html";
-import eslintPlugin from 'vite-plugin-eslint';
+import { createHtmlPlugin } from 'vite-plugin-html';
+// import eslintPlugin from 'vite-plugin-eslint';
 //Element-plus 按需导入
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -13,14 +13,14 @@ import IconsResolver from 'unplugin-icons/resolver';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { resolve } from 'path';
 
-export default defineConfig(({ mode }: ConfigEnv):UserConfig => {
+export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   // [problem] loadEnv会将定义的环境变量转为 String
   const env = loadEnv(mode, process.cwd());
   // 通过工具函数, 主动将 env 数据转为正常值
-  const viteEnv = wrapperEnv(env)
-  
+  const viteEnv = wrapperEnv(env);
+
   return {
-    base: "./",
+    base: './',
     plugins: [
       // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
       vue(),
@@ -31,17 +31,15 @@ export default defineConfig(({ mode }: ConfigEnv):UserConfig => {
         // fileRegex: /.ts$|.tsx$|.vue$/
         fileRegex: /.js$|.jsx$|.vue$/
       }),
-      createHtmlPlugin(
-        {
-          //为入口文件index.html 注入可用数据
-          inject: {
-            data: {
-              ...env,
-              // injectScript: `<script type="module" src=""></script>`,
-            },
-          },
+      createHtmlPlugin({
+        //为入口文件index.html 注入可用数据
+        inject: {
+          data: {
+            ...env
+            // injectScript: `<script type="module" src=""></script>`,
+          }
         }
-      ),
+      }),
       // * EsLint 报错信息显示在浏览器界面上
       // eslintPlugin(),
       // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
@@ -73,7 +71,7 @@ export default defineConfig(({ mode }: ConfigEnv):UserConfig => {
     resolve: {
       alias: {
         '@': resolve(__dirname, './src'), //[problem] 可以用于组件引用，但好像不能用于动态组件引入 (Ts:需要在ts配置文件额外配置 baseUrl path)
-        '~': resolve(__dirname, './'), //[problem] 此路径重写只能用于css资源导入(背景图引入)
+        '~': resolve(__dirname, './') //[problem] 此路径重写只能用于css资源导入(背景图引入)
       }
     },
     css: {
@@ -119,7 +117,7 @@ export default defineConfig(({ mode }: ConfigEnv):UserConfig => {
       proxy: {
         '/api': {
           target: 'https://www.fastmock.site/mock/99e6f727febc6dbdd2c57b1600176d59/admin', // easymock
-          changeOrigin: true,
+          changeOrigin: true
           // rewrite: path => path.replace(/^\/api/, '')
         }
       }

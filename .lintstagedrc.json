@@ -1,7 +1,7 @@
 {
-  "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"],
-  "*.vue": ["eslint --fix", "stylelint --fix", "prettier --write"],
+  "*.{js,jsx,ts,tsx,cjs,json}": ["eslint --fix", "prettier --write"],
+  "*.vue": ["eslint --fix", "stylelint --fix"],
   "package.json": ["prettier --write"],
   "*.{less,scss,html}": ["stylelint --fix", "prettier --write"],
-  "*.{json,md}": ["prettier --write"]
+  "*.{md}": ["prettier --write"]
 }

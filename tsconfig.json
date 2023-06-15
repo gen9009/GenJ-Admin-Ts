@@ -3,7 +3,7 @@
     // 指定 ECMAScript目标版本 'ES3'(default), 'ES5', 'ES2015, 'ES2016', 'ES2017', or 'ESNEXT''
     "target": "ESNext",
     "useDefineForClassFields": true,
-    // 指定使用模块: commonjs amd system umd or es2015 
+    // 指定使用模块: commonjs amd system umd or es2015
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
@@ -16,7 +16,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     // 跳过第三方库检查，解决打包失败
-	  "skipLibCheck": true,
+    "skipLibCheck": true,
     /* 
     注意:如果未指定lib，则会注入默认的librares列表。注入的默认库为
     对于 --target ES5： DOM,ES5,ScriptHost
@@ -30,13 +30,13 @@
     "paths": {
       "@": ["src"],
       "@/*": ["src/*"]
-    },
+    }
   },
 
   // 指定需要编译文件 否则默认当前目录下除了exclude之外的所有.ts, .d.ts,.tsx 文件
-  "include": ["src/**/*.ts", "src/**/*.d.ts",  "src/**/*.vue", "src/**/*.tsx",  "vite.config.ts", "components.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "src/**/*.tsx", "vite.config.ts", "components.d.ts"],
   // 不需要编译的文件
-  "exclude": ["node_modules", "dist","**/*.js"],
+  "exclude": ["node_modules", "dist", "**/*.js"]
   // [problem] references添加后下方后 文件导入需要添加.ts  @路径也会失效 interf也会失效
   // "references": [{ "path": "./tsconfig.node.json" }]
 }

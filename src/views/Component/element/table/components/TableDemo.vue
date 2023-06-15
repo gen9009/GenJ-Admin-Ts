@@ -43,8 +43,7 @@ const columns: ColumnProps[] = [
           style={{ boxShadow: scope.row.color }}
           onClick={() => {
             ElMessage.success('tsx渲染单元格');
-          }}
-        >
+          }}>
           🫵🏼
         </ElButton>
       );
@@ -101,8 +100,7 @@ const columns: ColumnProps[] = [
           type="primary"
           onClick={() => {
             ElMessage.success('tsx渲染表头');
-          }}
-        >
+          }}>
           {row.label + 'tsx'}
         </el-button>
       );
