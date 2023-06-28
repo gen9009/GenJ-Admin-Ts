@@ -1,11 +1,7 @@
 <template>
   <div class="list-moudle">
-    <div class="item">
-      <virtualList></virtualList>
-    </div>
-    <div class="item">
-      <autoPlayList></autoPlayList>
-    </div>
+    <QiCard> <virtualList></virtualList></QiCard>
+    <QiCard> <autoPlayList></autoPlayList></QiCard>
   </div>
 </template>
 <script setup lang="ts">
@@ -14,15 +10,8 @@ import autoPlayList from './component/autoPayList/autoPlayList.vue';
 </script>
 <style lang="scss" scoped>
 .list-moudle {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-gap: 5px;
-  height: 100%;
+  display: flex;
+  gap: 5px;
   padding: 10px;
-  .item {
-    height: 300px;
-    padding: 5px;
-    border: 1px solid #eeeeee;
-  }
 }
 </style>

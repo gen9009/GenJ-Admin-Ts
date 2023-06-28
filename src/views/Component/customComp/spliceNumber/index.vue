@@ -1,11 +1,9 @@
 <template>
-  <div class="slider-moudle">
-    <QiCard> <QiSliderVue2></QiSliderVue2> </QiCard>
-  </div>
+  <div class="spliceNumber-moudle"></div>
 </template>
 <script setup lang="ts"></script>
 <style lang="scss" scoped>
-.slider-moudle {
+.spliceNumber-moudle {
   display: flex;
   gap: 5px;
   padding: 10px;

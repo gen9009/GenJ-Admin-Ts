@@ -1,13 +1,13 @@
 <template>
-  <div id="tree-moudle">
-    <QiCard><scrollTree></scrollTree></QiCard>
+  <div class="scrollText-moudle">
+    <QiCard><scrollText></scrollText></QiCard>
   </div>
 </template>
 <script setup lang="ts">
-import scrollTree from './component/scrollTree/scrollTree.vue';
+import scrollText from './comp.vue';
 </script>
 <style lang="scss" scoped>
-#tree-moudle {
+.scrollText-moudle {
   display: flex;
   gap: 5px;
   padding: 10px;

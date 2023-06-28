@@ -7,6 +7,7 @@ import QiTable from './QiTable/index.vue';
 import QiDictSelect from './QiDictSelect/index.vue';
 import QiForm from './QiForm/index.vue';
 import QiDialog from './QiDialog/index.vue';
+import QiCard from './QiCard/index.vue';
 const compList = {
   testComp,
   qiEcharts,
@@ -14,7 +15,8 @@ const compList = {
   QiForm,
   QiTable,
   QiDialog,
-  QiDictSelect
+  QiDictSelect,
+  QiCard
 };
 
 export const componments = {

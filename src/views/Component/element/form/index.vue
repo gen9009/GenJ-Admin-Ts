@@ -1,11 +1,7 @@
 <template>
   <div id="form-moudle">
-    <div class="item">
-      <ELInput></ELInput>
-    </div>
-    <div class="item">
-      <ELSelect></ELSelect>
-    </div>
+    <QiCard><ELInput></ELInput></QiCard>
+    <QiCard><ELSelect></ELSelect></QiCard>
   </div>
 </template>
 <script setup lang="ts">
@@ -14,18 +10,8 @@ import ELSelect from './components/select.vue';
 </script>
 <style lang="scss" scoped>
 #form-moudle {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-
-  // grid-template-rows: repeat(4,1fr);
-  grid-gap: 5px;
-  min-height: 100%;
+  display: flex;
+  gap: 5px;
   padding: 10px;
-  margin: auto;
-  .item {
-    height: 300px;
-    padding: 10px;
-    border: 1px solid #eeeeee;
-  }
 }
 </style>

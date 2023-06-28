@@ -14,10 +14,10 @@ const customCompRouter: Array<RouteRecordRaw> = [
         }
       },
       {
-        path: 'turnTable',
-        component: () => import('@/views/Component/customComp/turnTable/index.vue'),
+        path: 'scrollText',
+        component: () => import('@/views/Component/customComp/scrollText/index.vue'),
         meta: {
-          title: '转盘'
+          title: '文字滚动'
         }
       },
       {
@@ -28,10 +28,31 @@ const customCompRouter: Array<RouteRecordRaw> = [
         }
       },
       {
-        path: 'dialog',
-        component: () => import('@/views/Component/customComp/dialog/index.vue'),
+        path: 'scrollNumber',
+        component: () => import('@/views/Component/customComp/scrollNumber/index.vue'),
         meta: {
-          title: '弹窗'
+          title: '数字滚动'
+        }
+      },
+      {
+        path: 'spliceNumber',
+        component: () => import('@/views/Component/customComp/spliceNumber/index.vue'),
+        meta: {
+          title: '千分位'
+        }
+      },
+      {
+        path: 'richEditor',
+        component: () => import('@/views/Component/customComp/richEditor/index.vue'),
+        meta: {
+          title: '富文本'
+        }
+      },
+      {
+        path: 'treeEditor',
+        component: () => import('@/views/Component/customComp/treeEditor/index.vue'),
+        meta: {
+          title: '树的编辑'
         }
       }
     ]
