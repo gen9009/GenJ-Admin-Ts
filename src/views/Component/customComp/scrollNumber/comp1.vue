@@ -2,10 +2,8 @@
   <div class="scroll-num">
     <div class="num-list">
       <div class="num-item single-num-box" :class="{ 'spring-back': options.showSpringBack }" :style="springBackDelayStyle(delayIndex)" v-for="(value, delayIndex) in options.numList" :key="delayIndex">
-        <!-- 所选数字展示 -->
-        <div class="single-num-case"></div>
         <!-- 固定数字展示 -->
-        <div class="single-num-list" :class="{ ['move-' + value]: moveListSwich[delayIndex] }" :style="singleDelayStyle(delayIndex, value)" @animationend="removeAnimation(delayIndex)">
+        <div class="single-num-list" :class="{ ['move-' + value]: moveListSwich[delayIndex] }" :style="singleDelayStyle(delayIndex)" @animationend="removeAnimation(delayIndex)">
           <span class="single-num-item" v-for="singleNum in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]" :key="singleNum">{{ singleNum }}</span>
         </div>
       </div>
@@ -18,9 +16,10 @@ import { computed, reactive, ref } from 'vue';
 
 /*
   具有回弹效果的老虎机🎰滚动
-  1、数字无限滚动
-  2、数字回弹效果
-  3、不支持小数
+  1、不支持小数
+  2、支持重置数据
+  3、支持关闭动画
+  4、可配置每个box的动画延时
 
   知识点
   1、animationend 动画结束事件
@@ -28,16 +27,19 @@ import { computed, reactive, ref } from 'vue';
 */
 interface ScorllNumProps {
   modelValue: number | string;
-  isremoveAnimation?: boolean; // 是否移除动画
+  isRemoveAnimation?: boolean; // 是否移除动画
   blur?: number; // 数字模糊度
   delay?: number | Array<number>; // 数字滚动延时 Array每个元素控制对应数字 单位s
 }
+
 const props = withDefaults(defineProps<ScorllNumProps>(), {
   blur: 1,
-  isremoveAnimation: false
+  isRemoveAnimation: false
 });
 const options = reactive({
-  showSpringBack: true, // 回弹动画开关
+  // 回弹动画开关
+  showSpringBack: true,
+  //数字列表
   numList: computed((): number[] => {
     if (isNumber(props.modelValue)) {
       return String(props.modelValue)
@@ -54,22 +56,38 @@ const options = reactive({
 // 计算回弹动画延时
 const springBackDelayStyle = (delayIndex: number) => {
   const delay = isArray(props.delay) ? props.delay[delayIndex] + 1 : delayIndex + 1;
-  return { animationDelay: delay + 1 + 's' };
+  return { animationDelay: delay + 's' };
 };
 
-// 计算单数字滚动动画延时 以及 初始位移
-const singleDelayStyle = (delayIndex: number, value: number) => {
+// 计算单数字滚动动画延时
+const singleDelayStyle = (delayIndex: number) => {
   const delay = isArray(props.delay) ? props.delay[delayIndex] + 1 : delayIndex + 1;
-  return { animationDelay: `0s, ${delay}s`, transform: `translateY(${-value * 9.09}% )` };
+  return { animationDelay: `0s, ${delay}s` };
 };
 
 //每个数字滚动动画开关
-const moveListSwich = ref(new Array(options.numList.length).fill('').map(() => true));
+const moveListSwich = ref<Boolean[]>(new Array(options.numList.length).fill('').map(() => true));
 
 const removeAnimation = (index: number) => {
-  if (!props.isremoveAnimation) return;
+  if (!props.isRemoveAnimation) return;
   moveListSwich.value[index] = false;
 };
+
+const refresh = () => {
+  // 重新执行回弹动画
+  options.showSpringBack = false;
+  setTimeout(() => {
+    options.showSpringBack = true;
+  });
+  // 重新计算数字位移
+  moveListSwich.value = moveListSwich.value.map(() => false);
+  setTimeout(() => {
+    moveListSwich.value = moveListSwich.value.map(() => true);
+  });
+};
+defineExpose({
+  refresh
+});
 </script>
 <style lang="scss" scoped>
 // 回弹动画类
@@ -80,6 +98,7 @@ const removeAnimation = (index: number) => {
 // 数字无限滚动
 @for $num from 0 through 9 {
   .move-#{$num} {
+    transform: translateY($num * 9.09%);
     animation: move 0.3s linear infinite, bounce-in-down#{$num} 1s forwards;
   }
 
@@ -141,30 +160,27 @@ const removeAnimation = (index: number) => {
 }
 .num-list {
   display: flex;
-}
-.single-num-box {
-  position: relative;
-  height: 40px;
-  margin: 10px;
-  overflow: hidden;
-  .single-num-case,
-  .single-num-list {
+  .num-item {
     width: 30px;
-    font-size: 16px;
-    text-align: center;
-  }
-  .single-num-case {
     height: 40px;
     line-height: 40px;
     background-color: pink;
     border-radius: 5px;
   }
+}
+.single-num-box {
+  position: relative;
+  margin: 10px;
+  overflow: hidden;
   .single-num-list {
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     flex-flow: column;
+    width: 30px;
+    font-size: 16px;
+    text-align: center;
     .single-num-item {
       height: 40px;
       line-height: 40px;
