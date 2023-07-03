@@ -29,7 +29,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       // require 语法适配
       requireTransform({
         // fileRegex: /.ts$|.tsx$|.vue$/
-        fileRegex: /.js$|.jsx$|.vue$/
+        fileRegex: /.js$|.jsx$|.ts$|.vue$/
       }),
       createHtmlPlugin({
         //为入口文件index.html 注入可用数据

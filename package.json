@@ -16,6 +16,7 @@
     "commit": "git add -A && czg"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "@vueuse/core": "^9.0.2",
     "axios": "^1.3.4",
     "echarts": "^5.4.0",
@@ -24,6 +25,7 @@
     "pinia-plugin-persistedstate": "^2.1.0",
     "sass": "^1.54.0",
     "vue": "^3.2.37",
+    "vue-countup-v3": "^1.3.0",
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.1.2",
     "vue3-seamless-scroll": "^2.0.1"

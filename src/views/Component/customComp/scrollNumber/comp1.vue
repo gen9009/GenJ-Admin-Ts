@@ -28,17 +28,19 @@ import { computed, reactive, ref } from 'vue';
 interface ScorllNumProps {
   modelValue: number | string;
   isRemoveAnimation?: boolean; // 是否移除动画
+  firstAnimation?: boolean; // 是否执行首次动画
   blur?: number; // 数字模糊度
   delay?: number | Array<number>; // 数字滚动延时 Array每个元素控制对应数字 单位s
 }
 
 const props = withDefaults(defineProps<ScorllNumProps>(), {
+  firstAnimation: false,
   blur: 1,
   isRemoveAnimation: false
 });
 const options = reactive({
   // 回弹动画开关
-  showSpringBack: true,
+  showSpringBack: props.firstAnimation,
   //数字列表
   numList: computed((): number[] => {
     if (isNumber(props.modelValue)) {
@@ -66,7 +68,7 @@ const singleDelayStyle = (delayIndex: number) => {
 };
 
 //每个数字滚动动画开关
-const moveListSwich = ref<Boolean[]>(new Array(options.numList.length).fill('').map(() => true));
+const moveListSwich = ref<Boolean[]>(new Array(options.numList.length).fill('').map(() => props.firstAnimation));
 
 const removeAnimation = (index: number) => {
   if (!props.isRemoveAnimation) return;
@@ -161,11 +163,12 @@ defineExpose({
 .num-list {
   display: flex;
   .num-item {
-    width: 30px;
-    height: 40px;
-    line-height: 40px;
-    background-color: pink;
+    width: 50px;
+    height: 90px;
+    line-height: 90px;
+    border: 2px solid saddlebrown;
     border-radius: 5px;
+    box-shadow: 5px 5px 10px #cccccc;
   }
 }
 .single-num-box {
@@ -178,12 +181,16 @@ defineExpose({
     left: 0;
     display: flex;
     flex-flow: column;
-    width: 30px;
+    width: 50px;
     font-size: 16px;
     text-align: center;
     .single-num-item {
-      height: 40px;
-      line-height: 40px;
+      width: 50px;
+      height: 90px;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 90px;
+      color: saddlebrown;
     }
   }
 }
