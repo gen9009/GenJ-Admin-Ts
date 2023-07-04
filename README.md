@@ -1,10 +1,12 @@
-
 # GenJ-Admin-Ts
 
-  自我折腾的后端管理项目模版
-  这个项目只是对 GeekerAdmin 进行的拙略模仿而已
-  目前问题多多
-  GeekerAdmin [https://github.com/HalseySpicy/Geeker-Admin]
+自我折腾的后端管理项目模版
+
+这个项目只是对 GeekerAdmin 进行的拙略模仿而已
+
+目前问题多多
+
+GeekerAdmin [https://github.com/HalseySpicy/Geeker-Admin]
 
 # 项目菜单配置说明
 
@@ -24,10 +26,10 @@
 ```
 
 # 命令说明
-  
-  npm run preview --- 打包成线上模式  
 
-  npm run dev --- 打包成开发模式  
+npm run preview --- 打包成线上模式
+
+npm run dev --- 打包成开发模式
 
 # commit
 
