@@ -1,0 +1,41 @@
+.el-tree {
+  .el-tree-node {
+    .el-tree-node__content {
+      height: 30px;
+      &:hover .ly-visible {
+        visibility: visible;
+      }
+      &::before,
+      &::after {
+        position: absolute;
+        right: auto;
+        content: '';
+      }
+      .el-icon {
+        font-size: 14px;
+      }
+      .qi-tree-node {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        font-size: 14px;
+        & > span {
+          margin-right: 40px;
+        }
+        .ly-edit__text {
+          min-width: 90px;
+          height: 24px;
+          margin-right: 20px;
+          font-size: 13px;
+          color: #666666;
+          text-indent: 10px;
+          border: 1px solid #e6e6e6;
+          border-radius: 3px;
+        }
+      }
+      .ly-visible {
+        visibility: hidden;
+      }
+    }
+  }
+}
