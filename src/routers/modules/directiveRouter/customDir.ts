@@ -14,6 +14,13 @@ const customDirRouter: Array<RouteRecordRaw> = [
         meta: {
           title: '水印指令'
         }
+      },
+      {
+        path: 'dragResize',
+        component: () => import('@/views/Directive/dragresize.vue'),
+        meta: {
+          title: '拉伸指令'
+        }
       }
     ]
   }

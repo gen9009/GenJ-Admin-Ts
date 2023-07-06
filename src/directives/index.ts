@@ -1,10 +1,11 @@
 import { App } from 'vue';
 import qiLoading from './modules/qiLoading';
 import waterMarker from './modules/waterMarker';
-
+import dragResize from './modules/dragResize';
 const directivesList: any = {
   waterMarker,
-  qiLoading
+  qiLoading,
+  dragResize
 };
 
 export const directives = {
