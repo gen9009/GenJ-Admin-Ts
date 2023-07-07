@@ -113,11 +113,10 @@ type InsertFnTypeVideo = (url: string, poster?: string) => void;
 props.editorConfig.MENU_CONF!['uploadVideo'] = {
   async customUpload(file: File, insertFn: InsertFnTypeVideo) {
     if (!uploadVideoValidate(file)) return;
-    let formData = new FormData();
-    formData.append('file', file);
     try {
-      const { data } = await `uploadVideo`(formData);
-      insertFn(data.fileUrl);
+      // 视频地址
+      let videoURL = '';
+      insertFn(videoURL);
     } catch (error) {
       console.log(error);
     }

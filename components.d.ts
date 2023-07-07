@@ -8,12 +8,9 @@ export {};
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Button: typeof import('./src/components/QiSliderVue2/button.vue')['default'];
-    copy: typeof import('./src/components/QiDialog copy/index.vue')['default'];
     ElAside: typeof import('element-plus/es')['ElAside'];
     ElAvatar: typeof import('element-plus/es')['ElAvatar'];
     ElButton: typeof import('element-plus/es')['ElButton'];
-    ElCascader: typeof import('element-plus/es')['ElCascader'];
-    ElCol: typeof import('element-plus/es')['ElCol'];
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker'];
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider'];
     ElContainer: typeof import('element-plus/es')['ElContainer'];
@@ -29,7 +26,6 @@ declare module '@vue/runtime-core' {
     ElFormItem: typeof import('element-plus/es')['ElFormItem'];
     ElHeader: typeof import('element-plus/es')['ElHeader'];
     ElIcon: typeof import('element-plus/es')['ElIcon'];
-    ElImage: typeof import('element-plus/es')['ElImage'];
     ElInput: typeof import('element-plus/es')['ElInput'];
     ElMain: typeof import('element-plus/es')['ElMain'];
     ElMenu: typeof import('element-plus/es')['ElMenu'];
@@ -50,21 +46,9 @@ declare module '@vue/runtime-core' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip'];
     ElTree: typeof import('element-plus/es')['ElTree'];
     IEpArrowDown: typeof import('~icons/ep/arrow-down')['default'];
-    IEpCirclePlusFilled: typeof import('~icons/ep/circle-plus-filled')['default'];
-    IEpClear: typeof import('~icons/ep/clear')['default'];
-    IEpDe: typeof import('~icons/ep/de')['default'];
-    IEpDee: typeof import('~icons/ep/dee')['default'];
-    IEpDelet: typeof import('~icons/ep/delet')['default'];
-    IEpDelete: typeof import('~icons/ep/delete')['default'];
-    IEpDeleteFilled: typeof import('~icons/ep/delete-filled')['default'];
-    IEpDelt: typeof import('~icons/ep/delt')['default'];
-    IEpDelter: typeof import('~icons/ep/delter')['default'];
-    IEpEdi: typeof import('~icons/ep/edi')['default'];
-    IEpEdit: typeof import('~icons/ep/edit')['default'];
     IEpExpand: typeof import('~icons/ep/expand')['default'];
     IEpFold: typeof import('~icons/ep/fold')['default'];
     IEpLock: typeof import('~icons/ep/lock')['default'];
-    IEpPlus: typeof import('~icons/ep/plus')['default'];
     IEpUser: typeof import('~icons/ep/user')['default'];
     Pagination: typeof import('./src/components/QiTable/components/Pagination.vue')['default'];
     QiCard: typeof import('./src/components/QiCard/index.vue')['default'];
