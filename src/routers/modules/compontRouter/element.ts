@@ -34,6 +34,13 @@ const elementRouter: Array<RouteRecordRaw> = [
         meta: {
           title: 'Dialog弹框'
         }
+      },
+      {
+        path: 'message',
+        component: () => import('@/views/Component/element/message/index.vue'),
+        meta: {
+          title: '弹矿'
+        }
       }
     ]
   }

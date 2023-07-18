@@ -19,6 +19,10 @@ export const CompMenu = [
       {
         title: 'Dialog',
         path: '/component/element/dialog'
+      },
+      {
+        title: 'Message',
+        path: '/component/element/Message'
       }
     ]
   },
