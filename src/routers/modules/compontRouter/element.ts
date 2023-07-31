@@ -39,7 +39,7 @@ const elementRouter: Array<RouteRecordRaw> = [
         path: 'message',
         component: () => import('@/views/Component/element/message/index.vue'),
         meta: {
-          title: '弹矿'
+          title: '弹窗'
         }
       }
     ]

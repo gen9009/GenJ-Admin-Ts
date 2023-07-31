@@ -54,6 +54,20 @@ const customCompRouter: Array<RouteRecordRaw> = [
         meta: {
           title: '树的编辑'
         }
+      },
+      {
+        path: 'magnifier',
+        component: () => import('@/views/Component/customComp/magnifier/index.vue'),
+        meta: {
+          title: '放大镜'
+        }
+      },
+      {
+        path: 'qrcode',
+        component: () => import('@/views/Component/customComp/qrcode/index.vue'),
+        meta: {
+          title: '二维码'
+        }
       }
     ]
   }

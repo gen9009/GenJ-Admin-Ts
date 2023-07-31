@@ -58,6 +58,14 @@ export const CompMenu = [
       {
         title: '树的编辑',
         path: '/component/customComp/treeEditor'
+      },
+      {
+        title: '放大镜',
+        path: '/component/customComp/magnifier'
+      },
+      {
+        title: '二维码',
+        path: '/component/customComp/qrcode'
       }
     ]
   }
