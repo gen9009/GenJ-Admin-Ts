@@ -1,10 +1,9 @@
 <template>
-  {{ elementX }}
-  {{ elementY }}
-  {{ elementWidth }}
-  {{ elementHeight }}
   <div class="magnifier">
-    <div class="little-box"><img :src="imageURL" alt="" ref="littleImage" class="little-image" /></div>
+    <div class="little-box">
+      <img :src="imageURL" alt="" ref="littleImage" class="little-image" />
+      <div class="little-mack" :style="mackStyle"></div>
+    </div>
     <div class="big-box" ref="bigBox" :style="bigBoxStyle">
       <div class="big-image" :style="bigImageStyle"></div>
     </div>
@@ -12,71 +11,52 @@
 </template>
 <script setup lang="ts">
 /*
-  1、监听 little-image 鼠标进入/离开事件 计算offsetX/Y
-  2、使用 BGC背景图 + translate 展示放大镜
+  1、分为小图、大图两部分 小图内部含有鼠标选择框，大图内部使用背景图放大展示 （一般使用高清图）
+  2、使用 BGC背景图 + translate 展示放大镜 ()
 */
 import { ref, computed } from 'vue';
 import { useMouseInElement } from '@vueuse/core';
 interface MagnifierProps {
+  mackWidth?: number;
+  mackHeight?: number;
   imageURL: string; //图片地址
   scale?: number; //放大倍数
 }
 const props = withDefaults(defineProps<MagnifierProps>(), {
-  imageURL: 'src/assets/images/images.jpeg',
-  scale: 2 // bug
+  imageURL: 'src/assets/images/avatar.png',
+  scale: 2,
+  mackWidth: 50,
+  mackHeight: 50
 });
 const littleImage = ref<HTMLElement>();
 const bigBox = ref<HTMLElement>();
 const { isOutside, elementX, elementY, elementWidth, elementHeight } = useMouseInElement(littleImage);
-const calcTranslate = (elementX: number, elementY: number): { translateX: number; translateY: number } => {
-  let bigBoxWidth = bigBox.value?.offsetWidth || 0;
-  let offsetLength = Math.ceil(bigBoxWidth / 2);
-  let minRange = Math.ceil(bigBoxWidth / 2 / props.scale);
-  let maxRange = elementHeight.value - minRange;
-  console.log('🚀::::::🐶💩', bigBoxWidth, minRange, maxRange, 10, 78);
-  // 100px的放大镜 实际是 原图的 bigBoxWidth/props.scale  边界bigBoxWidth/props.scale/2
-
-  // 加入
-  // 八种边界 四角+四边
-  // const translateX = Math.min(Math.max(-elementX * props.scale + offsetLength, -maxRange * props.scale), minRange);
-  // const translateY = Math.min(Math.max(-elementY * props.scale + offsetLength, -maxRange * props.scale), minRange);
-  // return { translateX, translateY };
-  if (elementX < minRange && elementY < minRange) {
-    return { translateX: 0, translateY: 0 };
-  } else if (elementX > maxRange && elementY > maxRange) {
-    return { translateX: -elementWidth.value * props.scale + offsetLength * props.scale, translateY: -elementHeight.value * props.scale + bigBoxWidth * props.scale + offsetLength * props.scale };
-  } else if (elementX < minRange && elementY > maxRange) {
-    return { translateX: 0, translateY: -elementHeight.value * props.scale + bigBoxWidth * props.scale + offsetLength * props.scale };
-  } else if (elementX > maxRange && elementY < minRange) {
-    return { translateX: -elementWidth.value * props.scale + offsetLength * props.scale, translateY: 0 };
-  } else if (elementX < minRange) {
-    return { translateX: 0, translateY: -elementY };
-  } else if (elementX > maxRange) {
-    return { translateX: -elementWidth.value * props.scale + offsetLength * props.scale, translateY: -elementY };
-  } else if (elementY < minRange) {
-    return { translateX: -elementX * props.scale + offsetLength, translateY: 0 };
-  } else if (elementY > maxRange) {
-    return { translateX: -elementX * props.scale + offsetLength, translateY: -elementHeight.value * props.scale + bigBoxWidth * props.scale + offsetLength * props.scale };
-  } else {
-    return { translateX: -elementX * props.scale + offsetLength, translateY: -elementY };
-  }
-};
 const bigBoxStyle = computed(() => {
-  return {};
   return isOutside.value ? { display: 'none' } : { display: 'block' };
 });
-const bigImageStyle = computed(() => {
-  // let { translateX, translateY } = calcTranslate(15, 18);
+const mackStyle = computed(() => {
   if (isOutside.value) {
     return { display: 'none' };
   } else {
-    let { translateX, translateY } = calcTranslate(elementX.value, elementY.value);
-    console.log('🚀::::::🐶💩', translateX, translateY);
+    const offsetX = props.mackWidth / 2;
+    const offsetY = props.mackHeight / 2;
+    let positionX = Math.max(0, Math.min(elementX.value - offsetX, elementWidth.value - props.mackWidth));
+    let positionY = Math.max(0, Math.min(elementY.value - offsetY, elementHeight.value - props.mackHeight));
+    return {
+      left: positionX + 'px',
+      top: positionY + 'px'
+    };
+  }
+});
+const bigImageStyle = computed(() => {
+  if (isOutside.value) {
+    return { display: 'none' };
+  } else {
     return {
       width: props.scale * elementWidth.value + 'px',
       height: props.scale * elementHeight.value + 'px',
       backgroundImage: `url(${props.imageURL})`,
-      transform: `translate(${translateX}px, ${translateY}px)`
+      transform: `translate(calc(-${props.scale}*${mackStyle.value.left || '0px'}),calc(-${props.scale}*${mackStyle.value.top || '0px'}))`
     };
   }
 });
@@ -87,25 +67,30 @@ const bigImageStyle = computed(() => {
   height: 100%;
   background-color: saddlebrown;
   .little-box {
+    position: relative;
     width: 100%;
     height: 100%;
     .little-image {
       width: 100%;
       height: 100%;
     }
+    .little-mack {
+      position: absolute;
+      width: calc(v-bind(mackWidth) * 1px);
+      height: calc(v-bind(mackHeight) * 1px);
+      background-color: rgba($color: #000000, $alpha: 20%);
+    }
   }
   .big-box {
     position: relative;
     top: 40px;
-    width: 100px;
-    height: 100px;
-
-    // overflow: hidden;
-    border: 1px solid red;
+    width: calc(v-bind(mackWidth) * v-bind(scale) * 1px);
+    height: calc(v-bind(mackWidth) * v-bind(scale) * 1px);
+    overflow: hidden;
+    border: 1px solid saddlebrown;
     .big-image {
       background-repeat: no-repeat;
-      background-position: left left;
-      background-size: 100%;
+      background-size: 100% 100%;
     }
   }
 }
