@@ -16,49 +16,55 @@
 */
 import { ref, computed } from 'vue';
 import { useMouseInElement } from '@vueuse/core';
+import imageURL from '@/assets/images/avatar.png';
+
 interface MagnifierProps {
-  mackWidth?: number;
-  mackHeight?: number;
   imageURL: string; //图片地址
   scale?: number; //放大倍数
+  mackWidth?: number;
+  mackHeight?: number;
 }
 const props = withDefaults(defineProps<MagnifierProps>(), {
-  imageURL: 'src/assets/images/avatar.png',
+  imageURL: imageURL,
   scale: 2,
   mackWidth: 50,
   mackHeight: 50
 });
+
 const littleImage = ref<HTMLElement>();
+
 const bigBox = ref<HTMLElement>();
+
 const { isOutside, elementX, elementY, elementWidth, elementHeight } = useMouseInElement(littleImage);
+
 const bigBoxStyle = computed(() => {
   return isOutside.value ? { display: 'none' } : { display: 'block' };
 });
+
 const mackStyle = computed(() => {
   if (isOutside.value) {
     return { display: 'none' };
-  } else {
-    const offsetX = props.mackWidth / 2;
-    const offsetY = props.mackHeight / 2;
-    let positionX = Math.max(0, Math.min(elementX.value - offsetX, elementWidth.value - props.mackWidth));
-    let positionY = Math.max(0, Math.min(elementY.value - offsetY, elementHeight.value - props.mackHeight));
-    return {
-      left: positionX + 'px',
-      top: positionY + 'px'
-    };
   }
+  const offsetX = props.mackWidth! / 2;
+  const offsetY = props.mackHeight! / 2;
+  let positionX = Math.max(0, Math.min(elementX.value - offsetX, elementWidth.value - props.mackWidth!));
+  let positionY = Math.max(0, Math.min(elementY.value - offsetY, elementHeight.value - props.mackHeight!));
+  return {
+    left: `${positionX}px`,
+    top: `${positionY}px`
+  };
 });
+
 const bigImageStyle = computed(() => {
   if (isOutside.value) {
     return { display: 'none' };
-  } else {
-    return {
-      width: props.scale * elementWidth.value + 'px',
-      height: props.scale * elementHeight.value + 'px',
-      backgroundImage: `url(${props.imageURL})`,
-      transform: `translate(calc(-${props.scale}*${mackStyle.value.left || '0px'}),calc(-${props.scale}*${mackStyle.value.top || '0px'}))`
-    };
   }
+  return {
+    width: `${props.scale! * elementWidth.value}px`,
+    height: `${props.scale! * elementHeight.value}px`,
+    backgroundImage: `url(${props.imageURL})`,
+    transform: `translate(calc(-${props.scale}*${mackStyle.value.left || '0px'}),calc(-${props.scale}*${mackStyle.value.top || '0px'}))`
+  };
 });
 </script>
 <style lang="scss" scoped>

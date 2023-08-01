@@ -14,7 +14,7 @@ class QiMessage {
   error(options: MessageOptions | string) {
     this.setMessage('error', options);
   }
-  wrong(options: MessageOptions | string) {
+  warning(options: MessageOptions | string) {
     this.setMessage('warning', options);
   }
   info(options: MessageOptions | string) {

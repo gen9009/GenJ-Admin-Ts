@@ -5,7 +5,8 @@
 </template>
 <script setup lang="ts">
 import message from '@/utils/singleMessage';
-const openMessage = type => message[type]('123');
+import { messageType } from 'element-plus';
+const openMessage = (type: messageType) => message[type]('123');
 </script>
 <style lang="scss" scoped>
 #dialog-moudle {
