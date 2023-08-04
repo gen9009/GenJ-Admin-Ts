@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-
+import { TABS_BLACK } from '@/config/config';
 /* 
   目前使用静态路由  
     1、每个顶级模块定义为 Layout 重定向为第一个小模块
@@ -47,7 +47,11 @@ const router = createRouter({
   scrollBehavior: () => ({ left: 0, top: 0 })
 });
 
-// router.beforeEach((to,from,next)=>{
-//   console.log(to,from);
-// })
+router.beforeEach((to, from, next) => {
+  if (TABS_BLACK.includes(to.fullPath)) return next();
+  if (!window.localStorage.getItem('token')) {
+    next('/login');
+  }
+  next();
+});
 export default router;

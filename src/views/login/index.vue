@@ -49,9 +49,9 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
       loginApi({ ...loginForm }).then((res: any) => {
-        console.log('🚀::::::🐶', res);
         if (res?.code !== 200) return;
         //登陆成功 跳转Home首页
+        window.localStorage.setItem('token', res.data.token);
         router.push('/home');
       });
     } else {
