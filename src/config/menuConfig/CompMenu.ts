@@ -66,6 +66,10 @@ export const CompMenu = [
       {
         title: '二维码',
         path: '/component/customComp/qrcode'
+      },
+      {
+        title: '验证码',
+        path: '/component/customComp/verify'
       }
     ]
   }

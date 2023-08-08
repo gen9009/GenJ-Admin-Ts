@@ -68,6 +68,13 @@ const customCompRouter: Array<RouteRecordRaw> = [
         meta: {
           title: '二维码'
         }
+      },
+      {
+        path: 'verify',
+        component: () => import('@/views/Component/customComp/verify/index.vue'),
+        meta: {
+          title: '验证码'
+        }
       }
     ]
   }

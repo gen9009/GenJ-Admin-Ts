@@ -42,7 +42,6 @@ declare module '@vue/runtime-core' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn'];
     ElTabPane: typeof import('element-plus/es')['ElTabPane'];
     ElTabs: typeof import('element-plus/es')['ElTabs'];
-    ElTag: typeof import('element-plus/es')['ElTag'];
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker'];
     ElTimeSelect: typeof import('element-plus/es')['ElTimeSelect'];
     ElTooltip: typeof import('element-plus/es')['ElTooltip'];
@@ -63,7 +62,6 @@ declare module '@vue/runtime-core' {
     QiSearchFormItem: typeof import('./src/components/QiSearchForm/components/QiSearchFormItem.vue')['default'];
     QiSliderVue2: typeof import('./src/components/QiSliderVue2/index.vue')['default'];
     QiTable: typeof import('./src/components/QiTable/index.vue')['default'];
-    QiTagInput: typeof import('./src/components/QiTagInput/index.vue')['default'];
     QiTsFormItem: typeof import('./src/components/QiForm/components/QiTsFormItem.vue')['default'];
     RouterLink: typeof import('vue-router')['RouterLink'];
     RouterView: typeof import('vue-router')['RouterView'];
