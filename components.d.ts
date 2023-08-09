@@ -50,6 +50,7 @@ declare module '@vue/runtime-core' {
     IEpExpand: typeof import('~icons/ep/expand')['default'];
     IEpFold: typeof import('~icons/ep/fold')['default'];
     IEpLock: typeof import('~icons/ep/lock')['default'];
+    IEpRefresh: typeof import('~icons/ep/refresh')['default'];
     IEpUser: typeof import('~icons/ep/user')['default'];
     Pagination: typeof import('./src/components/QiTable/components/Pagination.vue')['default'];
     QiCard: typeof import('./src/components/QiCard/index.vue')['default'];

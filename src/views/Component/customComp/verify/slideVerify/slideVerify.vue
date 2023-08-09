@@ -3,7 +3,7 @@
     <!-- 图片加载遮蔽罩 -->
     <div :class="{ 'slider-verify-loading': loadBlock }"></div>
     <canvas :width="width" :height="height" ref="canvas"></canvas>
-    <div v-if="show" @click="refresh" class="slide-verify-refresh-icon"></div>
+    <div v-if="show" @click="refresh" class="slide-verify-refresh-icon"><i-ep-refresh></i-ep-refresh></div>
     <canvas :width="width" :height="height" ref="block" class="slide-verify-block"></canvas>
     <!-- container -->
     <div
@@ -25,7 +25,7 @@
   </div>
 </template>
 <script setup lang="ts" name="SlideVerify">
-import { onMounted, reactive, ref, Ref } from 'vue';
+import { reactive, ref, Ref } from 'vue';
 import { sum, square } from '@/utils/math';
 import { useVerifyDraw } from './useDraw';
 /*
@@ -58,7 +58,7 @@ const props = withDefaults(defineProps<SlideVerifyProps>(), {
   radius: 10,
   width: 300,
   height: 155,
-  sliderText: 'hahahah',
+  sliderText: '向左滑动',
   accuracy: 5,
   show: true,
   imgs: () => []
@@ -78,7 +78,7 @@ const containerState = reactive({
 const originX = ref(0);
 const originY = ref(0);
 const isMouseDown = ref(false);
-const trail = ref<number[]>([]);
+const trail = ref<number[]>([]); // 存储移动时Y轴差值 判断是否为机器操作
 const sliderLeft = ref();
 const sliderMaskWidth = ref();
 const success = ref(false);
@@ -153,58 +153,55 @@ const touchEndEvent = (e: TouchEvent) => {
   }
 };
 
-const bindEvents = () => {
-  document.addEventListener('mousemove', e => {
-    if (!isMouseDown.value) return false;
-    const moveX = e.clientX - originX.value;
-    const moveY = e.clientY - originY.value;
-    if (moveX < 0 || moveX + 38 >= props.width) return false;
-    sliderLeft.value = moveX + 'px';
-    let blockLeft = ((props.width - 40 - 20) / (props.width - 40)) * moveX;
-    block.value!.style.left = blockLeft + 'px';
-    containerState.active = true; // add active
-    sliderMaskWidth.value = moveX + 'px';
-    trail.value.push(moveY);
-  });
-  document.addEventListener('mouseup', e => {
-    if (!isMouseDown.value) return false;
-    isMouseDown.value = false;
-    if (e.clientX === originX.value) return false;
-    containerState.active = false; // remove active
-    timestamp.value = +new Date() - timestamp.value;
-    const { spliced, TuringTest } = verify();
-    if (spliced) {
-      if (props.accuracy === -1) {
-        containerState.success = true;
-        success.value = true;
-        emits('success', timestamp);
-        return;
-      }
-      if (TuringTest) {
-        // succ
-        containerState.success = true;
-        success.value = true;
-        emits('success', timestamp);
-      } else {
-        containerState.fail = true;
-        emits('again');
-      }
-    } else {
-      containerState.fail = true;
-      emits('fail');
-      setTimeout(() => {
-        reset();
-      }, 1000);
-    }
-  });
-};
-
+// 鼠标按下触发
 const sliderDown = (event: MouseEvent) => {
   if (success.value) return;
+  window.addEventListener('mousemove', sliderMove);
+  window.addEventListener('mouseup', sliderUp);
+  isMouseDown.value = true;
   originX.value = event.clientX;
   originY.value = event.clientY;
-  isMouseDown.value = true;
   timestamp.value = +new Date();
+};
+// 鼠标移动触发
+const sliderMove = (event: MouseEvent) => {
+  if (!isMouseDown.value) return;
+  const moveX = event.clientX - originX.value;
+  const moveY = event.clientY - originY.value;
+  if (moveX < 0 || moveX + 38 >= props.width) return;
+  sliderLeft.value = moveX + 'px';
+  let blockLeft = ((props.width - 40 - 20) / (props.width - 40)) * moveX;
+  block.value!.style.left = blockLeft + 'px';
+  containerState.active = true; // add active
+  sliderMaskWidth.value = moveX + 'px';
+  trail.value.push(moveY);
+};
+// 鼠标抬起触发
+const sliderUp = (event: MouseEvent) => {
+  if (!isMouseDown.value) return;
+  isMouseDown.value = false;
+  if (event.clientX === originX.value) return;
+  containerState.active = false; // remove active
+  timestamp.value = +new Date() - timestamp.value;
+  const { spliced, TuringTest } = verify();
+  if (spliced) {
+    if (props.accuracy === -1 || TuringTest) {
+      containerState.success = true;
+      success.value = true;
+      emits('success', timestamp);
+    } else {
+      containerState.fail = true;
+      emits('again');
+    }
+  } else {
+    containerState.fail = true;
+    emits('fail');
+    setTimeout(() => {
+      reset();
+    }, 1000);
+  }
+  window.removeEventListener('mouseup', sliderUp);
+  window.removeEventListener('mousemove', sliderMove);
 };
 
 const verify = () => {
@@ -213,13 +210,15 @@ const verify = () => {
   const deviations = arr.map(x => x - average); // deviation array
   const stddev = Math.sqrt(deviations.map(square).reduce(sum) / arr.length); // standard deviation
   const left = parseInt(block.value!.style.left);
-  const accuracy = props.accuracy <= 1 ? 1 : props.accuracy > 10 ? 10 : props.accuracy;
+  const accuracy = props.accuracy <= 1 ? 1 : props.accuracy > 10 ? 10 : props.accuracy; // 1 - 10
   return {
     spliced: Math.abs(left - blockX.value) <= accuracy,
-    TuringTest: average !== stddev // equal => not person operate
+    TuringTest: average !== stddev // equal => not person operate  判断是否为 机器操作
   };
 };
-onMounted(bindEvents);
+defineExpose({
+  refresh
+});
 </script>
 
 <style scoped>
@@ -238,10 +237,10 @@ onMounted(bindEvents);
 
 @keyframes loading {
   0% {
-    opacity: 0.7;
+    opacity: 0.5;
   }
   100% {
-    opacity: 9;
+    opacity: 1;
   }
 }
 .slide-verify-block {
@@ -253,10 +252,8 @@ onMounted(bindEvents);
   position: absolute;
   top: 0;
   right: 0;
-  width: 34px;
-  height: 34px;
+  height: auto;
   cursor: pointer;
-  background-size: 34px 471px;
 }
 .slide-verify-slider {
   position: relative;
@@ -271,7 +268,7 @@ onMounted(bindEvents);
 }
 .slide-verify-slider-mask {
   position: absolute;
-  top: 0;
+  top: -1px;
   left: 0;
   height: 40px;
   background: #d1e9fe;
@@ -303,38 +300,29 @@ onMounted(bindEvents);
   background-size: 34px 471px;
 }
 .container-active .slide-verify-slider-mask-item {
-  top: -1px;
-  height: 38px;
-  border: 1px solid #1991fa;
+  height: 40px;
 }
 .container-active .slide-verify-slider-mask {
-  height: 38px;
-  border-width: 1px;
+  height: 40px;
 }
 .container-success .slide-verify-slider-mask-item {
-  top: -1px;
-  height: 38px;
-  background-color: #52ccba !important;
-  border: 1px solid #52ccba;
+  height: 40px;
+  background-color: #26ddc1 !important;
 }
 .container-success .slide-verify-slider-mask {
-  height: 38px;
+  height: 40px;
   background-color: #d2f4ef;
-  border: 1px solid #52ccba;
 }
 .container-success .slide-verify-slider-mask-item-icon {
   background-position: 0 0 !important;
 }
 .container-fail .slide-verify-slider-mask-item {
-  top: -1px;
-  height: 38px;
-  background-color: #f57a7a !important;
-  border: 1px solid #f57a7a;
+  height: 40px;
+  background-color: #f35252 !important;
 }
 .container-fail .slide-verify-slider-mask {
-  height: 38px;
+  height: 40px;
   background-color: #fce1e1;
-  border: 1px solid #f57a7a;
 }
 .container-fail .slide-verify-slider-mask-item-icon {
   top: 14px;

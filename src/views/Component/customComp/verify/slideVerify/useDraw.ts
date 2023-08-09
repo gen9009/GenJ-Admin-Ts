@@ -38,9 +38,9 @@ export const useVerifyDraw = (block: Ref<HTMLCanvasElement>, canvas: Ref<HTMLCan
   const loadBlock = ref(true); // 蒙板加载情况
   const L = computed(() => drawOption.length + drawOption.radius * 2 + 3);
   onMounted(() => {
-    img.value = createImg(imgLoad);
     blockCtx.value = block.value.getContext('2d');
     canvasCtx.value = canvas.value.getContext('2d');
+    img.value = createImg(imgLoad);
   });
   const createImg = (onload: (this: GlobalEventHandlers, ev: Event) => any) => {
     const img = document.createElement('img');
@@ -55,6 +55,7 @@ export const useVerifyDraw = (block: Ref<HTMLCanvasElement>, canvas: Ref<HTMLCan
   const imgLoad = () => {
     // 图片加载完关闭遮蔽罩
     loadBlock.value = false;
+    // 随机起点
     blockX.value = getRandomNumberByRange(L.value + 10, drawOption.width - (L.value + 10));
     blockY.value = getRandomNumberByRange(10 + drawOption.radius * 2, drawOption.height - (L.value + 10));
     // 绘制线条
@@ -77,6 +78,7 @@ export const useVerifyDraw = (block: Ref<HTMLCanvasElement>, canvas: Ref<HTMLCan
     blockCtx.value.putImageData(ImageData, 0, _y);
   };
   const resetDraw = () => {
+    loadBlock.value = true;
     let { width, height } = drawOption;
     block.value!.style.left = '0px';
     block.value!.width = drawOption.width;
