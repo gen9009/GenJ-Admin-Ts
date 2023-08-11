@@ -7,10 +7,6 @@ export const CanvasMenu = [
       {
         title: '图表',
         path: '/canvas/echarts/charts'
-      },
-      {
-        title: '组件',
-        path: '/canvas/echarts/comp'
       }
     ]
   }

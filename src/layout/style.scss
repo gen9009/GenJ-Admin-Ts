@@ -1,6 +1,6 @@
 .common-layout {
   width: 100%;
-  min-width: 780px;
+  min-width: 10px;
   height: 100%;
   background-color: rgb(243 242 242);
   &-container {
@@ -23,15 +23,12 @@
     // z-index: 2;
   }
   .el-main {
-    min-width: 1270px;
-    height: 100%;
     padding: 0;
   }
   .router-content {
     box-sizing: border-box;
-    height: 0;
     margin: 10px;
-    overflow-y: auto;
+    overflow: unset;
     background-color: #ffffff;
   }
   .el-footer {

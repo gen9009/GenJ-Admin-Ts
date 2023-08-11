@@ -12,13 +12,6 @@ const echartsCompRouter: Array<RouteRecordRaw> = [
         meta: {
           title: '图表'
         }
-      },
-      {
-        path: 'comp',
-        component: () => import('@/views/Canvas/echarts/comp/index.vue'),
-        meta: {
-          title: '组件'
-        }
       }
     ]
   }
