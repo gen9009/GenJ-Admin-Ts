@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --port=8888",
-    "build:dev": "vue-tsc --noEmit && vite build --mode development",
+    "build:dev": "vite build --mode development",
     "build:pro": "vue-tsc --noEmit && vite build --mode production",
     "preview": "vite preview --open",
     "prepare": "husky install",
@@ -50,6 +50,7 @@
     "lint-staged": "^13.2.1",
     "postcss-html": "^1.5.0",
     "prettier": "^2.7.1",
+    "rollup-plugin-visualizer": "^5.9.2",
     "stylelint": "^15.5.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recess-order": "^4.0.0",

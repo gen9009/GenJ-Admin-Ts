@@ -12,6 +12,7 @@ import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { resolve } from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   // [problem] loadEnv会将定义的环境变量转为 String
@@ -30,6 +31,11 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       requireTransform({
         // fileRegex: /.ts$|.tsx$|.vue$/
         fileRegex: /.js$|.jsx$|.ts$|.vue$/
+      }),
+      visualizer({
+        emitFile: false,
+        file: 'report.html', //分析图生成的文件名
+        open: true //如果存在本地服务端口，将在打包后自动展示
       }),
       createHtmlPlugin({
         //为入口文件index.html 注入可用数据

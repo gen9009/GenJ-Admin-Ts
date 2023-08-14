@@ -1,9 +1,8 @@
 <template>
-  <el-container direction="horizontal">
+  <div class="flex" style="height: 100%">
     <NavTabs @switchNav="switchNav"></NavTabs>
     <Sider ref="sider" :menu="navTabsStore.menu"></Sider>
-    <div></div>
-  </el-container>
+  </div>
 </template>
 
 <script lang="ts" setup>
