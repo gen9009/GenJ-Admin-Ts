@@ -56,7 +56,7 @@ function getSiblingByPosition(el: HTMLElement, position: POSITION) {
 }
 
 function getSiblingsSize(el: HTMLElement, attr: WidthHeight) {
-  const siblings = Array.from((el.parentNode && el.parentNode.children) || []);
+  const siblings = Array.from((el?.parentNode && el?.parentNode.children) || []);
   return [...siblings].reduce((prev, next) => next.getBoundingClientRect()[attr] + prev, 0);
 }
 
@@ -227,7 +227,7 @@ export const dragResize = {
   },
   beforeUnmount: function (el: HTMLElement) {
     const unBindElEvents = elEventsWeakMap.get(el);
-    unBindElEvents();
+    unBindElEvents && unBindElEvents();
   }
 };
 export default dragResize;

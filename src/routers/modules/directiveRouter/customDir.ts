@@ -21,6 +21,13 @@ const customDirRouter: Array<RouteRecordRaw> = [
         meta: {
           title: '拉伸指令'
         }
+      },
+      {
+        path: 'ellipsis',
+        component: () => import('@/views/Directive/ellipsis.vue'),
+        meta: {
+          title: '省略指令'
+        }
       }
     ]
   }

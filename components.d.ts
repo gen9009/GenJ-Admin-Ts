@@ -26,6 +26,7 @@ declare module '@vue/runtime-core' {
     ElFormItem: typeof import('element-plus/es')['ElFormItem'];
     ElHeader: typeof import('element-plus/es')['ElHeader'];
     ElIcon: typeof import('element-plus/es')['ElIcon'];
+    ElImage: typeof import('element-plus/es')['ElImage'];
     ElInput: typeof import('element-plus/es')['ElInput'];
     ElMain: typeof import('element-plus/es')['ElMain'];
     ElMenu: typeof import('element-plus/es')['ElMenu'];
@@ -46,6 +47,9 @@ declare module '@vue/runtime-core' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip'];
     ElTree: typeof import('element-plus/es')['ElTree'];
     IEpArrowDown: typeof import('~icons/ep/arrow-down')['default'];
+    IEpCirclePlusFilled: typeof import('~icons/ep/circle-plus-filled')['default'];
+    IEpDeleteFilled: typeof import('~icons/ep/delete-filled')['default'];
+    IEpEdit: typeof import('~icons/ep/edit')['default'];
     IEpExpand: typeof import('~icons/ep/expand')['default'];
     IEpFold: typeof import('~icons/ep/fold')['default'];
     IEpLock: typeof import('~icons/ep/lock')['default'];

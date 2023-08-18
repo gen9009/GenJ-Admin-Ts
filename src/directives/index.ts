@@ -2,10 +2,12 @@ import { App } from 'vue';
 import qiLoading from './modules/qiLoading';
 import waterMarker from './modules/waterMarker';
 import dragResize from './modules/dragResize';
+import ellipsis from './modules/ellipsis';
 const directivesList: any = {
   waterMarker,
   qiLoading,
-  dragResize
+  dragResize,
+  ellipsis
 };
 
 export const directives = {

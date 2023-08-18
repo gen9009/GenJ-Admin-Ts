@@ -6,5 +6,9 @@ export const CSSMenu = [
   {
     path: '/funDemo/litterFont',
     title: '小字号'
+  },
+  {
+    path: '/funDemo/clipPath',
+    title: 'clip-path'
   }
 ];

@@ -16,6 +16,11 @@ const homeRouter: Array<RouteRecordRaw> = [
         path: 'litterFont',
         component: () => import('@/views/FunDemo/litterFont.vue'),
         meta: { title: '小字号' }
+      },
+      {
+        path: 'clipPath',
+        component: () => import('@/views/FunDemo/clipPath.vue'),
+        meta: { title: 'clip-path' }
       }
     ]
   }
