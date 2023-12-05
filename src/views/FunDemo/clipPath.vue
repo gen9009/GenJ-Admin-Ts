@@ -6,7 +6,7 @@
     </QiCard>
     <!--  不规则图 -->
     <QiCard>
-      <div class="irregular"></div>
+      <div class="irregular"><div class="irregular-son"></div></div>
     </QiCard>
   </div>
 </template>
@@ -36,9 +36,29 @@
   }
 }
 .irregular {
+  position: relative;
   width: 100%;
   height: 100%;
   clip-path: polygon(100% 90%, 80% 10%, 10% 5%, 20% 90%);
-  background-color: var(--el-color-primary-light-3);
+  background-color: red;
+  animation: animation-bgc 2s ease-out infinite;
+  .irregular-son {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    clip-path: polygon(100% 90%, 80% 10%, 10% 5%, 20% 90%);
+    background-color: var(--el-color-primary-light-3);
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes animation-bgc {
+  0% {
+    clip-path: polygon(100% 90%, 80% 10%, 10% 5%, 20% 90%);
+  }
+  100% {
+    clip-path: polygon(100% 90%, 80% 10%, 10% 5%, 20% 90%);
+  }
 }
 </style>

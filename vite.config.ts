@@ -34,7 +34,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       }),
       visualizer({
         emitFile: false,
-        file: 'report.html', //分析图生成的文件名
+        filename: 'report.html', //分析图生成的文件名
         open: true //如果存在本地服务端口，将在打包后自动展示
       }),
       createHtmlPlugin({
@@ -121,7 +121,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       cors: true,
       // https: false,
       proxy: {
-        '/api': {
+        '/admin_ts': {
           target: 'https://www.fastmock.site/mock/99e6f727febc6dbdd2c57b1600176d59/admin', // easymock
           changeOrigin: true
           // rewrite: path => path.replace(/^\/api/, '')
