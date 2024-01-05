@@ -27,6 +27,19 @@
         1
       </div>
     </div>
+    <div class="item">
+      zoom-demo
+      <br />
+      <br />
+      没有留白
+      <br />
+      <br />
+      <div class="zoom-demo">
+        <div class="big-font">我是大字体</div>
+        <div class="litter-font">我是六号字体</div>
+        1
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -82,7 +95,23 @@ const svgOption: any = reactive({
   }
   .litter-font {
     font-size: 6px;
+    line-height: 6px;
     transform: scale(0.5);
+    transform-origin: left;
+  }
+}
+.zoom-demo {
+  display: flex;
+  align-items: baseline;
+  height: 32px;
+  line-height: 32px;
+  .big-font {
+    font-size: 32px;
+  }
+  .litter-font {
+    font-size: 6px;
+    line-height: 6px;
+    zoom: 0.5;
     transform-origin: left;
   }
 }
