@@ -137,8 +137,8 @@ const doTabOption = (commandInfo: string) => {
   mask: v-bind(markUrl);
   transition: all 0.2s ease;
   -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
-  mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   mask-size: 100% 100%;
+  mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
 }
 
 // Tab hover 样式
@@ -149,7 +149,7 @@ const doTabOption = (commandInfo: string) => {
   mask: v-bind(markUrl);
   transition: all 0.2s ease;
   -webkit-mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
-  mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
   mask-size: 100% 100%;
+  mask-size: v-bind(maskSizeX) v-bind(maskSizeY);
 }
 </style>
