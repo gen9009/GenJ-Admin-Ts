@@ -10,7 +10,7 @@ const getRandomImg = (imgs = []) => {
 const getRandomNumberByRange = (start: number, end: number) => {
   return Math.round(Math.random() * (end - start) + start);
 };
-const draw = (ctx: CanvasRenderingContext2D, x: number, y: number, length: number, radius: number, operation) => {
+const draw = (ctx: CanvasRenderingContext2D, x: number, y: number, length: number, radius: number, operation: string) => {
   ctx.beginPath();
   ctx.moveTo(x, y);
   ctx.arc(x + length / 2, y - radius + 2, radius, 0.72 * PI, 2.26 * PI);
@@ -24,6 +24,7 @@ const draw = (ctx: CanvasRenderingContext2D, x: number, y: number, length: numbe
   ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
   ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
   ctx.stroke();
+  // @ts-ignore
   ctx[operation]();
   // Bug Fixes 修复了火狐和ie显示问题
   ctx.globalCompositeOperation = 'destination-over';

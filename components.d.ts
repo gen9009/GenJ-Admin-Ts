@@ -47,6 +47,9 @@ declare module '@vue/runtime-core' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip'];
     ElTree: typeof import('element-plus/es')['ElTree'];
     IEpArrowDown: typeof import('~icons/ep/arrow-down')['default'];
+    IEpCirclePlusFilled: typeof import('~icons/ep/circle-plus-filled')['default'];
+    IEpDeleteFilled: typeof import('~icons/ep/delete-filled')['default'];
+    IEpEdit: typeof import('~icons/ep/edit')['default'];
     IEpExpand: typeof import('~icons/ep/expand')['default'];
     IEpFold: typeof import('~icons/ep/fold')['default'];
     IEpLock: typeof import('~icons/ep/lock')['default'];
@@ -59,6 +62,7 @@ declare module '@vue/runtime-core' {
     QiEcharts: typeof import('./src/components/QiEcharts/index.vue')['default'];
     QiForm: typeof import('./src/components/QiForm/index.vue')['default'];
     QiLoading: typeof import('./src/components/QiLoading/index.vue')['default'];
+    QiPDF: typeof import('./src/components/QiPDF/index.vue')['default'];
     QiSearchForm: typeof import('./src/components/QiSearchForm/index.vue')['default'];
     QiSearchFormItem: typeof import('./src/components/QiSearchForm/components/QiSearchFormItem.vue')['default'];
     QiSliderVue2: typeof import('./src/components/QiSliderVue2/index.vue')['default'];

@@ -75,6 +75,13 @@ const customCompRouter: Array<RouteRecordRaw> = [
         meta: {
           title: '验证码'
         }
+      },
+      {
+        path: 'fileview',
+        component: () => import('@/views/Component/customComp/fileview/index.vue'),
+        meta: {
+          title: '验证码'
+        }
       }
     ]
   }

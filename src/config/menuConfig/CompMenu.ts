@@ -70,6 +70,10 @@ export const CompMenu = [
       {
         title: '验证码',
         path: '/component/customComp/verify'
+      },
+      {
+        title: '文件预览',
+        path: '/component/customComp/fileview'
       }
     ]
   }
